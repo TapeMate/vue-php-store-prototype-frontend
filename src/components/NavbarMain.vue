@@ -1,7 +1,9 @@
 <template>
   <div class="navbar-wrapper">
-    <nav>
-      <div class="navbar-main-logo">LOGO HERE</div>
+    <nav class="navbar-main">
+      <div class="navbar-main-logo">
+        <img src="https://dummyimage.com/200x50/000/fff" alt="" />
+      </div>
       <div class="navbar-main-container">
         <ul>
           <li><a href="#">HOME</a></li>
@@ -28,5 +30,3 @@ export default {
   name: "NavbarMain",
 };
 </script>
-
-<style scoped></style>

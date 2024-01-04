@@ -1,0 +1,44 @@
+.navbar-wrapper {
+  width: 100%;
+  height: 50px;
+}
+.navbar-wrapper .navbar-main {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar-wrapper .navbar-main .navbar-main-container {
+  width: 100%;
+}
+.navbar-wrapper .navbar-main .navbar-main-container ul {
+  list-style: none;
+  display: flex;
+}
+.navbar-wrapper .navbar-main .navbar-main-container ul li {
+  padding: 1rem;
+}
+.navbar-wrapper .navbar-main .navbar-main-container ul li a {
+  text-decoration: none;
+  padding: 0.5rem;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container ul {
+  list-style: none;
+  display: flex;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container ul li {
+  padding: 0.5rem;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container ul li button {
+  padding: 0.5rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}/*# sourceMappingURL=main.css.map */
