@@ -17,15 +17,26 @@
     </div>
     <div class="section-container">
       <section>
-        <div class="section-signup-container">SIGNUP FORM HERE</div>
-        <div class="section-login-container">LOGIN FORM HERE</div>
+        <div class="section-signup-container">
+          <SignupForm />
+        </div>
+        <div class="section-login-container">
+          <LoginForm />
+        </div>
       </section>
     </div>
   </div>
 </template>
 
 <script>
+import SignupForm from "@/components/SignupForm.vue";
+import LoginForm from "@/components/LoginForm.vue";
+
 export default {
   name: "HomeSections",
+  components: {
+    SignupForm,
+    LoginForm,
+  },
 };
 </script>
