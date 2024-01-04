@@ -91,11 +91,10 @@
   align-items: center;
   margin-top: 1rem;
 }
-.home-section-wrapper .section-container:nth-of-type(2) section .section-login-container,
-.home-section-wrapper .section-container:nth-of-type(2) section .section-signup-container {
-  padding: 0 2rem;
-}
 
+.index-signup {
+  margin-right: 100px;
+}
 .index-signup h4 {
   font-size: 2rem;
   padding: 0.5rem;
@@ -107,7 +106,32 @@
   display: flex;
   flex-direction: column;
 }
-.index-signup form input {
+.index-signup form input,
+.index-signup form button {
+  padding: 0.5rem;
+  margin: 5px;
+}
+
+.index-login {
+  min-width: 300px;
+  padding: 1rem;
+  background: #333;
+  border-radius: 10px;
+}
+.index-login h4 {
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: white;
+}
+.index-login p {
+  padding: 0.5rem;
+}
+.index-login form {
+  display: flex;
+  flex-direction: column;
+}
+.index-login form input,
+.index-login form button {
   padding: 0.5rem;
   margin: 5px;
 }
