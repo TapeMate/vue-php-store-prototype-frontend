@@ -1,20 +1,20 @@
 <template>
   <div class="home-wrapper">
     <NavbarMain />
-    <LandingPage />
+    <HomeSections />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import LandingPage from "@/components/LandingPage.vue";
 import NavbarMain from "@/components/NavbarMain.vue";
+import HomeSections from "@/components/HomeSections.vue";
 
 export default {
   name: "HomeView",
   components: {
-    LandingPage,
     NavbarMain,
+    HomeSections,
   },
 };
 </script>
