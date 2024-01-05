@@ -28,7 +28,7 @@
           <option value="2">2</option>
           <option value="3">3</option>
         </select>
-        <button>Add to Shopping Card</button>
+        <button class="btn-add-to-card">Add to Shopping Card</button>
       </div>
     </div>
   </section>

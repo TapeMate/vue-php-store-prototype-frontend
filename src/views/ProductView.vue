@@ -1,10 +1,13 @@
 <template>
-  <h2>All Products</h2>
+  <h2>Get professional Gear</h2>
   <StoreProducts :products="productData" />
 </template>
 
 <script>
 import StoreProducts from "@/components/StoreProducts.vue";
+import img1 from "../assets/img/product-a.png";
+import img2 from "../assets/img/product-b.png";
+import img3 from "../assets/img/product-c.png";
 
 export default {
   name: "ProductView",
@@ -16,7 +19,7 @@ export default {
     return {
       productData: [
         {
-          img: "https://dummyimage.com/200x200/00b3ff/000000&text=Product+Image",
+          img: img1,
           name: "Product A",
           description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit sed.",
@@ -24,7 +27,7 @@ export default {
           stockAmount: "9",
         },
         {
-          img: "https://dummyimage.com/200x200/00b3ff/000000&text=Product+Image",
+          img: img2,
           name: "Product B",
           description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit sed.",
@@ -32,7 +35,7 @@ export default {
           stockAmount: "6",
         },
         {
-          img: "https://dummyimage.com/200x200/00b3ff/000000&text=Product+Image",
+          img: img3,
           name: "Product C",
           description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit sed.",
@@ -44,3 +47,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+h2 {
+  padding: 0.5rem;
+}
+</style>
