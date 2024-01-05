@@ -1,6 +1,6 @@
 <template>
   <h2>SHOPPING SUMMARY</h2>
-  <ShoppingCard />
+  <ShoppingCard />#
 </template>
 
 <script>
