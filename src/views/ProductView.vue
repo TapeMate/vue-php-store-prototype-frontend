@@ -14,7 +14,32 @@ export default {
 
   data() {
     return {
-      productData: ["Product A", "Product B", "Product C"],
+      productData: [
+        {
+          img: "https://dummyimage.com/200x200/00b3ff/000000&text=Product+Image",
+          name: "Product A",
+          description:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit sed.",
+          price: "100,-",
+          stockAmount: "9",
+        },
+        {
+          img: "https://dummyimage.com/200x200/00b3ff/000000&text=Product+Image",
+          name: "Product B",
+          description:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit sed.",
+          price: "150,-",
+          stockAmount: "6",
+        },
+        {
+          img: "https://dummyimage.com/200x200/00b3ff/000000&text=Product+Image",
+          name: "Product C",
+          description:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit sed.",
+          price: "200,-",
+          stockAmount: "0",
+        },
+      ],
     };
   },
 };
