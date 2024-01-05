@@ -199,6 +199,77 @@
   border-radius: 5px;
 }
 
+.shopping-card-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.shopping-card-container .upper-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 2rem;
+  background: #eee;
+}
+.shopping-card-container .upper-container .delivery-container h5 {
+  padding: 1rem 0.5rem;
+  font-size: 1.2rem;
+  text-align: left;
+}
+.shopping-card-container .upper-container .delivery-container .input-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+.shopping-card-container .upper-container .delivery-container .input-container label {
+  width: 150px;
+  text-align: left;
+  padding: 0.5rem;
+}
+.shopping-card-container .upper-container .delivery-container .input-container input {
+  padding: 0.5rem;
+  background: rgb(210, 255, 210);
+  border: 1px solid black;
+}
+.shopping-card-container .upper-container .payment-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+.shopping-card-container .upper-container .payment-container .input-container {
+  display: flex;
+  justify-content: flex-start;
+}
+.shopping-card-container .upper-container .payment-container .input-container input {
+  margin: 0.5rem;
+}
+.shopping-card-container .upper-container .payment-container .input-container label {
+  padding: 0.5rem;
+}
+.shopping-card-container .lower-container {
+  padding: 2rem;
+  border-top: 1px solid black;
+}
+.shopping-card-container .lower-container .selected-products-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.shopping-card-container .lower-container .selected-products-container p {
+  padding: 1rem;
+}
+.shopping-card-container .lower-container .selected-products-container .btn-order {
+  margin-top: 20px;
+  width: max-content;
+  padding: 1rem;
+  font-weight: bold;
+  background: lightgreen;
+  border: none;
+}
+
 * {
   padding: 0;
   margin: 0;

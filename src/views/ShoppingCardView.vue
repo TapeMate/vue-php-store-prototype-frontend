@@ -1,6 +1,6 @@
 <template>
   <h2>SHOPPING SUMMARY</h2>
-  <ShoppingCard />#
+  <ShoppingCard />
 </template>
 
 <script>
@@ -13,3 +13,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+h2 {
+  padding: 0.5rem;
+}
+</style>
