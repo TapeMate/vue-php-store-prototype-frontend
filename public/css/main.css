@@ -198,8 +198,10 @@
 }
 .store-products-section .product-container {
   width: max-content;
-  border: 1px solid #333;
-  margin: 0.5rem 3rem;
+  max-width: 400px;
+  border-radius: 10px;
+  margin: 1rem 1rem 0 1rem;
+  box-shadow: 2px 0px 5px #999999;
 }
 .store-products-section .product-container .product-image-container {
   height: 400px;
@@ -210,6 +212,8 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: 100%;
+  padding: 1rem;
 }
 .store-products-section .product-container .product-data-container {
   display: flex;
@@ -221,7 +225,6 @@
 }
 .store-products-section .product-container .product-data-container .product-name {
   font-size: 1.5rem;
-  padding: 1rem;
 }
 .store-products-section .product-container .product-data-container .product-description {
   line-height: 1.8;
@@ -230,29 +233,41 @@
 .store-products-section .product-container .product-data-container .product-price {
   width: max-content;
   font-style: italic;
-  padding: 0.5rem;
-  border: 1px solid #333;
+  font-size: 1.6rem;
+  padding: 0.5rem 2rem;
 }
 .store-products-section .product-container .product-info-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
   padding: 1rem;
+  background: #333;
+  color: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .store-products-section .product-container .product-info-container .product-stock-amount {
+  margin-left: 2rem;
   padding: 1rem;
 }
 .store-products-section .product-container .product-info-container .product-stock-amount span {
   font-weight: bold;
 }
 .store-products-section .product-container .product-info-container .product-select-amount {
-  margin: 1rem;
   padding: 0.5rem;
   font-size: 1.2rem;
+  width: 60px;
+  text-align: center;
 }
 .store-products-section .product-container .product-info-container .btn-add-to-card {
+  margin-top: 20px;
   padding: 0.5rem;
-  font-size: 1.2rem;
   background: lightgreen;
   border: none;
-  border-radius: 5px;
+  grid-column: 1/end;
+  width: 250px;
+  border-radius: 10px;
 }
 
 .shopping-card-container {
