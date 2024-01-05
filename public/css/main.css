@@ -165,11 +165,17 @@
 .store-products-section .product-container {
   width: max-content;
   border: 1px solid black;
-  margin: 0.5rem;
+  margin: 0.5rem 3rem;
+}
+.store-products-section .product-container .product-image-container {
+  height: 400px;
+  width: 100%;
 }
 .store-products-section .product-container .product-image-container img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .store-products-section .product-container .product-data-container {
   display: flex;
