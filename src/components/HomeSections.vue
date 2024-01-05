@@ -3,7 +3,10 @@
     <div class="section-container">
       <section>
         <div class="section-content-container">
-          <img src="https://dummyimage.com/300x200/000/fff" alt="" />
+          <div class="media-container">
+            <img :src="img" alt="" />
+            <i class="fa-solid fa-circle-play"></i>
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
             accusamus officia illum, dolores exercitationem.
@@ -11,7 +14,6 @@
         </div>
         <div class="section-content-container">
           <h5>We make professional Equipment.</h5>
-          <button>FIND OUR PRODUCTS HERE</button>
         </div>
       </section>
     </div>
@@ -31,12 +33,18 @@
 <script>
 import SignupForm from "@/components/SignupForm.vue";
 import LoginForm from "@/components/LoginForm.vue";
+import Dummy from "../assets/img/dummy.jpg";
 
 export default {
   name: "HomeSections",
   components: {
     SignupForm,
     LoginForm,
+  },
+  data() {
+    return {
+      img: Dummy,
+    };
   },
 };
 </script>
