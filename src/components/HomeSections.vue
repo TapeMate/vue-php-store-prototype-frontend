@@ -2,6 +2,7 @@
   <div class="home-section-wrapper">
     <div class="section-container">
       <section>
+        <img :src="background" alt="" />
         <div class="section-content-container">
           <div class="media-container">
             <img :src="img" alt="" />
@@ -34,6 +35,7 @@
 import SignupForm from "@/components/SignupForm.vue";
 import LoginForm from "@/components/LoginForm.vue";
 import Dummy from "../assets/img/dummy.jpg";
+import Background from "../assets/img/background.jpg";
 
 export default {
   name: "HomeSections",
@@ -44,6 +46,7 @@ export default {
   data() {
     return {
       img: Dummy,
+      background: Background,
     };
   },
 };
