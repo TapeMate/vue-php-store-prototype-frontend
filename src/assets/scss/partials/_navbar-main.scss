@@ -1,14 +1,30 @@
+@use "../abstracts/colors" as *;
+
 .navbar-wrapper {
   width: 100%;
-  height: 50px;
-  background: tomato;
+  height: 75px;
+  background: $clr-primary;
 
   .navbar-main {
     padding: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
-    // .navbar-main-logo {}
+    .navbar-main-logo {
+      width: 300px;
+      height: 75px;
+      padding: 0 1rem;
+      border-right: 1px solid $clr-secondary;
+
+      img {
+        width: 100%;
+        height: 75px;
+        object-fit: contain;
+        object-position: center;
+        filter: invert(100%);
+      }
+    }
 
     .navbar-main-container {
       width: 100%;
@@ -22,6 +38,7 @@
           a {
             text-decoration: none;
             padding: 0.5rem;
+            color: $clr-secondary;
           }
         }
       }

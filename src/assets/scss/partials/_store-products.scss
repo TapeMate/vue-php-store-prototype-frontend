@@ -1,3 +1,5 @@
+@use "../abstracts/colors" as *;
+
 .store-products-section {
   height: 100%;
   width: 100%;
@@ -9,7 +11,7 @@
 
   .product-container {
     width: max-content;
-    border: 1px solid black;
+    border: 1px solid $clr-primary;
     margin: 0.5rem 3rem;
 
     .product-image-container {
@@ -29,7 +31,7 @@
       align-items: center;
       flex-direction: column;
       padding: 1rem;
-      border-bottom: 3px solid black;
+      border-bottom: 3px solid $clr-primary;
 
       .product-name {
         font-size: 1.5rem;
@@ -45,7 +47,7 @@
         width: max-content;
         font-style: italic;
         padding: 0.5rem;
-        border: 1px solid black;
+        border: 1px solid $clr-primary;
       }
     }
 
@@ -68,7 +70,7 @@
       .btn-add-to-card {
         padding: 0.5rem;
         font-size: 1.2rem;
-        background: lightgreen;
+        background: $clr-success;
         border: none;
         border-radius: 5px;
       }

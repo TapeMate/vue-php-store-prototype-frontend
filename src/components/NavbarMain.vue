@@ -2,7 +2,7 @@
   <div class="navbar-wrapper">
     <nav class="navbar-main">
       <div class="navbar-main-logo">
-        <img src="https://dummyimage.com/200x50/000/fff" alt="" />
+        <img :src="logo" alt="" />
       </div>
       <div class="navbar-main-container">
         <ul>
@@ -28,7 +28,14 @@
 </template>
 
 <script>
+import Logo from "@/assets/img/logo.png";
+
 export default {
   name: "NavbarMain",
+  data() {
+    return {
+      logo: Logo,
+    };
+  },
 };
 </script>
