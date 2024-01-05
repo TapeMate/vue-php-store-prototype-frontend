@@ -6,8 +6,8 @@
       </div>
       <div class="navbar-main-container">
         <ul>
-          <li><a href="#">HOME</a></li>
-          <li><a href="#">PRODCUTS</a></li>
+          <li><router-link to="/">HOME</router-link></li>
+          <li><router-link to="/product">PRODUCTS</router-link></li>
           <li><a href="#">CURRENT SALES</a></li>
           <li><a href="#">CONTACT</a></li>
         </ul>

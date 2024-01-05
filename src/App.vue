@@ -1,7 +1,17 @@
 <template>
-  <nav><router-link to="/">Home</router-link> |</nav>
+  <NavbarMain />
   <router-view />
 </template>
+
+<script>
+import NavbarMain from "@/components/NavbarMain.vue";
+
+export default {
+  components: {
+    NavbarMain,
+  },
+};
+</script>
 
 <style>
 #app {
@@ -22,6 +32,6 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: white;
 }
 </style>
