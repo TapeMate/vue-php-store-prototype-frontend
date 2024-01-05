@@ -1,5 +1,5 @@
 <template>
-  <h2>Get professional Gear</h2>
+  <h2>GET PROFESSIONAL GEAR</h2>
   <StoreProducts :products="productData" />
 </template>
 
@@ -50,6 +50,6 @@ export default {
 
 <style scoped>
 h2 {
-  padding: 0.5rem;
+  padding: 1rem;
 }
 </style>
