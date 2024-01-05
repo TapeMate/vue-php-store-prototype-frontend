@@ -52,15 +52,11 @@
     align-items: center;
 
     section {
+      padding-top: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 1rem;
-
-      //   .section-login-container,
-      //   .section-signup-container {
-      //     padding: 0 2rem;
-      //   }
     }
   }
 }

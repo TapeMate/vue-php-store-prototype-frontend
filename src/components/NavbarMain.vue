@@ -15,7 +15,9 @@
       <div class="navbar-secondary-container">
         <ul>
           <li>
-            <button>Shopping Card <span>0</span></button>
+            <button>
+              <router-link to="/card">Shopping Card <span>0</span></router-link>
+            </button>
           </li>
           <li><button>SIGN UP</button></li>
           <li><button>LOGIN</button></li>
