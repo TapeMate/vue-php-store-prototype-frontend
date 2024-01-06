@@ -71,24 +71,24 @@ export default {
         .then((data) => {
           // check for application errors
           if (data.error) {
-            console.error("Application Error:", data.error);
+            console.error("Application Error: ", data.error);
             // Handle application-level error
-            // e.g., show an error message to the user
+            this.reloadOnError();
           } else {
-            console.log("Success:", data);
+            console.log("Success: ", data);
             // Handle success
           }
         })
         .catch((error) => {
-          console.error("Network Error:", error);
+          console.error("Network Error: ", error);
           // Handle network error
-          // e.g., show a network error message
-          this.reloadOnError();
         });
     },
     reloadOnError() {
-      console.log("reloading the page");
-      window.location.reload();
+      console.log("Reloading the page");
+      setTimeout(() => {
+        window.location.reload();
+      }, 0); // Delay of 1 second
     },
   },
 };
