@@ -52,11 +52,13 @@ export default {
           return response.json();
         })
         .then((data) => {
-          if (!data || data.error) {
-            this.reloadOnError();
-            throw new Error(data ? data.error : "Invalid response data");
+          if (!data) {
+            throw new Error("Invalid response data");
           }
-          console.log(data);
+          if (data.error) {
+            throw new Error(data.error);
+          }
+          console.log("Login successful:", data);
         })
         .catch((error) => {
           console.error("Error:", error);
