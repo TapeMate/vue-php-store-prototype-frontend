@@ -59,16 +59,17 @@ export default {
             throw new Error(data.error);
           }
           console.log("Login successful:", data);
+          this.reload();
         })
         .catch((error) => {
           console.error("Error:", error);
         });
     },
-    reloadOnError() {
+    reload() {
       console.log("Reloading the page");
       setTimeout(() => {
         window.location.reload();
-      }, 1000);
+      }, 500);
     },
   },
 };

@@ -88,7 +88,7 @@ export default {
       console.log("Reloading the page");
       setTimeout(() => {
         window.location.reload();
-      }, 2000);
+      }, 500);
     },
   },
 };

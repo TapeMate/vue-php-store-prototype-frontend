@@ -49,15 +49,28 @@
       display: flex;
       justify-content: flex-end;
 
-      ul {
-        list-style: none;
-        display: flex;
+      button {
+        padding: 1rem;
+        background: $clr-primary;
+        border: none;
+        font-size: 1.2rem;
+        border-left: 1px solid $clr-secondary;
 
-        li {
-          padding: 0.5rem;
+        a {
+          color: $clr-secondary;
+          text-decoration: none;
 
-          button {
-            padding: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          i {
+            font-size: 1.8rem;
+            margin-left: 10px;
+          }
+          span {
+            color: $clr-accent-b;
+            margin-left: 10px;
+            font-size: 1.5rem;
           }
         }
       }

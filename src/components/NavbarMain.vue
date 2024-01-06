@@ -13,15 +13,12 @@
         </ul>
       </div>
       <div class="navbar-secondary-container">
-        <ul>
-          <li>
-            <button>
-              <router-link to="/card">Shopping Card <span>0</span></router-link>
-            </button>
-          </li>
-          <li><button>SIGN UP</button></li>
-          <li><button>LOGIN</button></li>
-        </ul>
+        <button>
+          <router-link to="/card"
+            >SHOPPING CART <span>0</span>
+            <i class="fa-sharp fa-solid fa-cart-shopping"></i
+          ></router-link>
+        </button>
       </div>
     </nav>
   </div>
