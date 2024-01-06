@@ -45,13 +45,28 @@ export default {
           body: JSON.stringify(this.loginData),
         }
       )
-        .then((response) => response.json()) // Parses the JSON response
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
         .then((data) => {
-          console.log(data); // This will log the response from your PHP script
+          if (!data || data.error) {
+            this.reloadOnError();
+            throw new Error(data ? data.error : "Invalid response data");
+          }
+          console.log(data);
         })
         .catch((error) => {
           console.error("Error:", error);
         });
+    },
+    reloadOnError() {
+      console.log("Reloading the page");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     },
   },
 };
