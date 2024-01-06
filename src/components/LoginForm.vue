@@ -45,29 +45,12 @@ export default {
           body: JSON.stringify(this.loginData),
         }
       )
-        .then((response) => {
-          // checks response property if is false and throws error to get handled
-          if (!response.ok) {
-            throw new Error(
-              "Network response was not ok " + response.statusText
-            );
-          }
-          return response.json();
-        })
+        .then((response) => response.json()) // Parses the JSON response
         .then((data) => {
-          // check for application errors
-          if (data.error) {
-            console.error("Application Error: ", data.error);
-            // Handle application-level error
-            this.reloadOnError();
-          } else {
-            console.log("Success: ", data);
-            // Handle success
-          }
+          console.log(data); // This will log the response from your PHP script
         })
         .catch((error) => {
-          console.error("Network Error: ", error);
-          // Handle network error
+          console.error("Error:", error);
         });
     },
   },
