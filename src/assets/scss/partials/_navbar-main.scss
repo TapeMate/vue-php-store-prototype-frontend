@@ -59,7 +59,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding: 1rem;
+      padding-right: 1rem;
       background: $clr-primary;
       border: none;
       font-size: 1.2rem;
@@ -96,11 +96,18 @@
           margin-left: 10px;
           transition: 0.2s;
         }
-        .card-count {
+        .card-count-zero {
           color: darken($clr-secondary, 40%);
           margin-left: 10px;
           font-weight: 300;
-          font-size: 1.5rem;
+          font-size: 2rem;
+        }
+        .card-count {
+          color: $clr-success;
+          margin-left: 10px;
+          font-weight: 300;
+          font-size: 2rem;
+          font-weight: bold;
         }
       }
 

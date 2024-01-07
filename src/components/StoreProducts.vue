@@ -97,15 +97,19 @@ export default {
     onClickAddToCart(product, amount) {
       const modifiedProduct = this.setProductData(product, amount);
       this.addToCart(modifiedProduct);
+      this.reload();
     },
 
     setProductData(product, amount) {
       const newProduct = { ...product };
-      delete newProduct.product_description;
-      delete newProduct.product_img;
       delete newProduct.product_stock_amount;
       newProduct.product_order_amount = amount;
       return newProduct;
+    },
+
+    reload() {
+      console.log("Reloading the page");
+      window.location.reload();
     },
   },
 };

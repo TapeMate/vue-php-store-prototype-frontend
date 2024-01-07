@@ -17,7 +17,11 @@
           >Welcome, <span class="username">{{ getUser }}</span></span
         >
         <router-link to="/card"
-          >CART <span class="card-count">0</span>
+          >CART
+          <span v-if="cartCount === 0" class="card-count-zero">{{
+            cartCount
+          }}</span>
+          <span v-if="cartCount > 0" class="card-count">{{ cartCount }}</span>
           <i class="fa-sharp fa-solid fa-cart-shopping"></i>
         </router-link>
         <button class="btn-logout" @click="logoutUser" v-if="isloginSuccessful">
@@ -37,10 +41,14 @@ export default {
   data() {
     return {
       logo: Logo,
+      cartCount: 0,
     };
   },
+  mounted() {
+    this.getCartCount();
+  },
   computed: {
-    ...mapGetters(["isloginSuccessful", "getUser"]),
+    ...mapGetters(["isloginSuccessful", "getUser", "getShoppingCart"]),
   },
   methods: {
     ...mapMutations(["userLogout", "unsetUser", "unsetUserId"]),
@@ -48,6 +56,24 @@ export default {
       this.userLogout();
       this.unsetUser();
       this.unsetUserId();
+      this.reload();
+    },
+    getCartCount() {
+      if (!this.isloginSuccessful) {
+        console.log("no user is logged in.");
+        return;
+      } else {
+        // const cartCount = this.getShoppingCart.length;
+        // console.log(cartCount);
+        console.log(this.getShoppingCart.length);
+        this.cartCount = this.getShoppingCart.length;
+        return;
+      }
+    },
+
+    reload() {
+      console.log("Reloading the page");
+      window.location.reload();
     },
   },
 };
