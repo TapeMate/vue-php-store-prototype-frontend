@@ -116,9 +116,6 @@
 .home-section-wrapper .section-container:nth-of-type(1) {
   height: 42vh;
 }
-.home-section-wrapper .section-container:nth-of-type(1) h2 {
-  padding: 2rem !important;
-}
 .home-section-wrapper .section-container:nth-of-type(1) section {
   position: relative;
   display: flex;

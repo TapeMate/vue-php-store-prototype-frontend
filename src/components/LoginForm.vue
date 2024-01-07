@@ -61,8 +61,7 @@ export default {
           if (data.error) {
             throw new Error(data.error);
           }
-          // console.log("Login successful:", data);
-          // console.log("Username: ", data.user.users_uid);
+          this.setUserId(data.user.users_id);
           this.loggedInUser(data.user.users_uid);
           this.loginIsSuccessful();
           this.reload();
@@ -78,7 +77,7 @@ export default {
         window.location.reload();
       }, 500);
     },
-    ...mapMutations(["loginIsSuccessful", "loggedInUser"]),
+    ...mapMutations(["loginIsSuccessful", "loggedInUser", "setUserId"]),
   },
 };
 </script>
