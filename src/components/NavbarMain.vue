@@ -16,10 +16,13 @@
         <button>
           <router-link to="/card"
             ><span class="username" v-if="isloginSuccessful"
-              >Welcome {{ getUser }} !</span
+              >Welcome {{ getUser }}</span
             >CART <span>0</span
             ><i class="fa-sharp fa-solid fa-cart-shopping"></i
           ></router-link>
+        </button>
+        <button class="btn-logout" @click="logoutUser" v-if="isloginSuccessful">
+          LOGOUT
         </button>
       </div>
     </nav>
@@ -28,7 +31,7 @@
 
 <script>
 import Logo from "@/assets/img/logo.png";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "NavbarMain",
@@ -39,10 +42,13 @@ export default {
   },
   computed: {
     ...mapGetters(["isloginSuccessful", "getUser"]),
-
-    // getUserName() {
-    //   return this.$store.getters.getUser;
-    // },
+  },
+  methods: {
+    ...mapMutations(["userLogout", "unsetUser"]),
+    logoutUser() {
+      this.userLogout();
+      this.unsetUser();
+    },
   },
 };
 </script>

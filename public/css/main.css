@@ -64,9 +64,14 @@
   margin-left: 10px;
 }
 .navbar-wrapper .navbar-main .navbar-secondary-container button a span {
-  color: #ff6347;
+  color: lightgreen;
   margin-left: 10px;
   font-size: 1.5rem;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container .btn-logout {
+  border: 1px solid #fff;
+  color: #66cdf0;
+  margin-left: 100px;
 }
 
 .home-section-wrapper {
