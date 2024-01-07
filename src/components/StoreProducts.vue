@@ -56,7 +56,7 @@
           </option>
         </select>
         <button
-          @click="addToCard"
+          @click="onClickAddToCart(this.productData[0])"
           :disabled="product.product_stock_amount == 0"
           class="btn-add-to-card"
         >
@@ -69,7 +69,7 @@
 
 <script>
 import background from "../assets/img/background2.jpg";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "StoreProducts",
@@ -85,10 +85,13 @@ export default {
     ...mapGetters(["getUserId"]),
   },
   methods: {
-    addToCard() {
-      console.log("Product added.");
-      const userId = this.getUserId;
-      console.log(userId);
+    ...mapMutations(["addToCart"]),
+
+    onClickAddToCart(product) {
+      // const userId = this.getUserId;
+      // console.log(this.productData[0]);
+      // console.log(product);
+      this.addToCart(product);
     },
   },
 };
