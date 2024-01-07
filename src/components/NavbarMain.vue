@@ -43,10 +43,11 @@ export default {
     ...mapGetters(["isloginSuccessful", "getUser"]),
   },
   methods: {
-    ...mapMutations(["userLogout", "unsetUser"]),
+    ...mapMutations(["userLogout", "unsetUser", "unsetUserId"]),
     logoutUser() {
       this.userLogout();
       this.unsetUser();
+      this.unsetUserId();
     },
   },
 };

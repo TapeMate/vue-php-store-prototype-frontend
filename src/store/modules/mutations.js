@@ -18,7 +18,10 @@ export default {
   setUserId(state, userId) {
     state.userIdSet = userId;
     localStorage.setItem("userId", userId);
-    console.log("User ID set.");
+  },
+  unsetUserId(state) {
+    state.userIdSet = null;
+    localStorage.setItem("userId", null);
   },
 
   addToCart(state, item) {
