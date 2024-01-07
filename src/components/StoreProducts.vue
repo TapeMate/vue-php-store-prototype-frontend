@@ -49,6 +49,7 @@
           name="select-amount"
           id="select-amount"
           :disabled="product.product_stock_amount == 0"
+          v-model="selectedAmount[product.product_id]"
         >
           <option value="0">0</option>
           <option v-for="n in product.product_stock_amount" :key="n" :value="n">
@@ -56,7 +57,12 @@
           </option>
         </select>
         <button
-          @click="onClickAddToCart(this.productData[0])"
+          @click="
+            onClickAddToCart(
+              this.productData[index],
+              selectedAmount[product.product_id]
+            )
+          "
           :disabled="product.product_stock_amount == 0"
           class="btn-add-to-card"
         >
@@ -79,6 +85,7 @@ export default {
   data() {
     return {
       img: background,
+      selectedAmount: {},
     };
   },
   computed: {
@@ -87,11 +94,18 @@ export default {
   methods: {
     ...mapMutations(["addToCart"]),
 
-    onClickAddToCart(product) {
-      // const userId = this.getUserId;
-      // console.log(this.productData[0]);
-      // console.log(product);
-      this.addToCart(product);
+    onClickAddToCart(product, amount) {
+      const modifiedProduct = this.setProductData(product, amount);
+      this.addToCart(modifiedProduct);
+    },
+
+    setProductData(product, amount) {
+      const newProduct = { ...product };
+      delete newProduct.product_description;
+      delete newProduct.product_img;
+      delete newProduct.product_stock_amount;
+      newProduct.product_order_amount = amount;
+      return newProduct;
     },
   },
 };
