@@ -57,7 +57,9 @@
 }
 .navbar-wrapper .navbar-main .navbar-secondary-container button a .username {
   font-size: 1.2rem;
-  margin-right: 20px;
+  padding-right: 25px;
+  margin-right: 25px;
+  border-right: 1px solid #fff;
 }
 .navbar-wrapper .navbar-main .navbar-secondary-container button a i {
   font-size: 1.8rem;
@@ -70,6 +72,7 @@
 }
 .navbar-wrapper .navbar-main .navbar-secondary-container .btn-logout {
   border: 1px solid #fff;
+  border-radius: 5px;
   color: #66cdf0;
   margin-left: 100px;
 }

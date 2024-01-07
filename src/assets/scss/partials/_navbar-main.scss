@@ -64,7 +64,9 @@
           justify-content: center;
           .username {
             font-size: 1.2rem;
-            margin-right: 20px;
+            padding-right: 25px;
+            margin-right: 25px;
+            border-right: 1px solid $clr-secondary;
           }
           i {
             font-size: 1.8rem;
@@ -80,6 +82,7 @@
 
       .btn-logout {
         border: 1px solid $clr-secondary;
+        border-radius: 5px;
         color: $clr-accent-a;
         margin-left: 100px;
       }

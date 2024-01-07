@@ -73,9 +73,10 @@ export default {
           if (data.error) {
             console.error("Application Error: ", data.error);
             // Handle application-level error
-            this.reloadOnError();
+            this.reload();
           } else {
             console.log("Success: ", data);
+            this.reload();
             // Handle success
           }
         })
@@ -84,7 +85,7 @@ export default {
           // Handle network error
         });
     },
-    reloadOnError() {
+    reload() {
       console.log("Reloading the page");
       setTimeout(() => {
         window.location.reload();
