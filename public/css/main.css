@@ -416,20 +416,20 @@ h2 {
   background: white;
   border: 1px solid #333;
 }
-.shopping-card-container .upper-container .payment-container {
+.shopping-card-container .upper-container .payment-delivery-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 1rem;
 }
-.shopping-card-container .upper-container .payment-container .input-container {
+.shopping-card-container .upper-container .payment-delivery-container .input-container {
   display: flex;
   justify-content: flex-start;
 }
-.shopping-card-container .upper-container .payment-container .input-container input {
+.shopping-card-container .upper-container .payment-delivery-container .input-container input {
   margin: 0.5rem;
 }
-.shopping-card-container .upper-container .payment-container .input-container label {
+.shopping-card-container .upper-container .payment-delivery-container .input-container label {
   padding: 0.5rem;
 }
 .shopping-card-container .lower-container {
