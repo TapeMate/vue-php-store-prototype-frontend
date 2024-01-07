@@ -1,3 +1,3 @@
 export default {
-  // loginSuccess: localStorage.getItem("loginSuccess") === "true" || false,
+  loginSuccess: localStorage.getItem("loginSuccess") === "true" || false,
 };

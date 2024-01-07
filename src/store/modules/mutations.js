@@ -1,6 +1,7 @@
 export default {
-  // waitingForServerResponse(state) {
-  //   state.waitingForServer = true;
-  //   localStorage.setItem("waitingForServer", "true");
-  // },
+  loginIsSuccessful(state) {
+    state.loginSuccess = true;
+    localStorage.setItem("loginSuccess", "true");
+    console.log("mutation called.");
+  },
 };

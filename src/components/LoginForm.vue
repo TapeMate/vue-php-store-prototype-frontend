@@ -17,12 +17,14 @@
       />
       <br />
       <button type="submit" name="submit">LOGIN</button>
-      <p v-if="this.loginSuccess === true">login success.</p>
+      <p v-if="isloginSuccessful">login success.</p>
     </form>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
   name: "LoginForm",
   data() {
@@ -34,6 +36,10 @@ export default {
       loginSuccess: false,
     };
   },
+  computed: {
+    ...mapGetters(["isloginSuccessful"]),
+  },
+
   methods: {
     submitLogin() {
       console.log(this.loginData);
@@ -61,7 +67,7 @@ export default {
             throw new Error(data.error);
           }
           console.log("Login successful:", data);
-          this.setLoginSuccess();
+          this.loginIsSuccessful();
           this.reload();
         })
         .catch((error) => {
@@ -75,9 +81,7 @@ export default {
         window.location.reload();
       }, 500);
     },
-    setLoginSuccess() {
-      this.loginSuccess = true;
-    },
+    ...mapMutations(["loginIsSuccessful"]),
   },
 };
 </script>

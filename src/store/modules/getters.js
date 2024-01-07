@@ -1,3 +1,3 @@
 export default {
-  // isWaitingForServer: (state) => state.waitingForServer,
+  isloginSuccessful: (state) => state.loginSuccess,
 };
