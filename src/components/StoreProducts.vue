@@ -28,7 +28,19 @@
           <span v-if="product.product_stock_amount == 0" class="out-of-stock"
             >OUT OF STOCK</span
           >
-          <span v-else class="stock-amount">IN STOCK: </span>
+          <span
+            v-if="
+              product.product_stock_amount >= 4 &&
+              product.product_stock_amount < 10
+            "
+            class="stock-amount"
+            >LOW STOCK:</span
+          >
+          <span
+            v-else-if="product.product_stock_amount >= 10"
+            class="stock-amount"
+            >IN STOCK:
+          </span>
 
           <span
             v-if="

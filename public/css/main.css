@@ -336,6 +336,7 @@ h2 {
   width: 100%;
   padding: 0.5rem;
   text-align: left;
+  align-items: center;
 }
 .store-products-section .product-container .product-info-container .product-stock-amount .out-of-stock {
   font-weight: bold;
@@ -346,13 +347,12 @@ h2 {
   font-weight: bold;
 }
 .store-products-section .product-container .product-info-container .product-stock-amount .low-stock {
-  margin-left: 5px;
-  color: rgb(255, 196, 0);
+  margin-left: 10px;
   font-weight: bold;
   font-size: 1.3rem;
 }
 .store-products-section .product-container .product-info-container .product-stock-amount .good-stock {
-  margin-left: 5px;
+  margin-left: 10px;
   color: rgb(105, 255, 105);
   font-weight: bold;
   font-size: 1.3rem;
