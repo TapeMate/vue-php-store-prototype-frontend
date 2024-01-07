@@ -12,7 +12,9 @@
       </div>
 
       <div class="product-data-container">
-        <h5 class="product-name">{{ product.product_name }}</h5>
+        <h5 class="product-name">
+          {{ product.product_name }}
+        </h5>
         <p class="product-description">{{ product.product_description }}</p>
         <p class="product-price">{{ product.product_price }},- EUR</p>
       </div>
@@ -54,6 +56,7 @@
           </option>
         </select>
         <button
+          @click="addToCard"
           :disabled="product.product_stock_amount == 0"
           class="btn-add-to-card"
         >
@@ -66,6 +69,7 @@
 
 <script>
 import background from "../assets/img/background2.jpg";
+import { mapGetters } from "vuex";
 
 export default {
   name: "StoreProducts",
@@ -76,6 +80,16 @@ export default {
     return {
       img: background,
     };
+  },
+  computed: {
+    ...mapGetters(["getUserId"]),
+  },
+  methods: {
+    addToCard() {
+      console.log("Product added.");
+      const userId = this.getUserId;
+      console.log(userId);
+    },
   },
 };
 </script>

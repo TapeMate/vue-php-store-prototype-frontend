@@ -20,4 +20,14 @@ export default {
     localStorage.setItem("userId", userId);
     console.log("User ID set.");
   },
+
+  addToCart(state, item) {
+    state.shoppingCart.push(item);
+  },
+
+  removeFromCart(state, itemId) {
+    state.shoppingCart = state.shoppingCart.filter(
+      (item) => item.id !== itemId
+    );
+  },
 };
