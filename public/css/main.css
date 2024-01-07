@@ -30,6 +30,16 @@
 }
 .navbar-wrapper .navbar-main .navbar-main-container ul li {
   padding: 1rem;
+  background: #333;
+  transition: 0.2s;
+}
+.navbar-wrapper .navbar-main .navbar-main-container ul li:hover {
+  background: #666666;
+  border-bottom: 40px solid lightgreen;
+  margin-bottom: -40px;
+}
+.navbar-wrapper .navbar-main .navbar-main-container ul li:hover > a {
+  color: lightgreen;
 }
 .navbar-wrapper .navbar-main .navbar-main-container ul li a {
   text-decoration: none;
@@ -40,39 +50,61 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
-}
-.navbar-wrapper .navbar-main .navbar-secondary-container button {
+  align-items: center;
   padding: 1rem;
   background: #333;
   border: none;
   font-size: 1.2rem;
 }
-.navbar-wrapper .navbar-main .navbar-secondary-container button a {
+.navbar-wrapper .navbar-main .navbar-secondary-container .username-intro {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin-right: 25px;
+  color: #fff;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container .username-intro .username {
+  color: lightgreen;
+  font-weight: bold;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container a {
   color: #fff;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.2s;
+  padding: 0.4rem;
 }
-.navbar-wrapper .navbar-main .navbar-secondary-container button a .username {
-  font-size: 1.2rem;
-  padding-right: 25px;
-  margin-right: 25px;
+.navbar-wrapper .navbar-main .navbar-secondary-container a:hover {
+  border-bottom: 1px solid lightgreen;
 }
-.navbar-wrapper .navbar-main .navbar-secondary-container button a i {
-  font-size: 1.8rem;
-  margin-left: 10px;
-}
-.navbar-wrapper .navbar-main .navbar-secondary-container button a span {
+.navbar-wrapper .navbar-main .navbar-secondary-container a:hover i {
   color: lightgreen;
+  font-size: 1.3rem;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container a i {
+  font-size: 1.2rem;
   margin-left: 10px;
+  transition: 0.2s;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container a .card-count {
+  color: #999999;
+  margin-left: 10px;
+  font-weight: 300;
   font-size: 1.5rem;
 }
 .navbar-wrapper .navbar-main .navbar-secondary-container .btn-logout {
-  border: 1px solid #fff;
-  border-radius: 5px;
-  color: #66cdf0;
+  padding: 0.5rem;
+  font-size: 1.5rem;
   margin-left: 100px;
+  color: #fff;
+  background: #333;
+  text-align: center;
+  border: none;
+  transition: 0.3s;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container .btn-logout:hover {
+  color: lightgreen;
 }
 
 .home-section-wrapper {
@@ -83,6 +115,9 @@
 }
 .home-section-wrapper .section-container:nth-of-type(1) {
   height: 42vh;
+}
+.home-section-wrapper .section-container:nth-of-type(1) h2 {
+  padding: 2rem !important;
 }
 .home-section-wrapper .section-container:nth-of-type(1) section {
   position: relative;
@@ -210,20 +245,31 @@
   margin: 5px;
 }
 
+h2 {
+  padding: 1rem;
+}
+
 .store-products-section {
   height: 100%;
   width: 100%;
-  padding: 0 1rem;
+  padding: 1rem;
   display: flex;
   justify-content: center;
   flex-direction: row;
+}
+.store-products-section > img {
+  position: fixed;
+  top: 0;
+  z-index: -99;
+  object-fit: contain;
 }
 .store-products-section .product-container {
   width: max-content;
   max-width: 325px;
   border-radius: 10px;
-  margin: 1rem 1rem 0 1rem;
+  margin: 0 2rem;
   box-shadow: 2px 2px 5px #999999;
+  background: #fff;
 }
 .store-products-section .product-container .product-image-container {
   height: 325px;

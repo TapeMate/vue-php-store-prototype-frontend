@@ -1,5 +1,7 @@
 <template>
+  <h2>GET PROFESSIONAL GEAR</h2>
   <section class="store-products-section">
+    <img :src="img" alt="Background" />
     <div
       v-for="(product, index) in productData"
       :key="index"
@@ -63,10 +65,17 @@
 </template>
 
 <script>
+import background from "../assets/img/background2.jpg";
+
 export default {
   name: "StoreProducts",
   props: {
     productData: Object,
+  },
+  data() {
+    return {
+      img: background,
+    };
   },
 };
 </script>

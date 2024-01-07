@@ -33,6 +33,17 @@
 
         li {
           padding: 1rem;
+          background: $clr-primary;
+          transition: 0.2s;
+          &:hover {
+            background: lighten($clr-primary, 20%);
+            border-bottom: 40px solid $clr-success;
+            margin-bottom: -40px;
+
+            > a {
+              color: $clr-success;
+            }
+          }
 
           a {
             text-decoration: none;
@@ -47,42 +58,64 @@
       width: 100%;
       display: flex;
       justify-content: flex-end;
+      align-items: center;
+      padding: 1rem;
+      background: $clr-primary;
+      border: none;
+      font-size: 1.2rem;
 
-      button {
-        padding: 1rem;
-        background: $clr-primary;
-        border: none;
+      .username-intro {
         font-size: 1.2rem;
+        padding: 0.5rem;
+        margin-right: 25px;
+        color: $clr-secondary;
+        .username {
+          color: $clr-success;
+          font-weight: bold;
+        }
+      }
+      a {
+        color: $clr-secondary;
+        text-decoration: none;
 
-        a {
-          color: $clr-secondary;
-          text-decoration: none;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          .username {
-            font-size: 1.2rem;
-            padding-right: 25px;
-            margin-right: 25px;
-          }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+        padding: 0.4rem;
+        &:hover {
+          border-bottom: 1px solid $clr-success;
           i {
-            font-size: 1.8rem;
-            margin-left: 10px;
-          }
-          span {
             color: $clr-success;
-            margin-left: 10px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
           }
+        }
+
+        i {
+          font-size: 1.2rem;
+          margin-left: 10px;
+          transition: 0.2s;
+        }
+        .card-count {
+          color: darken($clr-secondary, 40%);
+          margin-left: 10px;
+          font-weight: 300;
+          font-size: 1.5rem;
         }
       }
 
       .btn-logout {
-        border: 1px solid $clr-secondary;
-        border-radius: 5px;
-        color: $clr-accent-a;
+        padding: 0.5rem;
+        font-size: 1.5rem;
         margin-left: 100px;
+        color: $clr-secondary;
+        background: $clr-primary;
+        text-align: center;
+        border: none;
+        transition: 0.3s;
+        &:hover {
+          color: $clr-success;
+        }
       }
     }
   }

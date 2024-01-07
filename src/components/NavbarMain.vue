@@ -13,16 +13,15 @@
         </ul>
       </div>
       <div class="navbar-secondary-container">
-        <button>
-          <router-link to="/card"
-            ><span class="username" v-if="isloginSuccessful"
-              >Welcome {{ getUser }}</span
-            >CART <span>0</span
-            ><i class="fa-sharp fa-solid fa-cart-shopping"></i
-          ></router-link>
-        </button>
+        <span class="username-intro" v-if="isloginSuccessful"
+          >Welcome, <span class="username">{{ getUser }}</span></span
+        >
+        <router-link to="/card"
+          >CART <span class="card-count">0</span>
+          <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+        </router-link>
         <button class="btn-logout" @click="logoutUser" v-if="isloginSuccessful">
-          LOGOUT
+          <i class="fa-solid fa-right-from-bracket"></i>
         </button>
       </div>
     </nav>
