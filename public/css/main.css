@@ -220,13 +220,13 @@
 }
 .store-products-section .product-container {
   width: max-content;
-  max-width: 300px;
+  max-width: 325px;
   border-radius: 10px;
   margin: 1rem 1rem 0 1rem;
   box-shadow: 2px 2px 5px #999999;
 }
 .store-products-section .product-container .product-image-container {
-  height: 300px;
+  height: 325px;
   width: 100%;
 }
 .store-products-section .product-container .product-image-container img {
@@ -259,6 +259,7 @@
   padding: 0.5rem 2rem;
 }
 .store-products-section .product-container .product-info-container {
+  height: 140px;
   display: grid;
   grid-template-columns: 5fr 1fr;
   align-items: center;
@@ -269,15 +270,46 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.store-products-section .product-container .product-info-container .product-stock-amount {
-  padding: 0.5rem;
+.store-products-section .product-container .product-info-container .amount-header,
+.store-products-section .product-container .product-info-container .amount-header-oos {
+  width: 100%;
+  grid-column: 1/end;
+  text-align: right;
+  font-size: 0.7rem;
+  margin-bottom: 5px;
 }
-.store-products-section .product-container .product-info-container .product-stock-amount span {
+.store-products-section .product-container .product-info-container .amount-header-oos {
+  font-style: italic;
+  color: #b3b3b3;
+}
+.store-products-section .product-container .product-info-container .product-stock-amount {
+  width: 100%;
+  padding: 0.5rem;
+  text-align: left;
+}
+.store-products-section .product-container .product-info-container .product-stock-amount .out-of-stock {
+  font-weight: bold;
+  font-style: italic;
+  color: tomato;
+}
+.store-products-section .product-container .product-info-container .product-stock-amount .stock-amount {
   font-weight: bold;
 }
+.store-products-section .product-container .product-info-container .product-stock-amount .low-stock {
+  margin-left: 5px;
+  color: rgb(255, 196, 0);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.store-products-section .product-container .product-info-container .product-stock-amount .good-stock {
+  margin-left: 5px;
+  color: rgb(105, 255, 105);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
 .store-products-section .product-container .product-info-container .product-select-amount {
-  padding: 0.5rem;
-  font-size: 1.2rem;
+  padding: 0.2rem;
+  font-size: 1.1rem;
   width: 60px;
   text-align: center;
 }
@@ -287,8 +319,18 @@
   background: lightgreen;
   border: none;
   grid-column: 1/end;
-  width: 250px;
+  width: 100%;
   border-radius: 10px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.store-products-section .product-container .product-info-container .btn-add-to-card:hover {
+  background: #bcf5bc;
+}
+.store-products-section .product-container .product-info-container .btn-add-to-card:disabled {
+  color: gray;
+  background: #b3b3b3;
+  font-weight: 500;
 }
 
 .shopping-card-container {

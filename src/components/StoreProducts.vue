@@ -12,12 +12,33 @@
       <div class="product-data-container">
         <h5 class="product-name">{{ product.product_name }}</h5>
         <p class="product-description">{{ product.product_description }}</p>
-        <p class="product-price">{{ product.product_price }} EUR</p>
+        <p class="product-price">{{ product.product_price }},- EUR</p>
       </div>
 
       <div class="product-info-container">
+        <p v-if="product.product_stock_amount == 0" class="amount-header-oos">
+          OUT OF STOCK
+        </p>
+        <p v-else class="amount-header">SELECT AMOUNT</p>
         <p class="product-stock-amount">
-          Stock amount: <span>{{ product.product_stock_amount }}</span>
+          <span v-if="product.product_stock_amount == 0" class="out-of-stock"
+            >OUT OF STOCK</span
+          >
+          <span v-else class="stock-amount">IN STOCK: </span>
+
+          <span
+            v-if="
+              product.product_stock_amount > 0 &&
+              product.product_stock_amount <= 4
+            "
+            class="low-stock"
+            >{{ product.product_stock_amount }}</span
+          >
+          <span
+            v-else-if="product.product_stock_amount > 4"
+            class="good-stock"
+            >{{ product.product_stock_amount }}</span
+          >
         </p>
         <select
           class="product-select-amount"
