@@ -17,6 +17,7 @@
       />
       <br />
       <button type="submit" name="submit">LOGIN</button>
+      <p v-if="this.loginSuccess === true">login success.</p>
     </form>
   </div>
 </template>
@@ -30,6 +31,7 @@ export default {
         uid: "",
         pwd: "",
       },
+      loginSuccess: false,
     };
   },
   methods: {
@@ -59,10 +61,12 @@ export default {
             throw new Error(data.error);
           }
           console.log("Login successful:", data);
+          this.setLoginSuccess();
           this.reload();
         })
         .catch((error) => {
           console.error("Error:", error);
+          this.reload();
         });
     },
     reload() {
@@ -70,6 +74,9 @@ export default {
       setTimeout(() => {
         window.location.reload();
       }, 500);
+    },
+    setLoginSuccess() {
+      this.loginSuccess = true;
     },
   },
 };
