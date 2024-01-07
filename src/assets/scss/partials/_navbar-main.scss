@@ -54,7 +54,6 @@
         background: $clr-primary;
         border: none;
         font-size: 1.2rem;
-        border-left: 1px solid $clr-secondary;
 
         a {
           color: $clr-secondary;
@@ -63,6 +62,10 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          .username {
+            font-size: 1.2rem;
+            margin-right: 20px;
+          }
           i {
             font-size: 1.8rem;
             margin-left: 10px;

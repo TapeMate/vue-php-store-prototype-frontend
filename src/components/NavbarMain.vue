@@ -15,8 +15,10 @@
       <div class="navbar-secondary-container">
         <button>
           <router-link to="/card"
-            >SHOPPING CART <span>0</span>
-            <i class="fa-sharp fa-solid fa-cart-shopping"></i
+            ><span class="username" v-if="isloginSuccessful"
+              >Welcome {{ getUser }} !</span
+            >CART <span>0</span
+            ><i class="fa-sharp fa-solid fa-cart-shopping"></i
           ></router-link>
         </button>
       </div>
@@ -26,6 +28,7 @@
 
 <script>
 import Logo from "@/assets/img/logo.png";
+import { mapGetters } from "vuex";
 
 export default {
   name: "NavbarMain",
@@ -33,6 +36,13 @@ export default {
     return {
       logo: Logo,
     };
+  },
+  computed: {
+    ...mapGetters(["isloginSuccessful", "getUser"]),
+
+    // getUserName() {
+    //   return this.$store.getters.getUser;
+    // },
   },
 };
 </script>
