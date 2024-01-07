@@ -1,6 +1,6 @@
 <template>
   <h2>GET PROFESSIONAL GEAR</h2>
-  <StoreProducts :products="productData" />
+  <StoreProducts :productData="productData" />
 </template>
 
 <script>
@@ -17,33 +17,47 @@ export default {
 
   data() {
     return {
-      productData: [
-        {
-          img: img1,
-          name: "Product A",
-          description:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit sed.",
-          price: "100,-",
-          stockAmount: "9",
-        },
-        {
-          img: img2,
-          name: "Product B",
-          description:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit sed.",
-          price: "150,-",
-          stockAmount: "6",
-        },
-        {
-          img: img3,
-          name: "Product C",
-          description:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit sed.",
-          price: "200,-",
-          stockAmount: "0",
-        },
-      ],
+      productData: {},
+      productImages: [img1, img2, img3],
     };
+  },
+
+  mounted() {
+    this.getProductData();
+  },
+
+  methods: {
+    getProductData() {
+      fetch(
+        "http://localhost/vue-php-store-prototype-backend/api/product.api.php"
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Connection to products api failed.");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          this.setProductImage(data, this.productImages);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    },
+
+    setProductImage(data, images) {
+      const imgArr = images;
+      const results = [];
+
+      data.product.forEach((elmt) => {
+        const images = imgArr;
+        elmt.product_img = images.shift();
+        results.push(elmt);
+        return imgArr;
+      });
+
+      this.productData = results;
+    },
   },
 };
 </script>

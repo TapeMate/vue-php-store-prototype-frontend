@@ -1,23 +1,23 @@
 <template>
   <section class="store-products-section">
     <div
-      v-for="(product, index) in products"
+      v-for="(product, index) in productData"
       :key="index"
       class="product-container"
     >
       <div class="product-image-container">
-        <img :src="product.img" alt="img" />
+        <img :src="product.product_img" alt="Product Image" />
       </div>
 
       <div class="product-data-container">
-        <h5 class="product-name">{{ product.name }}</h5>
-        <p class="product-description">{{ product.description }}</p>
-        <p class="product-price">{{ product.price }} EUR</p>
+        <h5 class="product-name">{{ product.product_name }}</h5>
+        <p class="product-description">{{ product.product_description }}</p>
+        <p class="product-price">{{ product.product_price }} EUR</p>
       </div>
 
       <div class="product-info-container">
         <p class="product-stock-amount">
-          Stock amount: <span>{{ product.stockAmount }}</span>
+          Stock amount: <span>{{ product.product_stock_amount }}</span>
         </p>
         <select
           class="product-select-amount"
@@ -39,7 +39,7 @@
 export default {
   name: "StoreProducts",
   props: {
-    products: Array,
+    productData: Object,
   },
 };
 </script>

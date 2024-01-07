@@ -61,11 +61,11 @@ export default {
           if (data.error) {
             throw new Error(data.error);
           }
-          console.log("Login successful:", data);
-          console.log("Username: ", data.user.users_uid);
+          // console.log("Login successful:", data);
+          // console.log("Username: ", data.user.users_uid);
           this.loggedInUser(data.user.users_uid);
           this.loginIsSuccessful();
-          // this.reload();
+          this.reload();
         })
         .catch((error) => {
           console.error("Error:", error);
