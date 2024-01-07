@@ -45,6 +45,7 @@ export default {
         });
     },
 
+    // set img link from import to product object
     setProductImage(data, images) {
       const imgArr = images;
       const results = [];

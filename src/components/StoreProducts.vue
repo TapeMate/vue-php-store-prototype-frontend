@@ -23,13 +23,19 @@
           class="product-select-amount"
           name="select-amount"
           id="select-amount"
+          :disabled="product.product_stock_amount == 0"
         >
           <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
+          <option v-for="n in product.product_stock_amount" :key="n" :value="n">
+            {{ n }}
+          </option>
         </select>
-        <button class="btn-add-to-card">Add to Shopping Card</button>
+        <button
+          :disabled="product.product_stock_amount == 0"
+          class="btn-add-to-card"
+        >
+          Add to Shopping Card
+        </button>
       </div>
     </div>
   </section>
