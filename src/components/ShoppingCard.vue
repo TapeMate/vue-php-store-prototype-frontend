@@ -87,21 +87,34 @@
     <div class="lower-container">
       <div class="selected-products-container">
         <h3>Selected Products will appear here!</h3>
-        <div
-          v-for="(item, index) in testProducts"
-          :key="index"
-          class="product-container"
-        >
-          {{ item }}
+        <div class="product-container">
+          <img
+            class="product-image"
+            src="https://dummyimage.com/100x100/000/fff"
+            alt=""
+          />
+          <div class="info-container">
+            <h5 class="product-name">name</h5>
+            <p class="product-description">description</p>
+          </div>
+          <div class="ctrl-container">
+            <button class="btn-remove">REMOVE</button>
+            <span class="product-amount"
+              >AMOUNT:<span class="count">1</span></span
+            >
+            <span class="product-price">100,- EUR</span>
+          </div>
         </div>
-        <p>TOTAL PRICE</p>
-        <button class="btn-order" type="submit">ORDER NOW</button>
+        <p class="total-price">TOTAL PRICE</p>
+        <button class="btn-order">ORDER NOW</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "ShoppingCard",
   data() {
@@ -116,8 +129,10 @@ export default {
           state: "Bavaria",
         },
       ],
-      testProducts: ["product 1", "product 2"],
     };
+  },
+  computed: {
+    ...mapGetters(["getShoppingCart"]),
   },
 };
 </script>

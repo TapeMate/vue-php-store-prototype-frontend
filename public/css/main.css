@@ -442,7 +442,61 @@ h2 {
   flex-direction: column;
   align-items: center;
 }
-.shopping-card-container .lower-container .selected-products-container p {
+.shopping-card-container .lower-container .selected-products-container .product-container {
+  display: flex;
+  border: 1px solid tomato;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container img {
+  width: 100px;
+  height: 100px;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .info-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 500px;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .info-container .product-name {
+  font-size: 1.7rem;
+  padding: 1rem;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .info-container .product-description {
+  padding-left: 1rem;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  width: 150px;
+  align-items: center;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .btn-remove {
+  width: 100%;
+  padding: 0.5rem;
+  text-align: right;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: tomato;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .product-amount {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .product-amount .count {
+  padding-left: 10px;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .product-price {
+  width: 100%;
+  padding: 0.5rem;
+  font-weight: bold;
+  font-style: italic;
+}
+.shopping-card-container .lower-container .selected-products-container .total-price {
   padding: 1rem;
 }
 .shopping-card-container .lower-container .selected-products-container .btn-order {
