@@ -561,6 +561,10 @@ h2 {
   font-size: 1rem;
   font-weight: bold;
   color: tomato;
+  transition: 0.3s;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .btn-remove:hover {
+  color: rgb(211, 39, 39);
 }
 .shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .product-amount {
   width: 100%;
@@ -591,9 +595,9 @@ h2 {
   text-align: right;
 }
 .shopping-card-container .lower-container .selected-products-container .price-container .total {
-  padding: 1rem;
+  padding: 1rem 2rem;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-style: italic;
   background: #fff;
   color: #333;
@@ -601,20 +605,22 @@ h2 {
   border-right: 10px solid lightgreen;
 }
 .shopping-card-container .lower-container .selected-products-container .price-container .btn-order {
-  width: 300px;
+  width: 200px;
   padding: 1rem;
   margin-right: 25px;
   color: #333;
-  background: lightgreen;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 20px;
   font-size: 1rem;
+  font-weight: bold;
   border: none;
   box-shadow: 4px 4px 10px #333;
   transition: 0.2s;
 }
 .shopping-card-container .lower-container .selected-products-container .price-container .btn-order:hover {
-  background: #bcf5bc;
-  border: 1px solid #333;
-  border-radius: 20px;
+  background: #e8fce8;
+  border: 1px solid lightgreen;
 }
 .shopping-card-container .lower-container .selected-products-container .empty-cart {
   color: rgba(0, 0, 0, 0.5);

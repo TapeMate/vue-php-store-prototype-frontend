@@ -30,7 +30,7 @@ export default {
 
   removeFromCart(state, itemId) {
     state.shoppingCart = state.shoppingCart.filter(
-      (item) => item.id !== itemId
+      (item) => item.product_id !== itemId
     );
   },
 };

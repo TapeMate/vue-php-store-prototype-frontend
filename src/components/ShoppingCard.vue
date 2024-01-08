@@ -104,7 +104,7 @@
             <p class="product-description">{{ item.product_description }}</p>
           </div>
           <div class="ctrl-container">
-            <button class="btn-remove">
+            <button @click="removeItem(item.product_id)" class="btn-remove">
               REMOVE <i class="fa-solid fa-trash"></i>
             </button>
             <span class="product-amount"
@@ -139,7 +139,7 @@
 
 <script>
 import img from "@/assets/img/background3.jpg";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "ShoppingCard",
@@ -165,10 +165,13 @@ export default {
     ...mapGetters(["getShoppingCart"]),
   },
   methods: {
+    ...mapMutations(["removeFromCart"]),
+
     calcTotalProductPrice(price, amount) {
       const result = price * amount;
       return result;
     },
+
     calcTotalPrice() {
       const products = this.getShoppingCart;
       let total = 0;
@@ -177,6 +180,12 @@ export default {
         return total;
       });
       return total;
+    },
+
+    removeItem(id) {
+      console.log(id);
+      this.removeFromCart(id);
+      console.log("remove item.");
     },
   },
 };

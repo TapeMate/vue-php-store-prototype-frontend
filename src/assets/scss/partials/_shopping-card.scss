@@ -192,6 +192,10 @@
             font-size: 1rem;
             font-weight: bold;
             color: $clr-alert-a;
+            transition: 0.3s;
+            &:hover {
+              color: $clr-error;
+            }
           }
 
           .product-amount {
@@ -228,9 +232,9 @@
         text-align: right;
 
         .total {
-          padding: 1rem;
+          padding: 1rem 2rem;
           font-weight: bold;
-          font-size: 1.2rem;
+          font-size: 1.4rem;
           font-style: italic;
           background: $clr-secondary;
           color: $clr-primary;
@@ -238,19 +242,21 @@
           border-right: 10px solid $clr-success;
         }
         .btn-order {
-          width: 300px;
+          width: 200px;
           padding: 1rem;
           margin-right: 25px;
           color: $clr-primary;
-          background: $clr-success;
+          background: $clr-secondary;
+          border: 1px solid $clr-primary;
+          border-radius: 20px;
           font-size: 1rem;
+          font-weight: bold;
           border: none;
           box-shadow: 4px 4px 10px $clr-primary;
           transition: 0.2s;
           &:hover {
-            background: lighten($clr-success, 10%);
-            border: 1px solid $clr-primary;
-            border-radius: 20px;
+            background: lighten($clr-success, 20%);
+            border: 1px solid $clr-success;
           }
         }
       }
