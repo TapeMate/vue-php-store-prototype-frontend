@@ -34,11 +34,11 @@
         li {
           padding: 1rem;
           background: $clr-primary;
-          transition: 0.2s;
+          transition: 0.1s;
           &:hover {
             background: lighten($clr-primary, 20%);
-            border-bottom: 40px solid $clr-success;
-            margin-bottom: -40px;
+            border-bottom: 5px solid $clr-success;
+            margin-bottom: -5px;
 
             > a {
               color: $clr-success;

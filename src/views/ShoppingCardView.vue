@@ -1,5 +1,5 @@
 <template>
-  <h2>SHOPPING CART</h2>
+  <!-- <h2>SHOPPING CART</h2> -->
   <ShoppingCard :cartItems="getShoppingCart" />
 </template>
 

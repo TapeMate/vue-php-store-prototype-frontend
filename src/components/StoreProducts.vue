@@ -63,7 +63,6 @@
           :disabled="product.product_stock_amount == 0"
           v-model="selectedAmount[product.product_id]"
         >
-          <option value="0">0</option>
           <option v-for="n in product.product_stock_amount" :key="n" :value="n">
             {{ n }}
           </option>

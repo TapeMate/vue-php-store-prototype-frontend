@@ -22,15 +22,17 @@ h2 {
 
   .product-container {
     width: max-content;
-    max-width: 325px;
+    max-width: 320px;
     border-radius: 10px;
+    border-top-left-radius: 160px;
+    border-top-right-radius: 160px;
     margin: 0 2rem;
     box-shadow: 2px 2px 5px lighten($clr-primary, 40%);
 
     background: $clr-secondary;
 
     .product-image-container {
-      height: 325px;
+      height: 320px;
       width: 100%;
       img {
         height: 100%;

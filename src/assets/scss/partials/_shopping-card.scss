@@ -11,13 +11,17 @@
     justify-content: center;
     flex-direction: row;
     padding: 2rem;
-    background: darken($clr-secondary, 5%);
+    background: rgba($color: #fff, $alpha: 0.8);
 
     .delivery-container {
+      padding: 0 2rem;
+      color: $clr-primary;
+      border-left: 5px solid $clr-accent-a;
+
       h5 {
-        padding: 1rem 0.5rem;
+        padding: 1rem;
         font-size: 1.2rem;
-        text-align: left;
+        text-align: center;
       }
 
       .input-container {
@@ -27,23 +31,78 @@
 
         label {
           width: 150px;
-          text-align: left;
+          text-align: right;
           padding: 0.5rem;
         }
 
         input {
+          width: 200px;
           padding: 0.5rem;
-          background: lighten($clr-success, 30%);
+          background: $clr-secondary;
+          color: $clr-primary;
           border: 1px solid $clr-primary;
+          font-size: 1rem;
+          font-style: italic;
         }
       }
     }
 
+    /* Hide the default radio button */
+    .payment-delivery-container input[type="radio"] {
+      display: none;
+    }
+
+    /* Custom radio button */
+    .payment-delivery-container label {
+      padding-left: 35px;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 15px; /* Spacing between radio buttons */
+    }
+
+    /* Circle indicator for radio button */
+    .payment-delivery-container label:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border: 1px solid $clr-primary;
+      border-radius: 50%;
+      background-color: $clr-secondary;
+    }
+
+    /* Style for when the radio button is selected */
+    .payment-delivery-container input[type="radio"]:checked + label:after {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 37%;
+      transform: translateY(-50%) rotate(45deg);
+      width: 7px;
+      height: 17px;
+      border-bottom: 5px solid $clr-accent-a;
+      border-right: 5px solid $clr-accent-a;
+    }
+
     .payment-delivery-container {
+      width: 300px;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       flex-direction: column;
-      padding: 1rem;
+      padding-left: 2rem;
+      margin-left: 5rem;
+      border-left: 5px solid $clr-accent-a;
+      color: $clr-primary;
+
+      h5 {
+        font-size: 1.2rem;
+        text-align: left;
+        padding: 1rem 0;
+      }
 
       .input-container {
         display: flex;
@@ -52,37 +111,62 @@
         input {
           margin: 0.5rem;
         }
+        input:checked + label {
+          font-weight: bold;
+        }
 
         label {
           padding: 0.5rem;
+          padding-left: 35px;
         }
       }
     }
   }
 
   .lower-container {
+    // margin-bottom: 50px;
     padding: 2rem;
-    border-top: 1px solid $clr-primary;
+    > img {
+      z-index: -99;
+      position: fixed;
+      top: 0;
+      left: 0;
+      object-fit: contain;
+    }
+
     .selected-products-container {
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
 
+      > h5 {
+        color: rgba($color: #fff, $alpha: 0.6);
+        -webkit-text-stroke: 1px rgba($color: #000000, $alpha: 0.3);
+        font-size: 4rem;
+      }
+
       .product-container {
+        background: $clr-secondary;
         display: flex;
-        border: 1px solid tomato;
+        // padding: 0.5rem;
+        margin-bottom: 20px;
+        border-top-left-radius: 75px;
+        border-bottom-left-radius: 75px;
+        border-right: 10px solid $clr-success;
+        box-shadow: 4px 4px 10px $clr-primary;
 
         img {
-          width: 100px;
-          height: 100px;
+          width: 150px;
+          height: 150px;
+          border-radius: 100%;
         }
 
         .info-container {
           display: flex;
           flex-direction: column;
           text-align: left;
-          width: 500px;
+          width: 600px;
 
           .product-name {
             font-size: 1.7rem;
@@ -123,26 +207,58 @@
             }
           }
 
-          .product-price {
+          .product-price-unit,
+          .product-price-total {
             width: 100%;
             padding: 0.5rem;
-            font-weight: bold;
             font-style: italic;
+          }
+          .product-price-total {
+            font-weight: bold;
           }
         }
       }
 
-      .total-price {
-        padding: 1rem;
-      }
+      .price-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 910px;
+        height: 80px;
+        padding: 0.6rem;
+        color: $clr-primary;
+        // background: rgba($color: #fff, $alpha: 0.7);
+        // background: $clr-secondary;
+        // border-bottom: 5px solid $clr-success;
+        // border-right: 10px solid $clr-success;
+        // border-top-left-radius: 40px;
+        // border-bottom-left-radius: 40px;
+        // box-shadow: 4px 4px 10px $clr-primary;
+        text-align: right;
 
-      .btn-order {
-        margin-top: 20px;
-        width: max-content;
-        padding: 1rem;
-        font-weight: bold;
-        background: $clr-success;
-        border: none;
+        .total {
+          padding: 1rem;
+          font-weight: bold;
+          font-size: 1.2rem;
+          font-style: italic;
+          background: $clr-secondary;
+          color: $clr-primary;
+          box-shadow: 4px 4px 10px $clr-primary;
+          border-right: 10px solid $clr-success;
+        }
+        .btn-order {
+          // height: 50px;
+          width: 300px;
+          padding: 1rem;
+          margin-right: 25px;
+          // font-weight: bold;
+          color: $clr-primary;
+          background: $clr-success;
+          font-size: 1rem;
+          border: none;
+          border-radius: 10px;
+          box-shadow: 4px 4px 10px $clr-primary;
+        }
       }
     }
   }

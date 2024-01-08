@@ -2,7 +2,7 @@
   <div class="shopping-card-container">
     <div class="upper-container">
       <div class="delivery-container">
-        <h5>Enter Delivery address here:</h5>
+        <h5>DELIVERY ADDRESS</h5>
         <div class="input-container">
           <label for="firstname">Firstname:</label>
           <input
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="payment-delivery-container">
-        <h5>Select Payment Method:</h5>
+        <h5>PAYMENT METHOD</h5>
         <div class="input-container">
           <input id="banktransfer" type="radio" name="payment" />
           <label for="banktransfer">Bank Transfer</label>
@@ -72,21 +72,23 @@
           <input id="creditcard" type="radio" name="payment" />
           <label for="creditcard">Credit Card</label>
         </div>
-        <h5>Select Delivery Type:</h5>
+
+        <h5>DELIVERY TYPE</h5>
         <div class="input-container">
           <input id="delivery-standard" type="radio" name="delivery" />
-          <label for="delivery-standard">Bank Transfer</label>
+          <label for="delivery-standard">Standard Shipping</label>
         </div>
         <div class="input-container">
           <input id="delivery-express" type="radio" name="delivery" />
-          <label for="delivery-express">Paypal</label>
+          <label for="delivery-express">Express Shipping</label>
         </div>
       </div>
     </div>
 
     <div class="lower-container">
+      <img :src="background" alt="" />
       <div class="selected-products-container">
-        <h3>Selected Products will appear here!</h3>
+        <h5>ORDER SUMMARY</h5>
         <div
           v-for="(item, index) in cartItems"
           :key="index"
@@ -94,7 +96,7 @@
         >
           <img
             class="product-image"
-            :src="item.product_image"
+            :src="item.product_img"
             alt="Product Image"
           />
           <div class="info-container">
@@ -110,17 +112,32 @@
                 item.product_order_amount
               }}</span></span
             >
-            <span class="product-price">{{ item.product_price }},- EUR</span>
+            <span class="product-price-unit"
+              >{{ item.product_price }},- EUR</span
+            >
+            <span class="product-price-total"
+              >{{
+                calcTotalProductPrice(
+                  item.product_price,
+                  item.product_order_amount
+                )
+              }},- EUR</span
+            >
           </div>
         </div>
-        <p class="total-price">TOTAL PRICE</p>
-        <button class="btn-order">ORDER NOW</button>
+        <div class="price-container">
+          <button class="btn-order">Order now!</button>
+          <span class="total">{{ calcTotalPrice() }},- EUR</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import img from "@/assets/img/background3.jpg";
+import { mapGetters } from "vuex";
+
 export default {
   name: "ShoppingCard",
   props: {
@@ -128,6 +145,7 @@ export default {
   },
   data() {
     return {
+      background: img,
       dummyAddressData: [
         {
           firstname: "Tony",
@@ -139,6 +157,24 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    ...mapGetters(["getShoppingCart"]),
+  },
+  methods: {
+    calcTotalProductPrice(price, amount) {
+      const result = price * amount;
+      return result;
+    },
+    calcTotalPrice() {
+      const products = this.getShoppingCart;
+      let total = 0;
+      products.forEach((product) => {
+        total = total + product.product_price * product.product_order_amount;
+        return total;
+      });
+      return total;
+    },
   },
 };
 </script>
