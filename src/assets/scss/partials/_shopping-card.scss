@@ -1,5 +1,26 @@
 @use "../abstracts/colors" as *;
 
+.order-success-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  background: rgba($color: #000000, $alpha: 0.7);
+  backdrop-filter: blur(5px);
+
+  .success-message {
+    color: $clr-success;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    text-align: center;
+  }
+}
+
 .shopping-card-container {
   display: flex;
   justify-content: center;

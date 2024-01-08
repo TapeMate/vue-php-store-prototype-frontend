@@ -1,4 +1,12 @@
 <template>
+  <div v-if="isOrderPlaced === true" class="order-success-message">
+    <div class="success-message">
+      Thank you for your purchase!
+      <br />
+      <br />
+      Your order has been successfully placed.
+    </div>
+  </div>
   <div class="shopping-card-container">
     <div class="upper-container">
       <div class="delivery-container">
@@ -126,7 +134,7 @@
           </div>
         </div>
         <div v-if="getShoppingCart.length > 0" class="price-container">
-          <button class="btn-order">Order now!</button>
+          <button @click="sendOrder" class="btn-order">Order now!</button>
           <span class="total">{{ calcTotalPrice() }},- EUR</span>
         </div>
         <p v-if="getShoppingCart == 0" class="empty-cart">
@@ -148,6 +156,7 @@ export default {
   },
   data() {
     return {
+      isOrderPlaced: false, // only dummy replace later
       background: img,
       dummyAddressData: [
         {
@@ -165,7 +174,7 @@ export default {
     ...mapGetters(["getShoppingCart"]),
   },
   methods: {
-    ...mapMutations(["removeFromCart"]),
+    ...mapMutations(["removeFromCart", "resetCart"]),
 
     calcTotalProductPrice(price, amount) {
       const result = price * amount;
@@ -186,6 +195,19 @@ export default {
       console.log(id);
       this.removeFromCart(id);
       console.log("remove item.");
+    },
+
+    sendOrder() {
+      this.isOrderPlaced = true;
+      this.resetCart();
+      this.reload();
+    },
+
+    reload() {
+      console.log("Reloading the page");
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     },
   },
 };

@@ -33,4 +33,9 @@ export default {
       (item) => item.product_id !== itemId
     );
   },
+
+  resetCart(state) {
+    state.shoppingCart = [];
+    localStorage.setItem("shoppingCart", JSON.stringify([]));
+  },
 };
