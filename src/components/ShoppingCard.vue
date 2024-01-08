@@ -9,8 +9,9 @@
   </div>
   <div class="shopping-card-container">
     <div class="upper-container">
-      <OrderDelivery :addressData="dummyAddressData" />
-      <OrderPayment />
+      <OrderDelivery v-if="isloginSuccessful" :addressData="dummyAddressData" />
+      <OrderPayment v-if="isloginSuccessful" />
+      <LoginForm v-if="!isloginSuccessful" />
     </div>
     <div class="lower-container">
       <img :src="background" alt="" />
@@ -69,12 +70,14 @@ import img from "@/assets/img/background3.jpg";
 import { mapGetters, mapMutations } from "vuex";
 import OrderDelivery from "@/components/OrderDelivery.vue";
 import OrderPayment from "@/components/OrderPayment.vue";
+import LoginForm from "@/components/LoginForm.vue";
 
 export default {
   name: "ShoppingCard",
   components: {
     OrderDelivery,
     OrderPayment,
+    LoginForm,
   },
   props: {
     cartItems: Array,
@@ -96,7 +99,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getShoppingCart"]),
+    ...mapGetters(["getShoppingCart", "isloginSuccessful"]),
   },
   methods: {
     ...mapMutations(["removeFromCart", "resetCart"]),
