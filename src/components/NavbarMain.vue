@@ -59,16 +59,9 @@ export default {
       this.reload();
     },
     getCartCount() {
-      if (!this.isloginSuccessful) {
-        console.log("no user is logged in.");
-        return;
-      } else {
-        // const cartCount = this.getShoppingCart.length;
-        // console.log(cartCount);
-        console.log(this.getShoppingCart.length);
-        this.cartCount = this.getShoppingCart.length;
-        return;
-      }
+      console.log(this.getShoppingCart.length);
+      this.cartCount = this.getShoppingCart.length;
+      return;
     },
 
     reload() {
