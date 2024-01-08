@@ -18,10 +18,14 @@
         </div>
       </section>
     </div>
+
     <div class="section-container">
       <section>
         <div class="section-signup-container">
           <SignupForm />
+        </div>
+        <div class="separator">
+          <p>OR</p>
         </div>
         <div class="section-login-container">
           <LoginForm />

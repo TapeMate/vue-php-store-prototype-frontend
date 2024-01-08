@@ -204,6 +204,11 @@
   border-left: 5px solid #66cdf0;
   padding-left: 10px;
 }
+.home-section-wrapper .section-container:nth-of-type(2) section .separator {
+  font-size: 4rem;
+  font-weight: 900;
+  padding-right: 100px;
+}
 
 .index-signup {
   margin-right: 100px;
