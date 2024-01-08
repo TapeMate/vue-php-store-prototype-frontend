@@ -194,7 +194,7 @@ export default {
     removeItem(id) {
       console.log(id);
       this.removeFromCart(id);
-      console.log("remove item.");
+      this.quickReload();
     },
 
     sendOrder() {
@@ -204,10 +204,13 @@ export default {
     },
 
     reload() {
-      console.log("Reloading the page");
       setTimeout(() => {
         window.location.reload();
       }, 3000);
+    },
+
+    quickReload() {
+      window.location.reload();
     },
   },
 };
