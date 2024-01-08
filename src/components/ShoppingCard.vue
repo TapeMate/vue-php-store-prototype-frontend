@@ -9,91 +9,9 @@
   </div>
   <div class="shopping-card-container">
     <div class="upper-container">
-      <!-- <div class="delivery-container">
-        <h5>DELIVERY ADDRESS</h5>
-        <div class="input-container">
-          <label for="firstname">Firstname:</label>
-          <input
-            name="firstname"
-            type="text"
-            v-model="dummyAddressData[0].firstname"
-            disabled
-          />
-        </div>
-        <div class="input-container">
-          <label for="lastname">Lastname:</label>
-          <input
-            name="lastname"
-            type="text"
-            v-model="dummyAddressData[0].lastname"
-            disabled
-          />
-        </div>
-        <div class="input-container">
-          <label for="street">Street:</label>
-          <input
-            name="street"
-            type="text"
-            v-model="dummyAddressData[0].street"
-            disabled
-          />
-        </div>
-        <div class="input-container">
-          <label for="housenumber">Housenumber:</label>
-          <input
-            name="housenumber"
-            type="text"
-            v-model="dummyAddressData[0].houseNumber"
-            disabled
-          />
-        </div>
-        <div class="input-container">
-          <label for="areacode">Area Code:</label>
-          <input
-            name="areacode"
-            type="text"
-            v-model="dummyAddressData[0].areaCode"
-            disabled
-          />
-        </div>
-        <div class="input-container">
-          <label for="state">State:</label>
-          <input
-            name="state"
-            type="text"
-            v-model="dummyAddressData[0].state"
-            disabled
-          />
-        </div>
-      </div> -->
       <OrderDelivery :addressData="dummyAddressData" />
-      <div class="payment-delivery-container">
-        <h5>PAYMENT METHOD</h5>
-        <div class="input-container">
-          <input id="banktransfer" type="radio" name="payment" />
-          <label for="banktransfer">Bank Transfer</label>
-        </div>
-        <div class="input-container">
-          <input id="paypal" type="radio" name="payment" />
-          <label for="paypal">Paypal</label>
-        </div>
-        <div class="input-container">
-          <input id="creditcard" type="radio" name="payment" />
-          <label for="creditcard">Credit Card</label>
-        </div>
-
-        <h5>DELIVERY TYPE</h5>
-        <div class="input-container">
-          <input id="delivery-standard" type="radio" name="delivery" />
-          <label for="delivery-standard">Standard Shipping</label>
-        </div>
-        <div class="input-container">
-          <input id="delivery-express" type="radio" name="delivery" />
-          <label for="delivery-express">Express Shipping</label>
-        </div>
-      </div>
+      <OrderPayment />
     </div>
-
     <div class="lower-container">
       <img :src="background" alt="" />
       <div class="selected-products-container">
@@ -150,11 +68,13 @@
 import img from "@/assets/img/background3.jpg";
 import { mapGetters, mapMutations } from "vuex";
 import OrderDelivery from "@/components/OrderDelivery.vue";
+import OrderPayment from "@/components/OrderPayment.vue";
 
 export default {
   name: "ShoppingCard",
   components: {
     OrderDelivery,
+    OrderPayment,
   },
   props: {
     cartItems: Array,
