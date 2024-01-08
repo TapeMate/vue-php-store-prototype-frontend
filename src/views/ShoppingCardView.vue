@@ -1,5 +1,4 @@
 <template>
-  <!-- <h2>SHOPPING CART</h2> -->
   <ShoppingCard :cartItems="getShoppingCart" />
 </template>
 
@@ -17,9 +16,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-h2 {
-  padding: 0.5rem;
-}
-</style>

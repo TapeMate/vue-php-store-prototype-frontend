@@ -125,10 +125,13 @@
             >
           </div>
         </div>
-        <div class="price-container">
+        <div v-if="getShoppingCart.length > 0" class="price-container">
           <button class="btn-order">Order now!</button>
           <span class="total">{{ calcTotalPrice() }},- EUR</span>
         </div>
+        <p v-if="getShoppingCart == 0" class="empty-cart">
+          There are no items on your shopping cart.
+        </p>
       </div>
     </div>
   </div>

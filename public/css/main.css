@@ -65,6 +65,7 @@
 .navbar-wrapper .navbar-main .navbar-secondary-container .username-intro .username {
   color: lightgreen;
   font-weight: bold;
+  text-transform: uppercase;
 }
 .navbar-wrapper .navbar-main .navbar-secondary-container a {
   color: #fff;
@@ -607,8 +608,20 @@ h2 {
   background: lightgreen;
   font-size: 1rem;
   border: none;
-  border-radius: 10px;
   box-shadow: 4px 4px 10px #333;
+  transition: 0.2s;
+}
+.shopping-card-container .lower-container .selected-products-container .price-container .btn-order:hover {
+  background: #bcf5bc;
+  border: 1px solid #333;
+  border-radius: 20px;
+}
+.shopping-card-container .lower-container .selected-products-container .empty-cart {
+  color: rgba(0, 0, 0, 0.5);
+  font-style: italic;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 2rem;
 }
 
 * {
