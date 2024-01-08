@@ -87,22 +87,30 @@
     <div class="lower-container">
       <div class="selected-products-container">
         <h3>Selected Products will appear here!</h3>
-        <div class="product-container">
+        <div
+          v-for="(item, index) in cartItems"
+          :key="index"
+          class="product-container"
+        >
           <img
             class="product-image"
-            src="https://dummyimage.com/100x100/000/fff"
-            alt=""
+            :src="item.product_image"
+            alt="Product Image"
           />
           <div class="info-container">
-            <h5 class="product-name">name</h5>
-            <p class="product-description">description</p>
+            <h5 class="product-name">{{ item.product_name }}</h5>
+            <p class="product-description">{{ item.product_description }}</p>
           </div>
           <div class="ctrl-container">
-            <button class="btn-remove">REMOVE</button>
+            <button class="btn-remove">
+              REMOVE <i class="fa-solid fa-trash"></i>
+            </button>
             <span class="product-amount"
-              >AMOUNT:<span class="count">1</span></span
+              >AMOUNT:<span class="count">{{
+                item.product_order_amount
+              }}</span></span
             >
-            <span class="product-price">100,- EUR</span>
+            <span class="product-price">{{ item.product_price }},- EUR</span>
           </div>
         </div>
         <p class="total-price">TOTAL PRICE</p>
@@ -113,10 +121,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "ShoppingCard",
+  props: {
+    cartItems: Array,
+  },
   data() {
     return {
       dummyAddressData: [
@@ -130,9 +139,6 @@ export default {
         },
       ],
     };
-  },
-  computed: {
-    ...mapGetters(["getShoppingCart"]),
   },
 };
 </script>
