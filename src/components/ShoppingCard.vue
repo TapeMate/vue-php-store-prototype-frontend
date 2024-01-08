@@ -9,7 +9,7 @@
   </div>
   <div class="shopping-card-container">
     <div class="upper-container">
-      <div class="delivery-container">
+      <!-- <div class="delivery-container">
         <h5>DELIVERY ADDRESS</h5>
         <div class="input-container">
           <label for="firstname">Firstname:</label>
@@ -65,7 +65,8 @@
             disabled
           />
         </div>
-      </div>
+      </div> -->
+      <OrderDelivery :addressData="dummyAddressData" />
       <div class="payment-delivery-container">
         <h5>PAYMENT METHOD</h5>
         <div class="input-container">
@@ -148,9 +149,13 @@
 <script>
 import img from "@/assets/img/background3.jpg";
 import { mapGetters, mapMutations } from "vuex";
+import OrderDelivery from "@/components/OrderDelivery.vue";
 
 export default {
   name: "ShoppingCard",
+  components: {
+    OrderDelivery,
+  },
   props: {
     cartItems: Array,
   },

@@ -43,6 +43,7 @@ FRONTEND:
 
 - refactor code
 - check data in frontend realy all i need or to much
+- components a little bit more
 
 BACKEND:
 
