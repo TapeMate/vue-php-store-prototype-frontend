@@ -30,7 +30,7 @@
           >
           <span
             v-if="
-              product.product_stock_amount >= 4 &&
+              product.product_stock_amount >= 1 &&
               product.product_stock_amount < 10
             "
             class="stock-amount"
