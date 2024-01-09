@@ -66,4 +66,14 @@ export default {
     state.shoppingCart = [];
     localStorage.setItem("shoppingCart", JSON.stringify([]));
   },
+
+  updatePaymentMethod(state, method) {
+    (state.paymentMethod = method),
+      localStorage.setItem("paymentMethod", method);
+  },
+
+  updateDeliveryMethod(state, method) {
+    (state.deliveryMethod = method),
+      localStorage.setItem("deliveryMethod", method);
+  },
 };

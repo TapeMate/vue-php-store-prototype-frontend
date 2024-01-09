@@ -120,6 +120,7 @@ export default {
       ],
     };
   },
+
   computed: {
     ...mapGetters(["getShoppingCart", "isloginSuccessful"]),
   },
