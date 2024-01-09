@@ -71,7 +71,7 @@
         </div>
         <div v-if="getShoppingCart.length > 0" class="total-price-container">
           <button
-            :disabled="!isloginSuccessful"
+            :disabled="!isOrderEnabled"
             @click="sendOrder"
             class="btn-order"
           >
@@ -106,6 +106,8 @@ export default {
   },
   data() {
     return {
+      isOrderEnabled: false,
+
       isOrderPlaced: false,
       background: img,
       dummyAddressData: [
@@ -121,11 +123,44 @@ export default {
     };
   },
 
+  mounted() {
+    this.enableOrder();
+    console.log(this.isOrderEnabled);
+  },
+
   computed: {
-    ...mapGetters(["getShoppingCart", "isloginSuccessful"]),
+    ...mapGetters([
+      "getShoppingCart",
+      "isloginSuccessful",
+      "getPaymentMethod",
+      "getDeliveryMethod",
+    ]),
   },
   methods: {
-    ...mapMutations(["removeFromCart", "resetCart", "updateCartAmount"]),
+    ...mapMutations([
+      "removeFromCart",
+      "resetCart",
+      "updateCartAmount",
+      "updatePaymentMethod",
+      "unsetPaymentMethod",
+      "unsetDeliveryMethod",
+      "updateDeliveryMethod",
+    ]),
+
+    enableOrder() {
+      console.log(this.getDeliveryMethod);
+      console.log(this.getPaymentMethod);
+
+      if (
+        this.getDeliveryMethod !== "null" &&
+        this.getPaymentMethod !== "null"
+      ) {
+        console.log("success.");
+        this.isOrderEnabled = true;
+      } else {
+        this.isOrderEnabled = false;
+      }
+    },
 
     updateAmountOnChange(item) {
       const input = document.querySelector("#order-amount" + item.product_id);
@@ -161,6 +196,8 @@ export default {
     sendOrder() {
       this.isOrderPlaced = true;
       this.resetCart();
+      this.unsetDeliveryMethod();
+      this.unsetPaymentMethod();
       this.reload();
     },
 
@@ -172,6 +209,15 @@ export default {
 
     quickReload() {
       window.location.reload();
+    },
+  },
+
+  watch: {
+    getDeliveryMethod() {
+      this.enableOrder();
+    },
+    getPaymentMethod() {
+      this.enableOrder();
     },
   },
 };

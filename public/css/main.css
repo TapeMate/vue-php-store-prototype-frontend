@@ -718,6 +718,7 @@ h2 {
   color: #b3b3b3;
   font-weight: 500;
   background: rgba(255, 255, 255, 0.5);
+  border: none;
 }
 .shopping-card-container .lower-container .selected-products-container .total-price-container .btn-order:disabled:hover {
   color: #b3b3b3;

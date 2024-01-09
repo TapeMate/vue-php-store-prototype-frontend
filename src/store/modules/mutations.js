@@ -72,8 +72,16 @@ export default {
       localStorage.setItem("paymentMethod", method);
   },
 
+  unsetPaymentMethod(state) {
+    (state.paymentMethod = null), localStorage.setItem("paymentMethod", null);
+  },
+
   updateDeliveryMethod(state, method) {
     (state.deliveryMethod = method),
       localStorage.setItem("deliveryMethod", method);
+  },
+
+  unsetDeliveryMethod(state) {
+    (state.deliveryMethod = null), localStorage.setItem("deliveryMethod", null);
   },
 };

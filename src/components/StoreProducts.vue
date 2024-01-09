@@ -134,7 +134,6 @@ export default {
     },
 
     reload() {
-      console.log("Reloading the page");
       window.location.reload();
     },
   },

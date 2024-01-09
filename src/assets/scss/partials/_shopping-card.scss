@@ -334,6 +334,7 @@
             color: lighten($clr-primary, 50%);
             font-weight: 500;
             background: rgba($color: #fff, $alpha: 0.5);
+            border: none;
             &:hover {
               color: lighten($clr-primary, 50%);
               font-weight: 500;

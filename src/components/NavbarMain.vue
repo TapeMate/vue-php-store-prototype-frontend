@@ -51,11 +51,19 @@ export default {
     ...mapGetters(["isloginSuccessful", "getUser", "getShoppingCart"]),
   },
   methods: {
-    ...mapMutations(["userLogout", "unsetUser", "unsetUserId"]),
+    ...mapMutations([
+      "userLogout",
+      "unsetUser",
+      "unsetUserId",
+      "unsetPaymentMethod",
+      "unsetDeliveryMethod",
+    ]),
     logoutUser() {
       this.userLogout();
       this.unsetUser();
       this.unsetUserId();
+      this.unsetDeliveryMethod();
+      this.unsetPaymentMethod();
       this.reload();
     },
     getCartCount() {

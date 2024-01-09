@@ -7,6 +7,7 @@
         id="banktransfer"
         type="radio"
         name="payment"
+        :checked="currentPaymentMethod == 'banktransfer'"
       />
       <label for="banktransfer">Bank Transfer</label>
     </div>
@@ -16,6 +17,7 @@
         id="paypal"
         type="radio"
         name="payment"
+        :checked="currentPaymentMethod == 'paypal'"
       />
       <label for="paypal">Paypal</label>
     </div>
@@ -25,6 +27,7 @@
         id="creditcard"
         type="radio"
         name="payment"
+        :checked="currentPaymentMethod == 'creditcard'"
       />
       <label for="creditcard">Credit Card</label>
     </div>
@@ -36,6 +39,7 @@
         id="standard"
         type="radio"
         name="delivery"
+        :checked="currentDeliveryMethod == 'standard'"
       />
       <label for="standard">Standard Shipping</label>
     </div>
@@ -45,6 +49,7 @@
         id="express"
         type="radio"
         name="delivery"
+        :checked="currentDeliveryMethod == 'express'"
       />
       <label for="express">Express Shipping</label>
     </div>
@@ -52,10 +57,23 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "OrderPayment",
+  data() {
+    return {
+      currentPaymentMethod: "",
+      currentDeliveryMethod: "",
+    };
+  },
+  mounted() {
+    this.currentPaymentMethod = this.getPaymentMethod;
+    this.currentDeliveryMethod = this.getDeliveryMethod;
+  },
+  computed: {
+    ...mapGetters(["getPaymentMethod", "getDeliveryMethod"]),
+  },
   methods: {
     ...mapMutations(["updatePaymentMethod", "updateDeliveryMethod"]),
 
