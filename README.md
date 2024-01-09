@@ -48,6 +48,9 @@ FRONTEND:
   -> new bar at top with hearth icon
   -> directly store into db
 
+  -> login message to welcome user
+  -> if no items in cart dont display delivery settings
+
 BACKEND:
 
 - store local cart into order database
