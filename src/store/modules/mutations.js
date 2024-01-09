@@ -53,8 +53,6 @@ export default {
       let decrement = item.product_order_amount - newAmount;
       state.shoppingCart[index].product_order_amount =
         state.shoppingCart[index].product_order_amount - decrement;
-    } else {
-      return;
     }
   },
 

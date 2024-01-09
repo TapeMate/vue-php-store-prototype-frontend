@@ -37,8 +37,6 @@ FRONTEND:
 - not in signup form
 - login success message
 - make delivery adress changeable
-- make amount on cart items changeable depending on stock amount
-- display stock amount in shopping cart
 - payment method and delivery type has to be checked before order now btn is enabled
 
 - refactor code

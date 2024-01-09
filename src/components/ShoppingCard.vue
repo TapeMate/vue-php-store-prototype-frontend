@@ -127,7 +127,6 @@ export default {
       const input = document.querySelector("#order-amount" + item.product_id);
       const newAmount = Number(input.value);
       if (newAmount > item.product_order_amount) {
-        console.log("stock amount exceeded.");
         input.value = item.product_stock_amount;
         return;
       }
