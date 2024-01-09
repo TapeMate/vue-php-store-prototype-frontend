@@ -25,7 +25,7 @@ export default {
   },
 
   addToCart(state, item) {
-    let index = state.shoppingCart.findIndex(
+    const index = state.shoppingCart.findIndex(
       (el) => el.product_id == item.product_id
     );
 
@@ -41,7 +41,7 @@ export default {
   changeCartAmount(state, payload) {
     const item = payload.item;
     const newAmount = payload.amount;
-    let index = state.shoppingCart.findIndex(
+    const index = state.shoppingCart.findIndex(
       (el) => el.product_id == item.product_id
     );
 
