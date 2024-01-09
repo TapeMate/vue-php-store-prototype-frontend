@@ -59,10 +59,10 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding-right: 1rem;
+      // padding-right: 1rem;
       background: $clr-primary;
       border: none;
-      font-size: 1.2rem;
+      font-size: 1rem;
 
       .username-intro {
         font-size: 1.2rem;
@@ -75,54 +75,88 @@
           text-transform: uppercase;
         }
       }
-      a {
-        color: $clr-secondary;
-        text-decoration: none;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.2s;
-        padding: 0.4rem;
-        &:hover {
-          border-bottom: 1px solid $clr-success;
+      .navbar-secondary-item {
+        padding: 0.5rem 1rem;
+        .card-link,
+        .wish-link {
+          position: relative;
+          width: 80px;
+          border-left: 1px solid darken($clr-secondary, 60%);
+          color: $clr-secondary;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          transition: 0.2s;
+          padding: 0.4rem;
+
           i {
+            position: absolute;
+            left: 40px;
+            font-size: 1.2rem;
+            // margin-left: 10px;
+            transition: 0.2s;
+          }
+          .card-count-zero,
+          .wish-count-zero {
+            color: darken($clr-secondary, 40%);
+            margin-left: 10px;
+            font-weight: 300;
+            font-size: 1.4rem;
+          }
+          .card-count,
+          .wish-count {
+            // color: $clr-success;
+            margin-left: 10px;
+            font-weight: 300;
+            font-size: 1.5rem;
+            font-weight: bold;
+          }
+          .card-count {
             color: $clr-success;
-            font-size: 1.3rem;
+          }
+          .wish-count {
+            color: $clr-alert-a;
           }
         }
 
-        i {
-          font-size: 1.2rem;
-          margin-left: 10px;
-          transition: 0.2s;
+        .card-link {
+          &:hover {
+            border-bottom: 3px solid $clr-success;
+            margin-bottom: -3px;
+            i {
+              color: $clr-success;
+              // font-size: 1.3rem;
+            }
+          }
         }
-        .card-count-zero {
-          color: darken($clr-secondary, 40%);
-          margin-left: 10px;
-          font-weight: 300;
-          font-size: 2rem;
-        }
-        .card-count {
-          color: $clr-success;
-          margin-left: 10px;
-          font-weight: 300;
-          font-size: 2rem;
-          font-weight: bold;
+
+        .wish-link {
+          &:hover {
+            border-bottom: 3px solid $clr-alert-a;
+            margin-bottom: -3px;
+            i {
+              color: $clr-alert-a;
+              // font-size: 1.3rem;
+            }
+          }
         }
       }
 
       .btn-logout {
-        padding: 0.5rem;
-        font-size: 1.5rem;
-        margin-left: 100px;
+        padding: 0.5rem 1rem;
+        margin-left: 50px;
+        font-size: 1.8rem;
         color: $clr-secondary;
-        background: $clr-primary;
+        background: lighten($clr-primary, 10%);
         text-align: center;
-        border: none;
+        border: 1px solid darken($clr-secondary, 50%);
+        border-radius: 10px;
+        // border-left: 1px solid darken($clr-secondary, 60%);
         transition: 0.3s;
         &:hover {
-          color: $clr-success;
+          color: $clr-alert-a;
         }
       }
     }

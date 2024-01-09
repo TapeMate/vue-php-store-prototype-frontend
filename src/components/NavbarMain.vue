@@ -16,17 +16,34 @@
         <span class="username-intro" v-if="isloginSuccessful"
           >Welcome, <span class="username">{{ getUser }}</span></span
         >
-        <router-link to="/card"
-          >CART
-          <span v-if="cartCount === 0" class="card-count-zero">{{
-            cartCount
-          }}</span>
-          <span v-if="cartCount > 0" class="card-count">{{ cartCount }}</span>
-          <i class="fa-sharp fa-solid fa-cart-shopping"></i>
-        </router-link>
-        <button class="btn-logout" @click="logoutUser" v-if="isloginSuccessful">
-          <i class="fa-solid fa-right-from-bracket"></i>
-        </button>
+
+        <div class="navbar-secondary-item">
+          <router-link class="card-link" to="/card">
+            <span v-if="cartCount === 0" class="card-count-zero">{{
+              cartCount
+            }}</span>
+            <span v-if="cartCount > 0" class="card-count">{{ cartCount }}</span>
+            <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+          </router-link>
+        </div>
+        <div class="navbar-secondary-item">
+          <router-link class="wish-link" to="/wish">
+            <span v-if="cartCount === 0" class="wish-count-zero">{{
+              cartCount
+            }}</span>
+            <span v-if="cartCount > 0" class="wish-count">{{ cartCount }}</span>
+            <i class="fa-solid fa-heart"></i>
+          </router-link>
+        </div>
+        <div class="navbar-secondary-item">
+          <button
+            class="btn-logout"
+            @click="logoutUser"
+            v-if="isloginSuccessful"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
       </div>
     </nav>
   </div>

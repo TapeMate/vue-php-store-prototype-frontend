@@ -51,6 +51,10 @@ FRONTEND:
   -> login message to welcome user
   -> if no items in cart dont display delivery settings
 
+TYPO:
+
+- cart / card check
+
 BACKEND:
 
 - store local cart into order database

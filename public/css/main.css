@@ -51,10 +51,9 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 1rem;
   background: #333;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .navbar-wrapper .navbar-main .navbar-secondary-container .username-intro {
   font-size: 1.2rem;
@@ -67,52 +66,82 @@
   font-weight: bold;
   text-transform: uppercase;
 }
-.navbar-wrapper .navbar-main .navbar-secondary-container a {
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item {
+  padding: 0.5rem 1rem;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link {
+  position: relative;
+  width: 80px;
+  border-left: 1px solid #666666;
   color: #fff;
   text-decoration: none;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   transition: 0.2s;
   padding: 0.4rem;
 }
-.navbar-wrapper .navbar-main .navbar-secondary-container a:hover {
-  border-bottom: 1px solid lightgreen;
-}
-.navbar-wrapper .navbar-main .navbar-secondary-container a:hover i {
-  color: lightgreen;
-  font-size: 1.3rem;
-}
-.navbar-wrapper .navbar-main .navbar-secondary-container a i {
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link i,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link i {
+  position: absolute;
+  left: 40px;
   font-size: 1.2rem;
-  margin-left: 10px;
   transition: 0.2s;
 }
-.navbar-wrapper .navbar-main .navbar-secondary-container a .card-count-zero {
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link .card-count-zero,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link .wish-count-zero,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link .card-count-zero,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link .wish-count-zero {
   color: #999999;
   margin-left: 10px;
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
-.navbar-wrapper .navbar-main .navbar-secondary-container a .card-count {
-  color: lightgreen;
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link .card-count,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link .wish-count,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link .card-count,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link .wish-count {
   margin-left: 10px;
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link .card-count,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link .card-count {
+  color: lightgreen;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link .wish-count,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link .wish-count {
+  color: tomato;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link:hover {
+  border-bottom: 3px solid lightgreen;
+  margin-bottom: -3px;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link:hover i {
+  color: lightgreen;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link:hover {
+  border-bottom: 3px solid tomato;
+  margin-bottom: -3px;
+}
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link:hover i {
+  color: tomato;
+}
 .navbar-wrapper .navbar-main .navbar-secondary-container .btn-logout {
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  margin-left: 100px;
+  padding: 0.5rem 1rem;
+  margin-left: 50px;
+  font-size: 1.8rem;
   color: #fff;
-  background: #333;
+  background: #4d4d4d;
   text-align: center;
-  border: none;
+  border: 1px solid gray;
+  border-radius: 10px;
   transition: 0.3s;
 }
 .navbar-wrapper .navbar-main .navbar-secondary-container .btn-logout:hover {
-  color: lightgreen;
+  color: tomato;
 }
 
 .home-section-wrapper {
