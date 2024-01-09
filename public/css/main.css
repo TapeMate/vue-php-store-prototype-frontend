@@ -455,6 +455,14 @@ h2 {
   /* Circle indicator for radio button */
   /* Style for when the radio button is selected */
 }
+.shopping-card-container .upper-container .username-intro {
+  font-size: 1.2rem;
+}
+.shopping-card-container .upper-container .username-intro .username {
+  color: #38e038;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 .shopping-card-container .upper-container .delivery-container {
   padding: 0 2rem;
   color: #333;
@@ -547,6 +555,10 @@ h2 {
   padding-left: 35px;
 }
 .shopping-card-container .lower-container {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 2rem;
 }
 .shopping-card-container .lower-container > img {
@@ -566,6 +578,7 @@ h2 {
   color: rgba(255, 255, 255, 0.6);
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
   font-size: 4rem;
+  padding: 2rem;
 }
 .shopping-card-container .lower-container .selected-products-container .product-container {
   background: #fff;
@@ -681,6 +694,7 @@ h2 {
   color: rgb(211, 39, 39);
   width: 100%;
   text-align: center;
+  text-transform: uppercase;
   animation: errorIndicator 0.6s forwards;
 }
 .shopping-card-container .lower-container .selected-products-container .checkout-warning .error:nth-of-type(2) {
@@ -755,7 +769,7 @@ h2 {
   border: none;
 }
 .shopping-card-container .lower-container .selected-products-container .empty-cart {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.8);
   font-style: italic;
   font-weight: bold;
   font-size: 2rem;

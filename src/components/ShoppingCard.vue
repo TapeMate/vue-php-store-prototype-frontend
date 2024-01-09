@@ -12,8 +12,18 @@
   </div>
   <div class="shopping-card-container">
     <div class="upper-container">
-      <OrderDelivery v-if="isloginSuccessful" :addressData="dummyAddressData" />
-      <OrderPayment v-if="isloginSuccessful" />
+      <span
+        class="username-intro"
+        v-if="isloginSuccessful && getShoppingCart.length === 0"
+        >Hello <span class="username">{{ getUser }}</span
+        >. Currently there are no Products in your Shopping Cart.</span
+      >
+
+      <OrderDelivery
+        v-if="isloginSuccessful && getShoppingCart.length > 0"
+        :addressData="dummyAddressData"
+      />
+      <OrderPayment v-if="isloginSuccessful && getShoppingCart.length > 0" />
       <LoginForm v-if="!isloginSuccessful" />
     </div>
     <div class="lower-container">
@@ -143,6 +153,7 @@ export default {
       "isloginSuccessful",
       "getPaymentMethod",
       "getDeliveryMethod",
+      "getUser",
     ]),
   },
   methods: {
