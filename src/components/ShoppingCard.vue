@@ -19,6 +19,14 @@
     <div class="lower-container">
       <img :src="background" alt="" />
       <div class="selected-products-container">
+        <div v-if="getShoppingCart.length > 0" class="checkout-warning">
+          <p v-if="!isloginSuccessful" class="error">
+            Please login to your account to checkout your order!
+          </p>
+          <p v-if="!isOrderEnabled" class="error">
+            Please select delivery and payment method to proceed
+          </p>
+        </div>
         <h5>ORDER SUMMARY</h5>
         <div
           v-for="(item, index) in cartItems"
@@ -69,7 +77,8 @@
             </div>
           </div>
         </div>
-        <div v-if="getShoppingCart.length > 0" class="total-price-container">
+
+        <div v-if="getShoppingCart.length > 0" class="checkout-container">
           <button
             :disabled="!isOrderEnabled"
             @click="sendOrder"

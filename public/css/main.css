@@ -667,7 +667,34 @@ h2 {
 .shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .price-container .product-price-total {
   font-weight: bold;
 }
-.shopping-card-container .lower-container .selected-products-container .total-price-container {
+.shopping-card-container .lower-container .selected-products-container .checkout-warning {
+  width: 100%;
+}
+.shopping-card-container .lower-container .selected-products-container .checkout-warning .error {
+  border: 1px solid tomato;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: italic;
+  color: rgb(211, 39, 39);
+  width: 100%;
+  text-align: center;
+  animation: errorIndicator 0.6s forwards;
+}
+.shopping-card-container .lower-container .selected-products-container .checkout-warning .error:nth-of-type(2) {
+  margin-top: 10px;
+}
+@keyframes errorIndicator {
+  0%, 100% {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  20% {
+    background-color: rgba(211, 39, 39, 0.5);
+  }
+}
+.shopping-card-container .lower-container .selected-products-container .checkout-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -677,7 +704,7 @@ h2 {
   color: #333;
   text-align: right;
 }
-.shopping-card-container .lower-container .selected-products-container .total-price-container .total {
+.shopping-card-container .lower-container .selected-products-container .checkout-container .total {
   display: flex;
   justify-content: center;
   height: 60px;
@@ -691,11 +718,11 @@ h2 {
   border: 5px solid lightgreen;
   border-radius: 30px;
 }
-.shopping-card-container .lower-container .selected-products-container .total-price-container .total span {
+.shopping-card-container .lower-container .selected-products-container .checkout-container .total span {
   font-size: 1rem;
   padding-left: 0.5rem;
 }
-.shopping-card-container .lower-container .selected-products-container .total-price-container .btn-order {
+.shopping-card-container .lower-container .selected-products-container .checkout-container .btn-order {
   width: 200px;
   height: 60px;
   padding: 1rem;
@@ -709,19 +736,20 @@ h2 {
   box-shadow: 4px 4px 10px #333;
   transition: 0.6s;
 }
-.shopping-card-container .lower-container .selected-products-container .total-price-container .btn-order:hover {
+.shopping-card-container .lower-container .selected-products-container .checkout-container .btn-order:hover {
   background: #e8fce8;
   border: 5px solid lightgreen;
   color: #116e11;
 }
-.shopping-card-container .lower-container .selected-products-container .total-price-container .btn-order:disabled {
-  color: #b3b3b3;
+.shopping-card-container .lower-container .selected-products-container .checkout-container .btn-order:disabled {
+  color: rgb(211, 39, 39);
+  font-style: italic;
   font-weight: 500;
   background: rgba(255, 255, 255, 0.5);
   border: none;
 }
-.shopping-card-container .lower-container .selected-products-container .total-price-container .btn-order:disabled:hover {
-  color: #b3b3b3;
+.shopping-card-container .lower-container .selected-products-container .checkout-container .btn-order:disabled:hover {
+  color: rgb(211, 39, 39);
   font-weight: 500;
   background: rgba(255, 255, 255, 0.5);
   border: none;

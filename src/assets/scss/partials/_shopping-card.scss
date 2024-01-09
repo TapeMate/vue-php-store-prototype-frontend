@@ -284,7 +284,38 @@
         }
       }
 
-      .total-price-container {
+      .checkout-warning {
+        width: 100%;
+
+        .error {
+          border: 1px solid $clr-alert-a;
+          width: 100%;
+          background: rgba($color: #fff, $alpha: 0.7);
+          padding: 1rem;
+          font-size: 1rem;
+          font-weight: bold;
+          font-style: italic;
+          color: $clr-error;
+          width: 100%;
+          text-align: center;
+          &:nth-of-type(2) {
+            margin-top: 10px;
+          }
+          animation: errorIndicator 0.6s forwards;
+        }
+
+        @keyframes errorIndicator {
+          0%,
+          100% {
+            background-color: rgba($color: $clr-secondary, $alpha: 0.7);
+          }
+          20% {
+            background-color: rgba($color: $clr-error, $alpha: 0.5);
+          }
+        }
+      }
+
+      .checkout-container {
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -331,14 +362,15 @@
             color: darken($clr-success, 50%);
           }
           &:disabled {
-            color: lighten($clr-primary, 50%);
+            color: $clr-error;
+            font-style: italic;
             font-weight: 500;
-            background: rgba($color: #fff, $alpha: 0.5);
+            background: rgba($color: $clr-secondary, $alpha: 0.5);
             border: none;
             &:hover {
-              color: lighten($clr-primary, 50%);
+              color: $clr-error;
               font-weight: 500;
-              background: rgba($color: #fff, $alpha: 0.5);
+              background: rgba($color: $clr-secondary, $alpha: 0.5);
               border: none;
             }
           }
