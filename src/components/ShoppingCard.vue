@@ -123,7 +123,6 @@ export default {
     },
 
     removeItem(id) {
-      console.log(id);
       this.removeFromCart(id);
       this.quickReload();
     },

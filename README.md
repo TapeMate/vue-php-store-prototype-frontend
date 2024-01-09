@@ -32,6 +32,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 FRONTEND:
 
+BUG: item Remove removes all items with the same item id
+-> solution stack items with same id in same product just edit order amount
+-> make order amount changeable
+
 - Data in SQL import with Adress data
 - delete dummy data
 - not in signup form

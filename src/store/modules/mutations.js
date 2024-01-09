@@ -25,7 +25,23 @@ export default {
   },
 
   addToCart(state, item) {
-    state.shoppingCart.push(item);
+    let index = null;
+
+    state.shoppingCart.some((el) => {
+      if (el.product_id == item.product_id) {
+        index = state.shoppingCart.indexOf(el);
+        return index;
+      }
+      return;
+    });
+
+    if (index === null) {
+      state.shoppingCart.push(item);
+    } else {
+      state.shoppingCart[index].product_order_amount =
+        state.shoppingCart[index].product_order_amount +
+        item.product_order_amount;
+    }
   },
 
   removeFromCart(state, itemId) {

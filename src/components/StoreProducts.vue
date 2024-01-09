@@ -118,7 +118,6 @@ export default {
     ...mapMutations(["addToCart"]),
 
     onClickAddToCart(product, amount) {
-      console.log(this.checkAmount);
       const modifiedProduct = this.setProductData(product, amount);
       this.addToCart(modifiedProduct);
       this.reload();

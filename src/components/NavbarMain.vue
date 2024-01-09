@@ -59,7 +59,6 @@ export default {
       this.reload();
     },
     getCartCount() {
-      console.log(this.getShoppingCart.length);
       this.cartCount = this.getShoppingCart.length;
       return;
     },
