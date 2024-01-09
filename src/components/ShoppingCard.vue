@@ -38,11 +38,16 @@
             <button @click="removeItem(item.product_id)" class="btn-remove">
               REMOVE <i class="fa-solid fa-trash"></i>
             </button>
-            <span class="product-amount"
-              >AMOUNT:<span class="count">{{
-                item.product_order_amount
-              }}</span></span
-            >
+            <div class="product-amount">
+              <span>AMOUNT:</span>
+              <input
+                @change="updateAmountOnChange(item)"
+                type="text"
+                class="order-amount"
+                :id="'order-amount' + item.product_id"
+                :value="item.product_order_amount"
+              />
+            </div>
             <span class="product-price-unit"
               >{{ item.product_price }},- EUR</span
             >
@@ -111,7 +116,15 @@ export default {
     ...mapGetters(["getShoppingCart", "isloginSuccessful"]),
   },
   methods: {
-    ...mapMutations(["removeFromCart", "resetCart"]),
+    ...mapMutations(["removeFromCart", "resetCart", "changeCartAmount"]),
+
+    updateAmountOnChange(item) {
+      const newAmount = Number(
+        document.querySelector("#order-amount" + item.product_id).value
+      );
+      const payload = { item: item, amount: newAmount };
+      this.changeCartAmount(payload);
+    },
 
     calcTotalProductPrice(price, amount) {
       const result = price * amount;

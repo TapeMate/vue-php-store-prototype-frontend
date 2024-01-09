@@ -44,6 +44,32 @@ export default {
     }
   },
 
+  changeCartAmount(state, payload) {
+    let index = null;
+    const item = payload.item;
+    const newAmount = payload.amount;
+
+    state.shoppingCart.some((el) => {
+      if (el.product_id == item.product_id) {
+        index = state.shoppingCart.indexOf(el);
+        return index;
+      }
+      return;
+    });
+
+    if (newAmount > item.product_order_amount) {
+      let increment = newAmount - item.product_order_amount;
+      state.shoppingCart[index].product_order_amount =
+        state.shoppingCart[index].product_order_amount + increment;
+    } else if (newAmount < item.product_order_amount) {
+      let decrement = item.product_order_amount - newAmount;
+      state.shoppingCart[index].product_order_amount =
+        state.shoppingCart[index].product_order_amount - decrement;
+    } else {
+      return;
+    }
+  },
+
   removeFromCart(state, itemId) {
     state.shoppingCart = state.shoppingCart.filter(
       (item) => item.product_id !== itemId

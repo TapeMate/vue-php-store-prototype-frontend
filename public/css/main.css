@@ -621,9 +621,16 @@ h2 {
   padding: 0.5rem;
   font-size: 0.8rem;
   font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
-.shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .product-amount .count {
-  padding-left: 10px;
+.shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .product-amount .order-amount {
+  padding: 0.5rem;
+  width: 50px;
+  margin-left: 10px;
+  font-size: 1rem;
+  text-align: center;
 }
 .shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .product-price-unit,
 .shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .product-price-total {
