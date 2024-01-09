@@ -194,6 +194,7 @@
           justify-content: space-between;
           text-align: left;
           width: 600px;
+          border-right: 1px solid $clr-primary;
 
           .product-name {
             font-size: 1.7rem;
@@ -205,10 +206,12 @@
           }
 
           .stock-amount {
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0;
+            margin-left: 1rem;
             font-size: 0.8rem;
             font-weight: bold;
             color: $clr-alert-a;
+            border-top: 1px solid black;
 
             .amount {
               padding-left: 10px;
@@ -219,14 +222,14 @@
         .ctrl-container {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: space-between;
           text-align: right;
           width: 150px;
           align-items: center;
 
           .btn-remove {
             width: 100%;
-            padding: 0.5rem;
+            // padding: 0.5rem;
             text-align: right;
             border: none;
             background: none;
@@ -241,7 +244,7 @@
 
           .product-amount {
             width: 100%;
-            padding: 0.5rem;
+            // padding: 0.5rem;
             font-size: 0.8rem;
             font-weight: bold;
             display: flex;
@@ -257,19 +260,34 @@
             }
           }
 
-          .product-price-unit,
-          .product-price-total {
+          .price-container {
             width: 100%;
-            padding: 0.5rem;
-            font-style: italic;
-          }
-          .product-price-total {
-            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+
+            .product-price-unit,
+            .product-price-total {
+              width: 100%;
+              padding: 0.2rem 0;
+              font-style: italic;
+
+              span {
+                font-size: 0.7rem;
+                font-style: normal;
+                padding-right: 10px;
+              }
+            }
+
+            .product-price-total {
+              font-weight: bold;
+            }
           }
         }
       }
 
-      .price-container {
+      .total-price-container {
         display: flex;
         justify-content: flex-end;
         align-items: center;

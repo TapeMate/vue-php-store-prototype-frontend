@@ -53,20 +53,23 @@
                 :value="item.product_order_amount"
               />
             </div>
-            <span class="product-price-unit"
-              >{{ item.product_price }},- EUR</span
-            >
-            <span class="product-price-total"
-              >{{
-                calcTotalProductPrice(
-                  item.product_price,
-                  item.product_order_amount
-                )
-              }},- EUR</span
-            >
+            <div class="price-container">
+              <span class="product-price-unit"
+                ><span>UNIT</span>{{ item.product_price }},- EUR</span
+              >
+              <span class="product-price-total"
+                ><span>TOTAL</span
+                >{{
+                  calcTotalProductPrice(
+                    item.product_price,
+                    item.product_order_amount
+                  )
+                }},- EUR</span
+              >
+            </div>
           </div>
         </div>
-        <div v-if="getShoppingCart.length > 0" class="price-container">
+        <div v-if="getShoppingCart.length > 0" class="total-price-container">
           <button
             :disabled="!isloginSuccessful"
             @click="sendOrder"
