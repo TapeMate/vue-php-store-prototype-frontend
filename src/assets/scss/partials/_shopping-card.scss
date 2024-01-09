@@ -285,6 +285,17 @@
             background: lighten($clr-success, 20%);
             border: 1px solid $clr-success;
           }
+          &:disabled {
+            color: lighten($clr-primary, 50%);
+            font-weight: 500;
+            background: rgba($color: #fff, $alpha: 0.5);
+            &:hover {
+              color: lighten($clr-primary, 50%);
+              font-weight: 500;
+              background: rgba($color: #fff, $alpha: 0.5);
+              border: none;
+            }
+          }
         }
       }
 

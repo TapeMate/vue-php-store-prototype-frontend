@@ -57,7 +57,13 @@
           </div>
         </div>
         <div v-if="getShoppingCart.length > 0" class="price-container">
-          <button @click="sendOrder" class="btn-order">Order now!</button>
+          <button
+            :disabled="!isloginSuccessful"
+            @click="sendOrder"
+            class="btn-order"
+          >
+            Order now!
+          </button>
           <span class="total">{{ calcTotalPrice() }},- EUR</span>
         </div>
         <p v-if="getShoppingCart == 0" class="empty-cart">
