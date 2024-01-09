@@ -601,13 +601,13 @@ h2 {
   padding: 0.5rem 0;
   margin-left: 1rem;
   font-size: 0.8rem;
-  font-weight: bold;
   color: tomato;
   border-top: 1px solid black;
 }
 .shopping-card-container .lower-container .selected-products-container .product-container .info-container .stock-amount .amount {
   padding-left: 10px;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 .shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container {
   display: flex;

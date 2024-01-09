@@ -8,7 +8,6 @@ h2 {
   height: 100%;
   width: 100%;
   padding: 1rem;
-  // background: darken($clr-secondary, 10%);
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -112,7 +111,6 @@ h2 {
 
         .low-stock {
           margin-left: 10px;
-          // color: $clr-alert-a;
           font-weight: bold;
           font-size: 1.3rem;
         }
