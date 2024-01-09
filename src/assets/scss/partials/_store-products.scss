@@ -146,8 +146,29 @@ h2 {
         }
         &:disabled {
           color: lighten($clr-primary, 30%);
-          background: lighten($clr-primary, 50%);
+          background: lighten($clr-success, 15%);
           font-weight: 500;
+        }
+        i {
+          margin-right: 20px;
+        }
+      }
+      .btn-add-to-wish {
+        margin-top: 20px;
+        padding: 0.5rem;
+        background: $clr-accent-b;
+        color: $clr-secondary;
+        border: none;
+        grid-column: 1 / end;
+        width: 100%;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: 0.2s;
+        &:hover {
+          background: lighten($clr-accent-b, 10%);
+        }
+        i {
+          margin-right: 20px;
         }
       }
     }

@@ -205,7 +205,7 @@
   padding-left: 10px;
 }
 .home-section-wrapper .section-container:nth-of-type(2) section .separator {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 900;
   padding-right: 100px;
 }
@@ -389,8 +389,29 @@ h2 {
 }
 .store-products-section .product-container .product-info-container .btn-add-to-card:disabled {
   color: gray;
-  background: #b3b3b3;
+  background: #d2f8d2;
   font-weight: 500;
+}
+.store-products-section .product-container .product-info-container .btn-add-to-card i {
+  margin-right: 20px;
+}
+.store-products-section .product-container .product-info-container .btn-add-to-wish {
+  margin-top: 20px;
+  padding: 0.5rem;
+  background: #ff6347;
+  color: #fff;
+  border: none;
+  grid-column: 1/end;
+  width: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.store-products-section .product-container .product-info-container .btn-add-to-wish:hover {
+  background: #ff8e7a;
+}
+.store-products-section .product-container .product-info-container .btn-add-to-wish i {
+  margin-right: 20px;
 }
 
 .order-success-message {
@@ -411,6 +432,10 @@ h2 {
   font-size: 1.2rem;
   border-radius: 10px;
   text-align: center;
+}
+.order-success-message i {
+  font-size: 3rem;
+  padding: 0.5rem;
 }
 
 .shopping-card-container {

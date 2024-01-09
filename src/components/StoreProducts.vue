@@ -68,16 +68,27 @@
           </option>
         </select>
         <button
+          v-if="product.product_stock_amount > 0"
           @click="
             onClickAddToCart(
               this.productData[index],
               selectedAmount[product.product_id]
             )
           "
-          :disabled="product.product_stock_amount == 0"
+          :disabled="
+            product.product_stock_amount == 0 ||
+            !selectedAmount[product.product_id] > 0
+          "
           class="btn-add-to-card"
         >
-          Add to Shopping Card
+          <i class="fa-solid fa-cart-shopping"></i>Add to Shopping Card
+        </button>
+        <button
+          v-if="product.product_stock_amount === 0"
+          @click="onClickAddToWishList(this.productData[index])"
+          class="btn-add-to-wish"
+        >
+          <i class="fa-solid fa-heart"></i>Add to Wish List
         </button>
       </div>
     </div>
@@ -96,6 +107,7 @@ export default {
   data() {
     return {
       img: background,
+      checkAmount: null,
       selectedAmount: {},
     };
   },
@@ -106,9 +118,14 @@ export default {
     ...mapMutations(["addToCart"]),
 
     onClickAddToCart(product, amount) {
+      console.log(this.checkAmount);
       const modifiedProduct = this.setProductData(product, amount);
       this.addToCart(modifiedProduct);
       this.reload();
+    },
+
+    onClickAddToWishList(product) {
+      console.log("Added to Wish List: ", product);
     },
 
     setProductData(product, amount) {

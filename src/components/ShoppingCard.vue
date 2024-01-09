@@ -5,6 +5,9 @@
       <br />
       <br />
       Your order has been successfully placed.
+      <br />
+      <br />
+      <i class="fa-solid fa-truck"></i>
     </div>
   </div>
   <div class="shopping-card-container">

@@ -45,6 +45,11 @@ FRONTEND:
 - check data in frontend realy all i need or to much
 - components a little bit more
 
+- new feature:
+  -> if product out of stock add to wish list
+  -> new bar at top with hearth icon
+  -> directly store into db
+
 BACKEND:
 
 - store local cart into order database
