@@ -129,7 +129,6 @@ export default {
 
     setProductData(product, amount) {
       const newProduct = { ...product };
-      delete newProduct.product_stock_amount;
       newProduct.product_order_amount = amount;
       return newProduct;
     },

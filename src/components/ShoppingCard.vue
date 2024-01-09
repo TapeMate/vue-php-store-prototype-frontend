@@ -33,6 +33,11 @@
           <div class="info-container">
             <h5 class="product-name">{{ item.product_name }}</h5>
             <p class="product-description">{{ item.product_description }}</p>
+            <p class="stock-amount">
+              STOCK AMOUNT<span class="amount">{{
+                item.product_stock_amount
+              }}</span>
+            </p>
           </div>
           <div class="ctrl-container">
             <button @click="removeItem(item.product_id)" class="btn-remove">
@@ -98,7 +103,7 @@ export default {
   },
   data() {
     return {
-      isOrderPlaced: false, // only dummy replace later
+      isOrderPlaced: false,
       background: img,
       dummyAddressData: [
         {
@@ -116,14 +121,18 @@ export default {
     ...mapGetters(["getShoppingCart", "isloginSuccessful"]),
   },
   methods: {
-    ...mapMutations(["removeFromCart", "resetCart", "changeCartAmount"]),
+    ...mapMutations(["removeFromCart", "resetCart", "updateCartAmount"]),
 
     updateAmountOnChange(item) {
-      const newAmount = Number(
-        document.querySelector("#order-amount" + item.product_id).value
-      );
+      const input = document.querySelector("#order-amount" + item.product_id);
+      const newAmount = Number(input.value);
+      if (newAmount > item.product_order_amount) {
+        console.log("stock amount exceeded.");
+        input.value = item.product_stock_amount;
+        return;
+      }
       const payload = { item: item, amount: newAmount };
-      this.changeCartAmount(payload);
+      this.updateCartAmount(payload);
     },
 
     calcTotalProductPrice(price, amount) {

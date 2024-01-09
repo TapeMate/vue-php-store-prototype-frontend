@@ -38,7 +38,7 @@ export default {
     }
   },
 
-  changeCartAmount(state, payload) {
+  updateCartAmount(state, payload) {
     const item = payload.item;
     const newAmount = payload.amount;
     const index = state.shoppingCart.findIndex(

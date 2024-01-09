@@ -584,15 +584,26 @@ h2 {
 .shopping-card-container .lower-container .selected-products-container .product-container .info-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   text-align: left;
   width: 600px;
 }
 .shopping-card-container .lower-container .selected-products-container .product-container .info-container .product-name {
   font-size: 1.7rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 .shopping-card-container .lower-container .selected-products-container .product-container .info-container .product-description {
-  padding-left: 1rem;
+  padding: 0.5rem 1rem;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .info-container .stock-amount {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: tomato;
+}
+.shopping-card-container .lower-container .selected-products-container .product-container .info-container .stock-amount .amount {
+  padding-left: 10px;
+  font-size: 1.2rem;
 }
 .shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container {
   display: flex;
@@ -626,7 +637,7 @@ h2 {
   align-items: center;
 }
 .shopping-card-container .lower-container .selected-products-container .product-container .ctrl-container .product-amount .order-amount {
-  padding: 0.5rem;
+  padding: 0.2rem;
   width: 50px;
   margin-left: 10px;
   font-size: 1rem;
