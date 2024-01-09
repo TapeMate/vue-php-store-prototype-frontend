@@ -571,10 +571,11 @@ h2 {
   background: #fff;
   display: flex;
   margin-bottom: 20px;
-  border-top-left-radius: 75px;
-  border-bottom-left-radius: 75px;
+  border-top-left-radius: 91px;
+  border-bottom-left-radius: 91px;
   border-right: 10px solid lightgreen;
   box-shadow: 4px 4px 10px #333;
+  padding: 1rem;
 }
 .shopping-card-container .lower-container .selected-products-container .product-container img {
   width: 150px;
@@ -656,39 +657,48 @@ h2 {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 910px;
+  width: 963px;
   height: 80px;
   padding: 0.6rem;
   color: #333;
   text-align: right;
 }
 .shopping-card-container .lower-container .selected-products-container .price-container .total {
-  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  padding: 0.5rem 1rem;
+  align-items: center;
   font-weight: bold;
-  font-size: 1.4rem;
-  font-style: italic;
+  font-size: 1.5rem;
   background: #fff;
   color: #333;
   box-shadow: 4px 4px 10px #333;
-  border-right: 10px solid lightgreen;
+  border: 5px solid lightgreen;
+  border-radius: 30px;
+}
+.shopping-card-container .lower-container .selected-products-container .price-container .total span {
+  font-size: 1rem;
+  padding-left: 0.5rem;
 }
 .shopping-card-container .lower-container .selected-products-container .price-container .btn-order {
   width: 200px;
+  height: 60px;
   padding: 1rem;
   margin-right: 25px;
   color: #333;
   background: #fff;
   border: 1px solid #333;
-  border-radius: 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  border: 5px solid #fff;
   box-shadow: 4px 4px 10px #333;
-  transition: 0.2s;
+  transition: 0.6s;
 }
 .shopping-card-container .lower-container .selected-products-container .price-container .btn-order:hover {
   background: #e8fce8;
-  border: 1px solid lightgreen;
+  border: 5px solid lightgreen;
+  color: #116e11;
 }
 .shopping-card-container .lower-container .selected-products-container .price-container .btn-order:disabled {
   color: #b3b3b3;

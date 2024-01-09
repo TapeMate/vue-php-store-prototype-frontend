@@ -72,9 +72,9 @@
             @click="sendOrder"
             class="btn-order"
           >
-            Order now!
+            ORDER NOW
           </button>
-          <span class="total">{{ calcTotalPrice() }},- EUR</span>
+          <span class="total">{{ calcTotalPrice() }},- <span>EUR</span></span>
         </div>
         <p v-if="getShoppingCart == 0" class="empty-cart">
           There are no items on your shopping cart.
@@ -125,10 +125,10 @@ export default {
 
     updateAmountOnChange(item) {
       const input = document.querySelector("#order-amount" + item.product_id);
-      const newAmount = Number(input.value);
-      if (newAmount > item.product_order_amount) {
+      let newAmount = Number(input.value);
+      if (newAmount > item.product_stock_amount) {
         input.value = item.product_stock_amount;
-        return;
+        newAmount = item.product_stock_amount;
       }
       const payload = { item: item, amount: newAmount };
       this.updateCartAmount(payload);
