@@ -25,17 +25,11 @@ export default {
   },
 
   addToCart(state, item) {
-    let index = null;
+    let index = state.shoppingCart.findIndex(
+      (el) => el.product_id == item.product_id
+    );
 
-    state.shoppingCart.some((el) => {
-      if (el.product_id == item.product_id) {
-        index = state.shoppingCart.indexOf(el);
-        return index;
-      }
-      return;
-    });
-
-    if (index === null) {
+    if (index === -1) {
       state.shoppingCart.push(item);
     } else {
       state.shoppingCart[index].product_order_amount =
@@ -45,17 +39,11 @@ export default {
   },
 
   changeCartAmount(state, payload) {
-    let index = null;
     const item = payload.item;
     const newAmount = payload.amount;
-
-    state.shoppingCart.some((el) => {
-      if (el.product_id == item.product_id) {
-        index = state.shoppingCart.indexOf(el);
-        return index;
-      }
-      return;
-    });
+    let index = state.shoppingCart.findIndex(
+      (el) => el.product_id == item.product_id
+    );
 
     if (newAmount > item.product_order_amount) {
       let increment = newAmount - item.product_order_amount;
