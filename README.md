@@ -32,6 +32,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 FRONTEND:
 
+BUG:
+
+- When putting things into the shopping cart, max stock amount can be exceeded
+
 - Data in SQL import with Adress data
 - delete dummy data
 - not in signup form

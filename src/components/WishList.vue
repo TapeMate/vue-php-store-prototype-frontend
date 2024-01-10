@@ -7,7 +7,7 @@
       >
     </div>
     <div class="lower-container">
-      <img :src="background" alt="" />
+      <!-- <img :src="background" alt="" /> -->
       <div class="selected-products-container">
         <h5>WISH LIST OVERVIEW</h5>
         <div
@@ -54,11 +54,6 @@ export default {
   props: {
     wishItems: Array,
   },
-  // data(){
-  //     return {
-
-  //     }
-  // },
 
   mounted() {
     console.log(this.getWishList.length);
