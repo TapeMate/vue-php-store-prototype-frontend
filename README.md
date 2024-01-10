@@ -42,6 +42,7 @@ FRONTEND:
 - refactor code
 - check data in frontend realy all i need or to much
 - components a little bit more
+- outsource success login messag to own component and make own scss partial
 
 - new feature:
   -> if product out of stock add to wish list

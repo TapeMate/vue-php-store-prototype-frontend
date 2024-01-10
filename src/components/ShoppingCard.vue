@@ -1,4 +1,10 @@
 <template>
+  <div v-if="getLoginMessage" class="login-success-message">
+    <p class="success-message">
+      Hi <span class="username">{{ getUser }}</span>
+    </p>
+    <p class="success-message">You have been logged in successful!</p>
+  </div>
   <div v-if="isOrderPlaced === true" class="order-success-message">
     <div class="success-message">
       Thank you for your purchase!
@@ -155,6 +161,7 @@ export default {
       "getPaymentMethod",
       "getDeliveryMethod",
       "getUser",
+      "getLoginMessage",
     ]),
   },
   methods: {

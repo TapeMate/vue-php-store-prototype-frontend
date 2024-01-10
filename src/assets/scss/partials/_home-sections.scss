@@ -1,4 +1,29 @@
 @use "../abstracts/colors" as *;
+.login-success-message {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  background: rgba($color: #000000, $alpha: 0.7);
+  backdrop-filter: blur(5px);
+
+  .success-message {
+    color: $clr-secondary;
+    font-size: 1.5rem;
+    padding: 1rem;
+    .username {
+      color: $clr-success;
+      text-transform: uppercase;
+    }
+  }
+}
 
 .home-section-wrapper {
   width: 100%;
@@ -109,9 +134,20 @@
     }
 
     .portfolio-section {
-      height: 50vh;
+      height: 49.8vh;
       margin-top: 0;
       background: $clr-primary;
+      opacity: 0;
+      animation: fadeInPortfolio 0.4s forwards;
+    }
+
+    @keyframes fadeInPortfolio {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
 }

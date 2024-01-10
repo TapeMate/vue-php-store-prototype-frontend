@@ -1,4 +1,11 @@
 <template>
+  <div v-if="getLoginMessage" class="login-success-message">
+    <p class="success-message">
+      Hi <span class="username">{{ getUser }}</span>
+    </p>
+    <p class="success-message">You have been logged in successful!</p>
+  </div>
+
   <div class="home-section-wrapper">
     <div class="section-container">
       <section>
@@ -14,7 +21,7 @@
           </p>
         </div>
         <div class="section-content-container">
-          <h5>We make professional Equipment.</h5>
+          <h5>We love professional Equipment.</h5>
         </div>
       </section>
     </div>
@@ -54,7 +61,7 @@ export default {
     HomePortfolio,
   },
   computed: {
-    ...mapGetters(["isloginSuccessful"]),
+    ...mapGetters(["isloginSuccessful", "getUser", "getLoginMessage"]),
   },
   data() {
     return {

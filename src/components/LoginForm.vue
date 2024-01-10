@@ -1,10 +1,10 @@
 <template>
-  <div v-if="loginSuccess" class="login-success-message">
+  <!-- <div v-if="loginSuccess" class="login-success-message">
     <p class="success-message">
       Hi <span class="username">{{ getUser }}</span>
     </p>
     <p class="success-message">You have been logged in successful!</p>
-  </div>
+  </div> -->
 
   <div class="index-login">
     <h4>LOGIN</h4>
@@ -39,7 +39,7 @@ export default {
         uid: "",
         pwd: "",
       },
-      loginSuccess: false,
+      // loginSuccess: true,
     };
   },
   computed: {
@@ -71,11 +71,13 @@ export default {
           if (data.error) {
             throw new Error(data.error);
           }
+          // this.setLoginSuccess();
           this.setUserId(data.user.users_id);
           this.loggedInUser(data.user.users_uid);
-          this.loginIsSuccessful();
-          this.setLoginSuccess();
+          this.runDisplayLoginMessage();
+          // this.loginIsSuccessful();
           this.reload();
+          console.log(this.loginSuccess);
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -84,17 +86,22 @@ export default {
     },
 
     reload() {
-      console.log("Reloading the page");
       setTimeout(() => {
         window.location.reload();
-      }, 2000);
+        this.loginIsSuccessful();
+      }, 3000);
     },
 
-    setLoginSuccess() {
-      this.loginSuccess = true;
-    },
+    // setLoginSuccess() {
+    //   this.loginSuccess = true;
+    // },
 
-    ...mapMutations(["loginIsSuccessful", "loggedInUser", "setUserId"]),
+    ...mapMutations([
+      "loginIsSuccessful",
+      "loggedInUser",
+      "setUserId",
+      "runDisplayLoginMessage",
+    ]),
   },
 };
 </script>

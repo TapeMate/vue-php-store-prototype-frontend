@@ -3,6 +3,15 @@ export default {
     state.loginSuccess = true;
     localStorage.setItem("loginSuccess", "true");
   },
+  runDisplayLoginMessage(state) {
+    state.displayLoginMessage = true;
+    localStorage.setItem("displayLoginMessage", "true");
+    setTimeout(() => {
+      state.displayLoginMessage = false;
+      localStorage.setItem("displayLoginMessage", false);
+    }, 3000);
+  },
+
   userLogout(state) {
     state.loginSuccess = false;
     localStorage.setItem("loginSuccess", false);
