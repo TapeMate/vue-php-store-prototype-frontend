@@ -20,7 +20,7 @@
     </div>
 
     <div class="section-container">
-      <section>
+      <section v-if="!isloginSuccessful">
         <div class="section-signup-container">
           <SignupForm />
         </div>
@@ -31,21 +31,30 @@
           <LoginForm />
         </div>
       </section>
+      <section v-if="isloginSuccessful">
+        <HomeSlider />
+      </section>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import SignupForm from "@/components/SignupForm.vue";
 import LoginForm from "@/components/LoginForm.vue";
 import Dummy from "../assets/img/dummy.jpg";
 import Background from "../assets/img/background.jpg";
+import HomeSlider from "@/components/HomeSlider.vue";
 
 export default {
   name: "HomeSections",
   components: {
     SignupForm,
     LoginForm,
+    HomeSlider,
+  },
+  computed: {
+    ...mapGetters(["isloginSuccessful"]),
   },
   data() {
     return {
