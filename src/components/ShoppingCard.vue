@@ -25,18 +25,19 @@
       />
       <OrderPayment v-if="isloginSuccessful && getShoppingCart.length > 0" />
       <LoginForm v-if="!isloginSuccessful" />
+
+      <div v-if="getShoppingCart.length > 0" class="checkout-warning">
+        <p v-if="!isloginSuccessful" class="error">
+          Please login to your account to checkout your order!
+        </p>
+        <p v-if="isloginSuccessful && !isOrderEnabled" class="error">
+          Please select delivery and payment method to proceed
+        </p>
+      </div>
     </div>
     <div class="lower-container">
       <img :src="background" alt="" />
       <div class="selected-products-container">
-        <div v-if="getShoppingCart.length > 0" class="checkout-warning">
-          <p v-if="!isloginSuccessful" class="error">
-            Please login to your account to checkout your order!
-          </p>
-          <p v-if="!isOrderEnabled" class="error">
-            Please select delivery and payment method to proceed
-          </p>
-        </div>
         <h5>ORDER SUMMARY</h5>
         <div
           v-for="(item, index) in cartItems"

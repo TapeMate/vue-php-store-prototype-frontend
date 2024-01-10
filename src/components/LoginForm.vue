@@ -1,4 +1,11 @@
 <template>
+  <div v-if="loginSuccess" class="login-success-message">
+    <p class="success-message">
+      Hi <span class="username">{{ getUser }}</span>
+    </p>
+    <p class="success-message">You have been logged in successful!</p>
+  </div>
+
   <div class="index-login">
     <h4>LOGIN</h4>
     <p>Login to your Account.</p>
@@ -22,7 +29,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "LoginForm",
@@ -34,6 +41,9 @@ export default {
       },
       loginSuccess: false,
     };
+  },
+  computed: {
+    ...mapGetters(["getUser"]),
   },
   methods: {
     submitLogin() {
@@ -64,6 +74,7 @@ export default {
           this.setUserId(data.user.users_id);
           this.loggedInUser(data.user.users_uid);
           this.loginIsSuccessful();
+          this.setLoginSuccess();
           this.reload();
         })
         .catch((error) => {
@@ -71,12 +82,18 @@ export default {
           this.reload();
         });
     },
+
     reload() {
       console.log("Reloading the page");
       setTimeout(() => {
         window.location.reload();
-      }, 500);
+      }, 2000);
     },
+
+    setLoginSuccess() {
+      this.loginSuccess = true;
+    },
+
     ...mapMutations(["loginIsSuccessful", "loggedInUser", "setUserId"]),
   },
 };

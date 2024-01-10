@@ -34,6 +34,7 @@
   .upper-container {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     flex-direction: row;
     padding: 2rem;
@@ -156,6 +157,43 @@
         }
       }
     }
+
+    .checkout-warning {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding-top: 2rem;
+
+      .error {
+        border: 1px solid $clr-alert-a;
+        max-width: max-content;
+        background: rgba($color: #fff, $alpha: 0.7);
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: bold;
+        font-style: italic;
+        color: $clr-error;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        &:nth-of-type(2) {
+          margin-top: 10px;
+        }
+        animation: errorIndicator 0.6s forwards;
+      }
+
+      @keyframes errorIndicator {
+        0%,
+        100% {
+          background-color: rgba($color: $clr-secondary, $alpha: 0.7);
+        }
+        20% {
+          background-color: rgba($color: $clr-error, $alpha: 0.5);
+        }
+      }
+    }
   }
 
   .lower-container {
@@ -179,10 +217,11 @@
       align-items: center;
 
       > h5 {
-        color: rgba($color: #fff, $alpha: 0.6);
-        -webkit-text-stroke: 1px rgba($color: #000000, $alpha: 0.3);
+        width: 100%;
+        color: rgba($color: $clr-secondary, $alpha: 0.6);
+        -webkit-text-stroke: 1px rgba($color: $clr-primary, $alpha: 0.3);
         font-size: 4rem;
-        padding: 2rem;
+        padding: 2rem 0;
       }
 
       .product-container {
@@ -294,38 +333,6 @@
             .product-price-total {
               font-weight: bold;
             }
-          }
-        }
-      }
-
-      .checkout-warning {
-        width: 100%;
-
-        .error {
-          border: 1px solid $clr-alert-a;
-          width: 100%;
-          background: rgba($color: #fff, $alpha: 0.7);
-          padding: 1rem;
-          font-size: 1rem;
-          font-weight: bold;
-          font-style: italic;
-          color: $clr-error;
-          width: 100%;
-          text-align: center;
-          text-transform: uppercase;
-          &:nth-of-type(2) {
-            margin-top: 10px;
-          }
-          animation: errorIndicator 0.6s forwards;
-        }
-
-        @keyframes errorIndicator {
-          0%,
-          100% {
-            background-color: rgba($color: $clr-secondary, $alpha: 0.7);
-          }
-          20% {
-            background-color: rgba($color: $clr-error, $alpha: 0.5);
           }
         }
       }
