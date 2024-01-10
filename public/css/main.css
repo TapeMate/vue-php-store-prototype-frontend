@@ -158,7 +158,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 110%;
+  height: 100%;
   padding: 2rem;
 }
 .home-section-wrapper .section-container:nth-of-type(1) section > img {
@@ -223,7 +223,9 @@
   align-items: center;
 }
 .home-section-wrapper .section-container:nth-of-type(2) section {
-  padding-top: 50px;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -237,6 +239,11 @@
   font-size: 3rem;
   font-weight: 900;
   padding-right: 100px;
+}
+.home-section-wrapper .section-container:nth-of-type(2) .portfolio-section {
+  height: 50vh;
+  margin-top: 0;
+  background: #333;
 }
 
 .index-signup {
@@ -835,6 +842,65 @@ h2 {
   font-weight: bold;
   font-size: 2rem;
   padding: 2rem;
+}
+
+.portfolio-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.portfolio-wrapper .portfolio-header {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 4rem;
+}
+.portfolio-wrapper .home-portfolio {
+  width: 100%;
+  height: 100%;
+  padding: 0 7rem;
+  display: flex;
+  gap: 50px;
+}
+.portfolio-wrapper .home-portfolio .portfolio-img-container {
+  position: relative;
+  display: inline-block;
+  flex: 1;
+  width: 300px;
+  height: 300px;
+}
+.portfolio-wrapper .home-portfolio .portfolio-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(0.9);
+  filter: grayscale(100);
+  transition: 0.5s ease;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px #1a1a1a;
+}
+.portfolio-wrapper .home-portfolio .portfolio-img-container img:hover {
+  transform: scale(1);
+  filter: grayscale(0);
+  border-radius: 100px;
+}
+.portfolio-wrapper .home-portfolio .portfolio-img-container img:hover + h5 {
+  color: white;
+  background: rgba(51, 51, 51, 0.5);
+}
+.portfolio-wrapper .home-portfolio .portfolio-img-container h5 {
+  width: 100%;
+  position: absolute;
+  background: rgba(51, 51, 51, 0);
+  top: 200px;
+  left: 0;
+  color: rgba(255, 255, 255, 0);
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  font-size: 1.8rem;
+  padding: 1rem;
+  z-index: 99;
+  transition: 0.5s ease;
 }
 
 * {

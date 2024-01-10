@@ -31,8 +31,8 @@
           <LoginForm />
         </div>
       </section>
-      <section v-if="isloginSuccessful">
-        <HomeSlider />
+      <section class="portfolio-section" v-if="isloginSuccessful">
+        <HomePortfolio />
       </section>
     </div>
   </div>
@@ -44,14 +44,14 @@ import SignupForm from "@/components/SignupForm.vue";
 import LoginForm from "@/components/LoginForm.vue";
 import Dummy from "../assets/img/dummy.jpg";
 import Background from "../assets/img/background.jpg";
-import HomeSlider from "@/components/HomeSlider.vue";
+import HomePortfolio from "@/components/HomePortfolio.vue";
 
 export default {
   name: "HomeSections",
   components: {
     SignupForm,
     LoginForm,
-    HomeSlider,
+    HomePortfolio,
   },
   computed: {
     ...mapGetters(["isloginSuccessful"]),
