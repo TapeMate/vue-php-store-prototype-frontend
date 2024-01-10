@@ -1,6 +1,5 @@
 <template>
-  <h1>Wish List</h1>
-  <WishList />
+  <WishList :wishItems="getWishList" />
 </template>
 
 <script>
