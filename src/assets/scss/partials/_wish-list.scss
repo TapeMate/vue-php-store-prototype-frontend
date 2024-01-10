@@ -12,7 +12,7 @@
     justify-content: center;
     flex-direction: row;
     padding: 2rem;
-    background: rgba($color: #fff, $alpha: 0.8);
+    background: rgba($color: $clr-secondary, $alpha: 0.8);
 
     .username-intro {
       font-size: 1.2rem;
@@ -20,152 +20,6 @@
         color: darken($clr-success, 20%);
         font-weight: bold;
         text-transform: uppercase;
-      }
-    }
-
-    .delivery-container {
-      padding: 0 2rem;
-      color: $clr-primary;
-      border-left: 5px solid $clr-accent-a;
-
-      h5 {
-        padding: 1rem;
-        font-size: 1.2rem;
-        text-align: center;
-      }
-
-      .input-container {
-        display: flex;
-        justify-content: flex-start;
-        margin-bottom: 5px;
-
-        label {
-          width: 150px;
-          text-align: right;
-          padding: 0.5rem;
-        }
-
-        input {
-          width: 200px;
-          padding: 0.5rem;
-          background: $clr-secondary;
-          color: $clr-primary;
-          border: 1px solid $clr-primary;
-          font-size: 1rem;
-          font-style: italic;
-        }
-      }
-    }
-
-    /* Hide the default radio button */
-    .payment-delivery-container input[type="radio"] {
-      display: none;
-    }
-
-    /* Custom radio button */
-    .payment-delivery-container label {
-      padding-left: 35px;
-      position: relative;
-      cursor: pointer;
-      display: inline-block;
-      margin-right: 15px; /* Spacing between radio buttons */
-    }
-
-    /* Circle indicator for radio button */
-    .payment-delivery-container label:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
-      border: 1px solid $clr-primary;
-      border-radius: 50%;
-      background-color: $clr-secondary;
-    }
-
-    /* Style for when the radio button is selected */
-    .payment-delivery-container input[type="radio"]:checked + label:after {
-      content: "";
-      position: absolute;
-      left: 9px;
-      top: 37%;
-      transform: translateY(-50%) rotate(45deg);
-      width: 7px;
-      height: 17px;
-      border-bottom: 5px solid $clr-accent-a;
-      border-right: 5px solid $clr-accent-a;
-    }
-
-    .payment-delivery-container {
-      width: 300px;
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      padding-left: 2rem;
-      margin-left: 5rem;
-      border-left: 5px solid $clr-accent-a;
-      color: $clr-primary;
-
-      h5 {
-        font-size: 1.2rem;
-        text-align: left;
-        padding: 1rem 0;
-      }
-
-      .input-container {
-        display: flex;
-        justify-content: flex-start;
-
-        input {
-          margin: 0.5rem;
-        }
-        input:checked + label {
-          font-weight: bold;
-        }
-
-        label {
-          padding: 0.5rem;
-          padding-left: 35px;
-        }
-      }
-    }
-
-    .checkout-warning {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      padding-top: 2rem;
-
-      .error {
-        border: 1px solid $clr-alert-a;
-        max-width: max-content;
-        background: rgba($color: #fff, $alpha: 0.7);
-        padding: 1rem;
-        font-size: 1rem;
-        font-weight: bold;
-        font-style: italic;
-        color: $clr-error;
-        width: 100%;
-        text-align: center;
-        text-transform: uppercase;
-        &:nth-of-type(2) {
-          margin-top: 10px;
-        }
-        animation: errorIndicator 0.6s forwards;
-      }
-
-      @keyframes errorIndicator {
-        0%,
-        100% {
-          background-color: rgba($color: $clr-secondary, $alpha: 0.7);
-        }
-        20% {
-          background-color: rgba($color: $clr-error, $alpha: 0.5);
-        }
       }
     }
   }
@@ -267,23 +121,6 @@
             }
           }
 
-          .product-amount {
-            width: 100%;
-            font-size: 0.8rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-
-            .order-amount {
-              padding: 0.2rem;
-              width: 50px;
-              margin-left: 10px;
-              font-size: 1rem;
-              text-align: center;
-            }
-          }
-
           .price-container {
             width: 100%;
             display: flex;
@@ -291,8 +128,7 @@
             justify-content: flex-end;
             align-items: center;
 
-            .product-price-unit,
-            .product-price-total {
+            .product-price-unit {
               width: 100%;
               padding: 0.2rem 0;
               font-style: italic;
@@ -303,82 +139,8 @@
                 padding-right: 10px;
               }
             }
-
-            .product-price-total {
-              font-weight: bold;
-            }
           }
         }
-      }
-
-      .checkout-container {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        width: 963px;
-        height: 80px;
-        padding: 0.6rem;
-        color: $clr-primary;
-        text-align: right;
-
-        .total {
-          display: flex;
-          justify-content: center;
-          height: 60px;
-          padding: 0.5rem 1rem;
-          align-items: center;
-          font-weight: bold;
-          font-size: 1.5rem;
-          background: $clr-secondary;
-          color: $clr-primary;
-          box-shadow: 4px 4px 10px $clr-primary;
-          border: 5px solid $clr-success;
-          border-radius: 30px;
-          span {
-            font-size: 1rem;
-            padding-left: 0.5rem;
-          }
-        }
-        .btn-order {
-          width: 200px;
-          height: 60px;
-          padding: 1rem;
-          margin-right: 25px;
-          color: $clr-primary;
-          background: $clr-secondary;
-          border: 1px solid $clr-primary;
-          border-radius: 30px;
-          font-size: 1.2rem;
-          border: 5px solid $clr-secondary;
-          box-shadow: 4px 4px 10px $clr-primary;
-          transition: 0.6s;
-          &:hover {
-            background: lighten($clr-success, 20%);
-            border: 5px solid $clr-success;
-            color: darken($clr-success, 50%);
-          }
-          &:disabled {
-            color: $clr-error;
-            font-style: italic;
-            font-weight: 500;
-            background: rgba($color: $clr-secondary, $alpha: 0.5);
-            border: none;
-            &:hover {
-              color: $clr-error;
-              font-weight: 500;
-              background: rgba($color: $clr-secondary, $alpha: 0.5);
-              border: none;
-            }
-          }
-        }
-      }
-
-      .empty-cart {
-        color: rgba($color: #000000, $alpha: 0.8);
-        font-style: italic;
-        font-weight: bold;
-        font-size: 2rem;
-        padding: 2rem;
       }
     }
   }

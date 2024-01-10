@@ -41,9 +41,6 @@
             </div>
           </div>
         </div>
-        <p v-if="getShoppingCart == 0" class="empty-cart">
-          There are no items on your shopping cart.
-        </p>
       </div>
     </div>
   </div>
