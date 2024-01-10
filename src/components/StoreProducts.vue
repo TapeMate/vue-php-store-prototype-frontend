@@ -111,11 +111,13 @@ export default {
       selectedAmount: {},
     };
   },
+
   computed: {
-    ...mapGetters(["getUserId"]),
+    ...mapGetters(["getUserId", "getWishList"]),
   },
+
   methods: {
-    ...mapMutations(["addToCart"]),
+    ...mapMutations(["addToCart", "addToWishList"]),
 
     onClickAddToCart(product, amount) {
       const modifiedProduct = this.setProductData(product, amount);
@@ -124,7 +126,8 @@ export default {
     },
 
     onClickAddToWishList(product) {
-      console.log("Added to Wish List: ", product);
+      this.addToWishList(product);
+      +this.reload();
     },
 
     setProductData(product, amount) {

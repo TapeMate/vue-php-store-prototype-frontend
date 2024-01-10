@@ -84,7 +84,7 @@ export default {
     if (index === -1) {
       state.wishList.push(item);
     } else {
-      console.log("item allready on wish list.");
+      console.log("product allready on wish list.");
     }
   },
 
