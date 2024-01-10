@@ -261,6 +261,7 @@
   padding-left: 10px;
 }
 .home-section-wrapper .section-container:nth-of-type(2) section .separator {
+  color: lightgreen;
   font-size: 3rem;
   font-weight: 900;
   padding-right: 100px;

@@ -35,22 +35,17 @@ FRONTEND:
 - Data in SQL import with Adress data
 - delete dummy data
 - not in signup form
-- login success message
 - make delivery adress changeable
-- payment method and delivery type has to be checked before order now btn is enabled
 
 - refactor code
 - check data in frontend realy all i need or to much
-- components a little bit more
+- separate components a little bit more
 - outsource success login messag to own component and make own scss partial
 
 - new feature:
   -> if product out of stock add to wish list
   -> new bar at top with hearth icon
   -> directly store into db
-
-  -> login message to welcome user
-  -> if no items in cart dont display delivery settings
 
 TYPO:
 
