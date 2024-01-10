@@ -76,6 +76,18 @@ export default {
     localStorage.setItem("shoppingCart", JSON.stringify([]));
   },
 
+  addToWishList(state, item) {
+    const index = state.wishList.findIndex(
+      (el) => el.product_id == item.product_id
+    );
+
+    if (index === -1) {
+      state.wishList.push(item);
+    } else {
+      console.log("item allready on wish list.");
+    }
+  },
+
   updatePaymentMethod(state, method) {
     (state.paymentMethod = method),
       localStorage.setItem("paymentMethod", method);

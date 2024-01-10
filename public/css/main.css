@@ -470,8 +470,8 @@ h2 {
 .store-products-section .product-container .product-info-container .btn-add-to-wish {
   margin-top: 20px;
   padding: 0.5rem;
-  background: #ff6347;
-  color: #fff;
+  background: #fff;
+  color: #ff6347;
   border: none;
   grid-column: 1/end;
   width: 100%;
@@ -480,7 +480,8 @@ h2 {
   transition: 0.2s;
 }
 .store-products-section .product-container .product-info-container .btn-add-to-wish:hover {
-  background: #ff8e7a;
+  background: #f2f2f2;
+  color: #ff3814;
 }
 .store-products-section .product-container .product-info-container .btn-add-to-wish i {
   margin-right: 20px;

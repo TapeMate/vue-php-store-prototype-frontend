@@ -154,8 +154,8 @@ h2 {
       .btn-add-to-wish {
         margin-top: 20px;
         padding: 0.5rem;
-        background: $clr-accent-b;
-        color: $clr-secondary;
+        background: $clr-secondary;
+        color: $clr-accent-b;
         border: none;
         grid-column: 1 / end;
         width: 100%;
@@ -163,7 +163,8 @@ h2 {
         font-weight: bold;
         transition: 0.2s;
         &:hover {
-          background: lighten($clr-accent-b, 10%);
+          background: darken($clr-secondary, 5%);
+          color: darken($clr-accent-b, 10%);
         }
         i {
           margin-right: 20px;

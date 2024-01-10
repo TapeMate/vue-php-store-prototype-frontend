@@ -27,11 +27,11 @@
           </router-link>
         </div>
         <div class="navbar-secondary-item">
-          <router-link class="wish-link" to="/wish">
-            <span v-if="cartCount === 0" class="wish-count-zero">{{
-              cartCount
-            }}</span>
-            <span v-if="cartCount > 0" class="wish-count">{{ cartCount }}</span>
+          <router-link v-if="isloginSuccessful" class="wish-link" to="/wish">
+            <span v-if="wishCount === 0" class="wish-count-zero">
+              {{ wishCount }}</span
+            >
+            <span v-if="wishCount > 0" class="wish-count">{{ wishCount }}</span>
             <i class="fa-solid fa-heart"></i>
           </router-link>
         </div>
@@ -59,13 +59,20 @@ export default {
     return {
       logo: Logo,
       cartCount: 0,
+      wishCount: 0,
     };
   },
   mounted() {
     this.getCartCount();
+    this.getWishCount();
   },
   computed: {
-    ...mapGetters(["isloginSuccessful", "getUser", "getShoppingCart"]),
+    ...mapGetters([
+      "isloginSuccessful",
+      "getUser",
+      "getShoppingCart",
+      "getWishList",
+    ]),
   },
   methods: {
     ...mapMutations([
@@ -83,8 +90,14 @@ export default {
       this.unsetPaymentMethod();
       this.reload();
     },
+
     getCartCount() {
       this.cartCount = this.getShoppingCart.length;
+      return;
+    },
+
+    getWishCount() {
+      this.wishCount = this.getWishList.length;
       return;
     },
 
