@@ -33,16 +33,7 @@
             <button @click="removeItem(item.product_id)" class="btn-remove">
               REMOVE <i class="fa-solid fa-trash"></i>
             </button>
-            <div class="product-amount">
-              <span>AMOUNT:</span>
-              <input
-                @change="updateAmountOnChange(item)"
-                type="text"
-                class="order-amount"
-                :id="'order-amount' + item.product_id"
-                :value="item.product_order_amount"
-              />
-            </div>
+
             <div class="price-container">
               <span class="product-price-unit"
                 ><span>UNIT</span>{{ item.product_price }},- EUR</span
