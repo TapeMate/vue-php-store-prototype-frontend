@@ -86,3 +86,8 @@ Fields might include: OrderDetailID, OrderID, ProductID, Quantity, Price.
    Users to Wishlist: One-to-One
    Orders to Order Details: One-to-Many (an order can contain multiple products).
    Products to Shopping Cart, Wishlist, Order Details: Many-to-Many (products can appear in many carts, wishlists, or orders).
+
+4. build order
+
+- create wishlistService.js
+-
