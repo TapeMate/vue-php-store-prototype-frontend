@@ -1,3 +1,5 @@
+import wishlistService from "@/services/wishlistService";
+
 export default {
   async setWishListItem({ commit }, item) {
     try {
