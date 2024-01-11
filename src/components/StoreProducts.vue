@@ -121,7 +121,7 @@
 
 <script>
 import background from "../assets/img/background2.jpg";
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "StoreProducts",
@@ -142,6 +142,7 @@ export default {
 
   methods: {
     ...mapMutations(["addToCart", "addToWishList"]),
+    ...mapActions(["setWishListItem"]),
 
     onClickAddToCart(product, amount) {
       const modifiedProduct = this.setProductData(product, amount);
@@ -149,10 +150,20 @@ export default {
       this.reload();
     },
 
-    onClickAddToWishList(product) {
-      this.addToWishList(product);
-      this.triggerAnimation();
-      this.reloadDelayed();
+    async onClickAddToWishList(product) {
+      try {
+        const response = await this.setWishListItem(product);
+        if (response && response.success) {
+          this.addToWishList(product);
+          this.triggerAnimation();
+          this.reloadDelayed();
+        } else {
+          // Handle the case where the wishlist item was not added with success
+        }
+      } catch (error) {
+        // Handle any errors that occur during the action
+        console.error("Error adding item to wishlist:", error);
+      }
     },
 
     setProductData(product, amount) {

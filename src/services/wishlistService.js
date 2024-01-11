@@ -1,4 +1,5 @@
-const baseURL = "http://localhost/";
+const baseURL =
+  "http://localhost/vue-php-store-prototype-backend/api/wishlist.api.php";
 
 export const postWishList = async (item) => {
   try {

@@ -6,11 +6,12 @@ export default {
       const response = await wishlistService.add(item);
       if (response.success) {
         commit("setWishListItem", item);
+        return response;
       } else {
-        // handle case where item is already in the wishlist
+        return { success: false };
       }
     } catch (error) {
-      // Error handling
+      throw error;
     }
   },
 };
