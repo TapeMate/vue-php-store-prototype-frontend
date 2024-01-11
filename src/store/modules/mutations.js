@@ -85,6 +85,12 @@ export default {
     }
   },
 
+  removeFromWishList(state, itemId) {
+    state.wishList = state.wishList.filter(
+      (item) => item.product_id !== itemId
+    );
+  },
+
   updatePaymentMethod(state, method) {
     (state.paymentMethod = method),
       localStorage.setItem("paymentMethod", method);

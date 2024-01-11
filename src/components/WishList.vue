@@ -64,7 +64,16 @@ export default {
   },
 
   methods: {
-    ...mapMutations([]),
+    ...mapMutations(["removeFromWishList"]),
+
+    removeItem(id) {
+      this.removeFromWishList(id);
+      this.quickReload();
+    },
+
+    quickReload() {
+      window.location.reload();
+    },
   },
 };
 </script>
