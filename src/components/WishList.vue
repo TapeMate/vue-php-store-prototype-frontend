@@ -1,13 +1,13 @@
 <template>
   <div class="wish-list-container">
-    <div class="upper-container">
-      <span class="username-intro" v-if="getWishList.length === 0"
+    <div v-if="getWishList.length === 0" class="upper-container">
+      <span class="username-intro"
         >Hello <span class="username">{{ getUser }}</span
         >. Currently there are no Products on your Wish List.</span
       >
     </div>
     <div class="lower-container">
-      <!-- <img :src="background" alt="" /> -->
+      <img :src="background" alt="Background" />
       <div class="selected-products-container">
         <h5>WISH LIST OVERVIEW</h5>
         <div
@@ -48,6 +48,7 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
+import img from "@/assets/img/wishlist.jpg";
 
 export default {
   name: "WishList",
@@ -55,8 +56,10 @@ export default {
     wishItems: Array,
   },
 
-  mounted() {
-    console.log(this.getWishList.length);
+  data() {
+    return {
+      background: img,
+    };
   },
 
   computed: {
