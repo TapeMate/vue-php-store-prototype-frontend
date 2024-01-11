@@ -32,10 +32,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 FRONTEND:
 
-BUG:
-
-- When putting things into the shopping cart, max stock amount can be exceeded
-
 - Data in SQL import with Adress data
 - delete dummy data
 - not in signup form
@@ -47,8 +43,6 @@ BUG:
 - outsource success login messag to own component and make own scss partial
 
 - new feature:
-  -> if product out of stock add to wish list
-  -> new bar at top with hearth icon
   -> directly store into db
 
 TYPO:
