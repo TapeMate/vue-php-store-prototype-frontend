@@ -167,7 +167,7 @@ h2 {
         }
         &:disabled {
           color: lighten($clr-primary, 30%);
-          background: lighten($clr-success, 15%);
+          background: lighten($clr-primary, 60%);
           font-weight: 500;
         }
         i {
@@ -188,6 +188,11 @@ h2 {
         &:hover {
           background: darken($clr-secondary, 5%);
           color: darken($clr-accent-b, 10%);
+        }
+        &:disabled {
+          color: lighten($clr-primary, 30%);
+          background: lighten($clr-primary, 60%);
+          font-weight: 500;
         }
         i {
           margin-right: 20px;

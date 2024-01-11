@@ -21,6 +21,11 @@
 
       <div class="product-info-container">
         <span
+          v-if="isProductOnWishList(this.productData[index]) === true"
+          class="on-cart-amount"
+          >ON WISH LIST</span
+        >
+        <span
           v-if="product.product_stock_amount - setAmountAvailable(product) > 0"
           class="on-cart-amount"
           >IN CART
@@ -105,6 +110,7 @@
           v-if="product.product_stock_amount === 0"
           @click="onClickAddToWishList(this.productData[index])"
           class="btn-add-to-wish"
+          :disabled="isProductOnWishList(this.productData[index]) === true"
         >
           <i class="fa-solid fa-heart"></i>Add to Wish List
         </button>
@@ -145,7 +151,7 @@ export default {
 
     onClickAddToWishList(product) {
       this.addToWishList(product);
-      +this.reload();
+      this.reload();
     },
 
     setProductData(product, amount) {
@@ -164,6 +170,17 @@ export default {
         }
       });
       return availableAmount;
+    },
+
+    isProductOnWishList(product) {
+      let result = false;
+
+      this.getWishList.forEach((el) => {
+        if (el.product_id === product.product_id) {
+          return (result = true);
+        }
+      });
+      return result;
     },
 
     reload() {

@@ -80,11 +80,8 @@ export default {
     const index = state.wishList.findIndex(
       (el) => el.product_id == item.product_id
     );
-
     if (index === -1) {
       state.wishList.push(item);
-    } else {
-      console.log("product allready on wish list.");
     }
   },
 
