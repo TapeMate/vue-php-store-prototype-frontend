@@ -32,7 +32,7 @@
               {{ wishCount }}</span
             >
             <span v-if="wishCount > 0" class="wish-count">{{ wishCount }}</span>
-            <i class="fa-solid fa-heart"></i>
+            <i id="navbar-wishlist-icon" class="fa-solid fa-heart"></i>
           </router-link>
         </div>
         <div class="navbar-secondary-item">

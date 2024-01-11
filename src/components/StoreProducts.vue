@@ -151,7 +151,8 @@ export default {
 
     onClickAddToWishList(product) {
       this.addToWishList(product);
-      this.reload();
+      this.triggerAnimation();
+      this.reloadDelayed();
     },
 
     setProductData(product, amount) {
@@ -183,8 +184,20 @@ export default {
       return result;
     },
 
+    triggerAnimation() {
+      document
+        .querySelector("#navbar-wishlist-icon")
+        .classList.add("navbar-wishlist-icon-animate");
+    },
+
     reload() {
       window.location.reload();
+    },
+
+    reloadDelayed() {
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     },
   },
 };

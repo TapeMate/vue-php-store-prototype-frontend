@@ -89,6 +89,23 @@
   font-size: 1.2rem;
   transition: 0.2s;
 }
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link .navbar-wishlist-icon-animate,
+.navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link .navbar-wishlist-icon-animate {
+  color: tomato;
+  animation: iconBeat 1s forwards;
+  animation-iteration-count: 2;
+}
+@keyframes iconBeat {
+  0% {
+    font-size: 1, 2rem;
+  }
+  20% {
+    font-size: 3rem;
+  }
+  100% {
+    font-size: 1, 2rem;
+  }
+}
 .navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link .card-count-zero,
 .navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .card-link .wish-count-zero,
 .navbar-wrapper .navbar-main .navbar-secondary-container .navbar-secondary-item .wish-link .card-count-zero,
