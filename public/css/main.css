@@ -393,7 +393,7 @@ h2 {
 .store-products-section .product-container .product-info-container {
   height: 140px;
   display: grid;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
   padding: 1rem;
@@ -402,10 +402,26 @@ h2 {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+.store-products-section .product-container .product-info-container .on-cart-amount {
+  width: 100%;
+  text-align: left;
+  font-size: 0.7rem;
+  grid-column: 1/2;
+  margin-bottom: 5px;
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.store-products-section .product-container .product-info-container .on-cart-amount .amount {
+  font-weight: bold;
+  color: lightgreen;
+  font-size: 1rem;
+  padding: 0 0.2rem 0 0.5rem;
+}
 .store-products-section .product-container .product-info-container .amount-header,
 .store-products-section .product-container .product-info-container .amount-header-oos {
   width: 100%;
-  grid-column: 1/end;
+  grid-column: 2/end;
   text-align: right;
   font-size: 0.7rem;
   margin-bottom: 5px;
@@ -416,7 +432,7 @@ h2 {
 }
 .store-products-section .product-container .product-info-container .product-stock-amount {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0 0 0 0.5rem;
   text-align: left;
   align-items: center;
 }
@@ -439,7 +455,12 @@ h2 {
   font-weight: bold;
   font-size: 1.3rem;
 }
-.store-products-section .product-container .product-info-container .product-select-amount {
+.store-products-section .product-container .product-info-container .select-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.store-products-section .product-container .product-info-container .select-container .product-select-amount {
   padding: 0.2rem;
   font-size: 1.1rem;
   width: 60px;

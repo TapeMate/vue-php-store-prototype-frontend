@@ -20,6 +20,14 @@
       </div>
 
       <div class="product-info-container">
+        <span
+          v-if="product.product_stock_amount - setAmountAvailable(product) > 0"
+          class="on-cart-amount"
+          >IN CART
+          <span class="amount">{{
+            product.product_stock_amount - setAmountAvailable(product)
+          }}</span></span
+        >
         <p v-if="product.product_stock_amount == 0" class="amount-header-oos">
           OUT OF STOCK
         </p>
@@ -56,17 +64,27 @@
             >{{ product.product_stock_amount }}</span
           >
         </p>
-        <select
-          class="product-select-amount"
-          name="select-amount"
-          id="select-amount"
-          :disabled="product.product_stock_amount == 0"
-          v-model="selectedAmount[product.product_id]"
-        >
-          <option v-for="n in product.product_stock_amount" :key="n" :value="n">
-            {{ n }}
-          </option>
-        </select>
+        <div class="select-container">
+          <select
+            class="product-select-amount"
+            name="select-amount"
+            id="select-amount"
+            :disabled="
+              product.product_stock_amount == 0 ||
+              setAmountAvailable(product) === 0
+            "
+            v-model="selectedAmount[product.product_id]"
+          >
+            <option
+              v-for="n in setAmountAvailable(product)"
+              :key="n"
+              :value="n"
+            >
+              {{ n }}
+            </option>
+          </select>
+        </div>
+
         <button
           v-if="product.product_stock_amount > 0"
           @click="
@@ -113,7 +131,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getUserId", "getWishList"]),
+    ...mapGetters(["getUserId", "getWishList", "getShoppingCart"]),
   },
 
   methods: {
@@ -134,6 +152,18 @@ export default {
       const newProduct = { ...product };
       newProduct.product_order_amount = amount;
       return newProduct;
+    },
+
+    setAmountAvailable(product) {
+      let availableAmount = product.product_stock_amount;
+
+      this.getShoppingCart.forEach((el) => {
+        if (el.product_id === product.product_id) {
+          return (availableAmount =
+            product.product_stock_amount - el.product_order_amount);
+        }
+      });
+      return availableAmount;
     },
 
     reload() {
