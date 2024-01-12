@@ -4,9 +4,6 @@
 
 <script>
 import StoreProducts from "@/components/StoreProducts.vue";
-import img1 from "../assets/img/product-a.png";
-import img2 from "../assets/img/product-b.png";
-import img3 from "../assets/img/product-c.png";
 
 export default {
   name: "ProductView",
@@ -17,7 +14,6 @@ export default {
   data() {
     return {
       productData: {},
-      productImages: [img1, img2, img3],
     };
   },
 
@@ -37,26 +33,11 @@ export default {
           return response.json();
         })
         .then((data) => {
-          this.setProductImage(data, this.productImages);
+          this.productData = data;
         })
         .catch((error) => {
           console.error("Error:", error);
         });
-    },
-
-    // set img link from import to product object
-    setProductImage(data, images) {
-      const imgArr = images;
-      const results = [];
-
-      data.product.forEach((elmt) => {
-        const images = imgArr;
-        elmt.product_img = images.shift();
-        results.push(elmt);
-        return imgArr;
-      });
-
-      this.productData = results;
     },
   },
 };

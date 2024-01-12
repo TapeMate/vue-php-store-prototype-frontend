@@ -3,7 +3,7 @@
   <section class="store-products-section">
     <img :src="img" alt="Background" />
     <div
-      v-for="(product, index) in productData"
+      v-for="(product, index) in productData.product"
       :key="index"
       class="product-container"
     >
@@ -20,11 +20,11 @@
       </div>
 
       <div class="product-info-container">
-        <span
+        <!-- <span
           v-if="isProductOnWishList(this.productData[index]) === true"
           class="on-cart-amount"
           >ON WISH LIST</span
-        >
+        > -->
         <span
           v-if="product.product_stock_amount - setAmountAvailable(product) > 0"
           class="on-cart-amount"
@@ -110,7 +110,6 @@
           v-if="product.product_stock_amount === 0"
           @click="onClickAddToWishList(this.productData[index].product_id)"
           class="btn-add-to-wish"
-          :disabled="isProductOnWishList(this.productData[index]) === true"
         >
           <i class="fa-solid fa-heart"></i>Add to Wish List
         </button>
@@ -183,16 +182,17 @@ export default {
       return availableAmount;
     },
 
-    isProductOnWishList(product) {
-      let result = false;
+    // replace with db query
+    // isProductOnWishList(product) {
+    //   let result = false;
 
-      this.getWishList.forEach((el) => {
-        if (el.product_id === product.product_id) {
-          return (result = true);
-        }
-      });
-      return result;
-    },
+    //   this.getWishList.forEach((el) => {
+    //     if (el.product_id === product.product_id) {
+    //       return (result = true);
+    //     }
+    //   });
+    //   return result;
+    // },
 
     triggerAnimation() {
       document
