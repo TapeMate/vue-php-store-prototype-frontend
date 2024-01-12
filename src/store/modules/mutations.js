@@ -85,6 +85,11 @@ export default {
     }
   },
 
+  // for testing and later on to set local storage variables for wishlist
+  setWishList(state, data) {
+    console.log(state, data);
+  },
+
   removeFromWishList(state, itemId) {
     state.wishList = state.wishList.filter(
       (item) => item.product_id !== itemId
