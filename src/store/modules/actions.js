@@ -1,11 +1,11 @@
 import { postWishList } from "@/services/wishlistService";
 
 export default {
-  async addWishListItem({ commit }, { userId, product }) {
+  async addWishListItem({ commit }, { userId, productId }) {
     try {
-      const response = await postWishList({ userId, product });
+      const response = await postWishList({ userId, productId });
       if (response.success) {
-        commit("addToWishList", product);
+        commit("addToWishList", productId);
         return response;
       } else {
         return { success: false };
