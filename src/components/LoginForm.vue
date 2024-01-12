@@ -72,8 +72,8 @@ export default {
             throw new Error(data.error);
           }
           // this.setLoginSuccess();
-          this.setUserId(data.user.users_id);
-          this.loggedInUser(data.user.users_uid);
+          this.setUserId(data.user.user_id);
+          this.loggedInUser(data.user.user_uid);
           this.runDisplayLoginMessage();
           // this.loginIsSuccessful();
           this.reload();

@@ -52,11 +52,16 @@ BACKEND:
 - update stock amount after order
 - create orders table
 - create order details table
-- create wishlist table
 - create shoppingcart table
 - create apis
 - refactor code
 - sanatize code
+
+further steps:
+
+- remove wishlist from local storage
+- alter method to receive data throug database to render wishlist
+- move img link to product info in products table
 
 PLANNING:
 

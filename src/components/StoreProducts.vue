@@ -156,7 +156,7 @@ export default {
         const response = await this.addWishListItem(payload);
         if (response && response.success) {
           this.triggerAnimation();
-          // this.reloadDelayed();
+          this.reloadDelayed();
         } else {
           console.error("Item was not added to the wish list!");
         }
