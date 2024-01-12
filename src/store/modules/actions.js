@@ -1,4 +1,4 @@
-import { postWishList } from "@/services/wishlistService";
+import { postWishList } from "@/services/wishListService";
 
 export default {
   async addWishListItem({ commit }, { userId, productId }) {
