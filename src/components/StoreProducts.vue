@@ -137,12 +137,12 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getUserId", "getWishList", "getShoppingCart"]),
+    ...mapGetters(["getWishList", "getShoppingCart", "getUserId"]),
   },
 
   methods: {
     ...mapMutations(["addToCart", "addToWishList"]),
-    ...mapActions(["setWishListItem"]),
+    ...mapActions(["addWishListItem"]),
 
     onClickAddToCart(product, amount) {
       const modifiedProduct = this.setProductData(product, amount);
@@ -151,11 +151,12 @@ export default {
     },
 
     async onClickAddToWishList(product) {
+      const payload = { product: product, userId: this.getUserId };
       try {
-        const response = await this.setWishListItem(product);
+        const response = await this.addWishListItem(payload);
         if (response && response.success) {
           this.triggerAnimation();
-          this.reloadDelayed();
+          // this.reloadDelayed();
         } else {
           console.error("Item was not added to the wish list!");
         }
@@ -165,9 +166,9 @@ export default {
     },
 
     setProductData(product, amount) {
-      const newProduct = { ...product };
-      newProduct.product_order_amount = amount;
-      return newProduct;
+      const newProductData = { ...product };
+      newProductData.product_order_amount = amount;
+      return newProductData;
     },
 
     setAmountAvailable(product) {

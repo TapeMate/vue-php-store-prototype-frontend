@@ -1,17 +1,17 @@
 import { postWishList } from "@/services/wishlistService";
 
 export default {
-  async setWishListItem({ commit }, item) {
+  async addWishListItem({ commit }, { userId, product }) {
     try {
-      const response = await postWishList(item);
+      const response = await postWishList({ userId, product });
       if (response.success) {
-        commit("addToWishList", item);
+        commit("addToWishList", product);
         return response;
       } else {
         return { success: false };
       }
     } catch (error) {
-      console.error("Error in setWishListItem action:", error);
+      console.error("Error in addWishListItem action:", error);
       throw error;
     }
   },
