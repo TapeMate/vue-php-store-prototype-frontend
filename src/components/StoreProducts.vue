@@ -108,7 +108,9 @@
         </button>
         <button
           v-if="product.product_stock_amount === 0"
-          @click="onClickAddToWishList(this.productData[index].product_id)"
+          @click="
+            onClickAddToWishList(this.productData.product[index].product_id)
+          "
           class="btn-add-to-wish"
         >
           <i class="fa-solid fa-heart"></i>Add to Wish List
@@ -150,6 +152,7 @@ export default {
     },
 
     async onClickAddToWishList(productId) {
+      console.log(productId);
       const payload = { productId: productId, userId: this.getUserId };
       try {
         const response = await this.addWishListItem(payload);
