@@ -154,14 +154,12 @@ export default {
       try {
         const response = await this.setWishListItem(product);
         if (response && response.success) {
-          this.addToWishList(product);
           this.triggerAnimation();
           this.reloadDelayed();
         } else {
-          // Handle the case where the wishlist item was not added with success
+          console.error("Item was not added to the wish list!");
         }
       } catch (error) {
-        // Handle any errors that occur during the action
         console.error("Error adding item to wishlist:", error);
       }
     },
