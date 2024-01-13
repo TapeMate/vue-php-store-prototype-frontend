@@ -145,7 +145,7 @@ export default {
 
   methods: {
     ...mapMutations(["addToCart"]),
-    ...mapActions(["addWishListItem"]),
+    ...mapActions(["addWishListItem", "addCartItem"]),
 
     // onClickAddToCart(product, amount) {
     //   console.log(product, amount);
