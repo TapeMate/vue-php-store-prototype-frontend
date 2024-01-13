@@ -151,7 +151,7 @@ export default {
 
   mounted() {
     this.enableOrder();
-    console.log(this.isOrderEnabled);
+    // console.log(this.isOrderEnabled);
   },
 
   computed: {
@@ -176,14 +176,14 @@ export default {
     ]),
 
     enableOrder() {
-      console.log(this.getDeliveryMethod);
-      console.log(this.getPaymentMethod);
+      // console.log(this.getDeliveryMethod);
+      // console.log(this.getPaymentMethod);
 
       if (
         this.getDeliveryMethod !== "null" &&
         this.getPaymentMethod !== "null"
       ) {
-        console.log("success.");
+        // console.log("success.");
         this.isOrderEnabled = true;
       } else {
         this.isOrderEnabled = false;

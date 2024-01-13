@@ -1,6 +1,10 @@
+// wishlist services:
 import { postItemToWishList } from "@/services/wishListService";
 import { pullWishList } from "@/services/wishListService";
 import { removeItemOnWishList } from "@/services/wishListService";
+
+// cart services:
+import { postItemToCart } from "@/services/cartService";
 
 export default {
   async addWishListItem({ commit }, { userId, product }) {
@@ -39,7 +43,6 @@ export default {
     try {
       const response = await removeItemOnWishList(userId, productId);
       if (response.success) {
-        console.log("success: ", response);
         commit("removeFromWishListLocal", productId);
         return response;
       } else {
@@ -48,6 +51,22 @@ export default {
       }
     } catch (error) {
       console.error("Error in removeWishListItem action:", error);
+      throw error;
+    }
+  },
+
+  async addCartItem({ commit }, { product, amount }) {
+    try {
+      const response = await postItemToCart(product, amount);
+      if (response.success) {
+        commit("addToCartLocal");
+        return response;
+      } else {
+        console.error("no success: ", response);
+        return { success: false };
+      }
+    } catch (error) {
+      console.error("Error in addCartItem action:", error);
       throw error;
     }
   },

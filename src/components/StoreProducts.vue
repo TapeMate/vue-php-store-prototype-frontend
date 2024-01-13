@@ -147,11 +147,26 @@ export default {
     ...mapMutations(["addToCart"]),
     ...mapActions(["addWishListItem"]),
 
-    onClickAddToCart(product, amount) {
-      console.log(product, amount);
-      const modifiedProduct = this.setProductData(product, amount);
-      this.addToCart(modifiedProduct);
-      // this.reload();
+    // onClickAddToCart(product, amount) {
+    //   console.log(product, amount);
+    //   const modifiedProduct = this.setProductData(product, amount);
+    //   this.addToCart(modifiedProduct);
+    //   this.reload();
+    // },
+
+    async onClickAddToCart(product, amount) {
+      console.log("event params: ", product, amount);
+      const payload = { product: product, amount: amount };
+      try {
+        const response = await this.addCartItem(payload);
+        if (response && response.success) {
+          console.log("success: ", response);
+        } else {
+          console.error("Item was not added to Cart!");
+        }
+      } catch (error) {
+        console.log("Error adding item to Cart:", error);
+      }
     },
 
     async onClickAddToWishList(product) {
