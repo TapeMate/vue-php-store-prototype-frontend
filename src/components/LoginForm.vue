@@ -49,7 +49,6 @@ export default {
     ...mapActions(["fetchWishList"]),
 
     submitLogin() {
-      console.log(this.loginData);
       fetch(
         "http://localhost/vue-php-store-prototype-backend/api/login.api.php",
         {

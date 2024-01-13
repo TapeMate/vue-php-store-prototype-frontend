@@ -36,7 +36,7 @@ export const pullWishList = async (userId) => {
     }
     return await response.json();
   } catch (error) {
-    console.log("Error in pullWishList service:", error);
+    console.error("Error in pullWishList service:", error);
     throw error;
   }
 };

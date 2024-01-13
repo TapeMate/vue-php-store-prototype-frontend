@@ -152,7 +152,6 @@ export default {
     },
 
     async onClickAddToWishList(productId) {
-      console.log(productId);
       const payload = { productId: productId, userId: this.getUserId };
       try {
         const response = await this.addWishListItem(payload);

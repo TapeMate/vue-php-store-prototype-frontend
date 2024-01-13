@@ -87,7 +87,7 @@ export default {
 
   // for testing and later on to set local storage variables for wishlist
   setWishList(state, data) {
-    console.log(state, data);
+    console.log("in set WisList mutation: ", state, data);
   },
 
   removeFromWishList(state, itemId) {
