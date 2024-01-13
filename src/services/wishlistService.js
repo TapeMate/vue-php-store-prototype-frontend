@@ -41,19 +41,26 @@ export const pullWishList = async (userId) => {
   }
 };
 
-export const removeItemOnWishList = async ({ userId, productId }) => {
+export const removeItemOnWishList = async (userId, productId) => {
   try {
-    const response = await fetch(
-      `${baseURL}/users/${encodeURIComponent(
-        userId
-      )}/wishlist/${encodeURIComponent(productId)}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    // const response = await fetch(
+    //   `${baseURL}/users/${encodeURIComponent(
+    //     userId
+    //   )}/wishlist/${encodeURIComponent(productId)}`,
+    //   {
+    //     method: "DELETE",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   }
+    // );
+    const response = await fetch(`${baseURL}/wishlist/remove`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId, productId }),
+    });
     if (!response.ok) {
       throw new Error(
         "Network error while trying to remove Item from wishlist!"

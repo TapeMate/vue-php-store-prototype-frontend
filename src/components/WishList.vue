@@ -71,7 +71,7 @@ export default {
     ...mapMutations(["removeFromWishList"]),
 
     removeItem(productId) {
-      this.removeFromWishList(this.getUserId, productId);
+      this.removeWishListItem(this.getUserId, productId);
 
       // local storage for UI purpose atm
       // this.removeFromWishList(productId);
