@@ -110,6 +110,7 @@
           v-if="product.product_stock_amount === 0"
           @click="onClickAddToWishList(this.productData.product[index])"
           class="btn-add-to-wish"
+          :disabled="isProductOnWishList(this.productData.product[index])"
         >
           <i class="fa-solid fa-heart"></i>Add to Wish List
         </button>
@@ -182,17 +183,16 @@ export default {
       return availableAmount;
     },
 
-    // replace with db query
-    // isProductOnWishList(product) {
-    //   let result = false;
+    isProductOnWishList(product) {
+      let result = false;
 
-    //   this.getWishList.forEach((el) => {
-    //     if (el.product_id === product.product_id) {
-    //       return (result = true);
-    //     }
-    //   });
-    //   return result;
-    // },
+      this.getWishList.forEach((el) => {
+        if (el.product_id === product.product_id) {
+          return (result = true);
+        }
+      });
+      return result;
+    },
 
     triggerAnimation() {
       document
