@@ -88,11 +88,10 @@ export default {
   // for testing and later on to set local storage variables for wishlist
   setWishListLocal(state, data) {
     state.wishList = [];
-    console.log("state: ", state);
-    console.log("####################################");
-    console.log("data: ", data);
-
-    state.wishList.push(data.wishListData[0]);
+    data.wishListData.forEach((el) => {
+      state.wishList.push(el);
+    });
+    console.log("created local storage entry wishlist");
   },
 
   removeFromWishList(state, itemId) {

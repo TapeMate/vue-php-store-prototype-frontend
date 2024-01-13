@@ -2,12 +2,12 @@ import { postWishList } from "@/services/wishListService";
 import { pullWishList } from "@/services/wishListService";
 
 export default {
-  async addWishListItem({ commit }, { userId, productId }) {
-    console.log("ADDING TO WISHLIST!");
+  async addWishListItem({ commit }, { userId, product }) {
+    const productId = product.product_id;
     try {
       const response = await postWishList({ userId, productId });
       if (response.success) {
-        commit("addToWishList", productId);
+        commit("addToWishList", product);
         return response;
       } else {
         return { success: false };
