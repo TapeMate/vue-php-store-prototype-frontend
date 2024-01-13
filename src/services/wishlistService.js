@@ -1,7 +1,7 @@
 const baseURL =
   "http://localhost/vue-php-store-prototype-backend/api/wishlist.api.php";
 
-export const postWishList = async ({ userId, productId }) => {
+export const postItemToWishList = async ({ userId, productId }) => {
   try {
     const response = await fetch(`${baseURL}/wishlist/add`, {
       method: "POST",
@@ -37,6 +37,31 @@ export const pullWishList = async (userId) => {
     return await response.json();
   } catch (error) {
     console.error("Error in pullWishList service:", error);
+    throw error;
+  }
+};
+
+export const removeItemOnWishList = async ({ userId, productId }) => {
+  try {
+    const response = await fetch(
+      `${baseURL}/users/${encodeURIComponent(
+        userId
+      )}/wishlist/${encodeURIComponent(productId)}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (!response.ok) {
+      throw new Error(
+        "Network error while trying to remove Item from wishlist!"
+      );
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error on removeItemOnWishList service:", error);
     throw error;
   }
 };

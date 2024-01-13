@@ -1,11 +1,12 @@
-import { postWishList } from "@/services/wishListService";
+import { postItemToWishList } from "@/services/wishListService";
 import { pullWishList } from "@/services/wishListService";
+import { removeItemOnWishList } from "@/services/wishListService";
 
 export default {
   async addWishListItem({ commit }, { userId, product }) {
     const productId = product.product_id;
     try {
-      const response = await postWishList({ userId, productId });
+      const response = await postItemToWishList({ userId, productId });
       if (response.success) {
         commit("addToWishList", product);
         return response;
@@ -26,11 +27,26 @@ export default {
         return response;
       } else {
         commit("unsetWishList", response);
-        console.error("here?", response.error);
         return { success: false };
       }
     } catch (error) {
       console.error("Error in fetchWishList action:", error);
+      throw error;
+    }
+  },
+
+  async removeWishListItem({ commit }, { userId, productId }) {
+    try {
+      const response = await removeItemOnWishList(userId, productId);
+      if (response.success) {
+        commit("removeFromWishList", response);
+        return response;
+      } else {
+        console.error(response);
+        return { success: false };
+      }
+    } catch (error) {
+      console.error("Error in removeWishListItem action:", error);
       throw error;
     }
   },

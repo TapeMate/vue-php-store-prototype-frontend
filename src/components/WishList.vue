@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import img from "@/assets/img/wishlist.jpg";
 
 export default {
@@ -63,15 +63,19 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getWishList", "getUser"]),
+    ...mapGetters(["getWishList", "getUser", "getUserId"]),
   },
 
   methods: {
+    ...mapActions(["removeWishListItem"]),
     ...mapMutations(["removeFromWishList"]),
 
-    removeItem(id) {
-      this.removeFromWishList(id);
-      this.quickReload();
+    removeItem(productId) {
+      this.removeFromWishList(this.getUserId, productId);
+
+      // local storage for UI purpose atm
+      // this.removeFromWishList(productId);
+      // this.quickReload();
     },
 
     quickReload() {

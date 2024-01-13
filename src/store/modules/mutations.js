@@ -77,7 +77,6 @@ export default {
   },
 
   addToWishList(state, item) {
-    // console.log(state, item);
     const index = state.wishList.findIndex(
       (el) => el.product_id == item.product_id
     );
@@ -91,13 +90,13 @@ export default {
     data.wishListData.forEach((el) => {
       state.wishList.push(el);
     });
-    console.log("created local storage entry wishlist");
   },
 
   removeFromWishList(state, itemId) {
-    state.wishList = state.wishList.filter(
-      (item) => item.product_id !== itemId
-    );
+    console.log("Callback from Backend:", state, itemId);
+    // state.wishList = state.wishList.filter(
+    //   (item) => item.product_id !== itemId
+    // );
   },
 
   unsetWishList(state) {
