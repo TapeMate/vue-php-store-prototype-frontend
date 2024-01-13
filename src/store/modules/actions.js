@@ -22,7 +22,7 @@ export default {
     try {
       const response = await pullWishList(userId);
       if (response.success) {
-        commit("setWishListLocal", response);
+        commit("updateWishListLocal", response);
         return response;
       } else {
         console.error(response.error);

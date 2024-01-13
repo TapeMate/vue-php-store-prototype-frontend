@@ -86,7 +86,7 @@ export default {
   },
 
   // for testing and later on to set local storage variables for wishlist
-  setWishListLocal(state, data) {
+  updateWishListLocal(state, data) {
     state.wishList = [];
     data.wishListData.forEach((el) => {
       state.wishList.push(el);
