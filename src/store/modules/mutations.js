@@ -92,11 +92,10 @@ export default {
     });
   },
 
-  removeFromWishList(state, itemId) {
-    console.log("Callback from Backend:", state, itemId);
-    // state.wishList = state.wishList.filter(
-    //   (item) => item.product_id !== itemId
-    // );
+  removeFromWishListLocal(state, productId) {
+    state.wishList = state.wishList.filter(
+      (item) => item.product_id !== productId
+    );
   },
 
   unsetWishList(state) {

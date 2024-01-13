@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import img from "@/assets/img/wishlist.jpg";
 
 export default {
@@ -68,13 +68,20 @@ export default {
 
   methods: {
     ...mapActions(["removeWishListItem"]),
-    ...mapMutations(["removeFromWishList"]),
 
-    removeItem(productId) {
-      this.removeWishListItem(this.getUserId, productId);
-
-      // local storage for UI purpose atm
-      // this.removeFromWishList(productId);
+    async removeItem(productId) {
+      const payload = { userId: Number(this.getUserId), productId: productId };
+      try {
+        const response = await this.removeWishListItem(payload);
+        if (response && response.success) {
+          console.log("success: ", response);
+        } else {
+          console.log("no success: ", response);
+        }
+      } catch (error) {
+        console.error("Error removing Item from Wishlist:", error);
+        throw error;
+      }
       // this.quickReload();
     },
 

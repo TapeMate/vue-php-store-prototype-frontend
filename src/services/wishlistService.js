@@ -43,17 +43,6 @@ export const pullWishList = async (userId) => {
 
 export const removeItemOnWishList = async (userId, productId) => {
   try {
-    // const response = await fetch(
-    //   `${baseURL}/users/${encodeURIComponent(
-    //     userId
-    //   )}/wishlist/${encodeURIComponent(productId)}`,
-    //   {
-    //     method: "DELETE",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   }
-    // );
     const response = await fetch(`${baseURL}/wishlist/remove`, {
       method: "DELETE",
       headers: {
