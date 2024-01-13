@@ -20,11 +20,11 @@
       </div>
 
       <div class="product-info-container">
-        <!-- <span
-          v-if="isProductOnWishList(this.productData[index]) === true"
+        <span
+          v-if="isProductOnWishList(this.productData.product[index]) === true"
           class="on-cart-amount"
           >ON WISH LIST</span
-        > -->
+        >
         <span
           v-if="product.product_stock_amount - setAmountAvailable(product) > 0"
           class="on-cart-amount"
