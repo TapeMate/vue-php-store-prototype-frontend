@@ -142,7 +142,7 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["addToCart", "addToWishList"]),
+    ...mapMutations(["addToCart"]),
     ...mapActions(["addWishListItem"]),
 
     onClickAddToCart(product, amount) {
@@ -209,7 +209,7 @@ export default {
     reloadDelayed() {
       setTimeout(() => {
         window.location.reload();
-      }, 2000);
+      }, 1000);
     },
   },
 };

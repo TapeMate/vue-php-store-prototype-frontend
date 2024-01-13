@@ -81,6 +81,7 @@ export default {
       "unsetUserId",
       "unsetPaymentMethod",
       "unsetDeliveryMethod",
+      "unsetWishList",
     ]),
     logoutUser() {
       this.userLogout();
@@ -88,6 +89,7 @@ export default {
       this.unsetUserId();
       this.unsetDeliveryMethod();
       this.unsetPaymentMethod();
+      this.unsetWishList();
       this.reload();
     },
 

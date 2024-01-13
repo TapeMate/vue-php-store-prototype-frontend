@@ -15,12 +15,12 @@ export default {
     WishList,
   },
   computed: {
-    ...mapGetters(["getWishList"]),
+    ...mapGetters(["getWishList", "getUserId"]),
   },
   methods: {
     ...mapActions(["fetchWishList"]),
     fetchData() {
-      const testUserId = 30;
+      const testUserId = this.getUserId;
       this.fetchWishList(testUserId);
     },
   },

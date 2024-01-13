@@ -86,16 +86,24 @@ export default {
   },
 
   // for testing and later on to set local storage variables for wishlist
-  setWishList(state, data) {
+  setWishListLocal(state, data) {
+    state.wishList = [];
     console.log("state: ", state);
     console.log("####################################");
     console.log("data: ", data);
+
+    state.wishList.push(data.wishListData[0]);
   },
 
   removeFromWishList(state, itemId) {
     state.wishList = state.wishList.filter(
       (item) => item.product_id !== itemId
     );
+  },
+
+  unsetWishList(state) {
+    state.wishList = [];
+    localStorage.setItem("wishList", JSON.stringify([]));
   },
 
   updatePaymentMethod(state, method) {

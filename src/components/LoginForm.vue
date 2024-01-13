@@ -75,7 +75,7 @@ export default {
           // this.setLoginSuccess();
           this.setUserId(data.user.user_id);
           this.loggedInUser(data.user.user_uid);
-          // this.fetchWishList(data.user.user_id);
+          this.fetchWishList(data.user.user_id);
           this.runDisplayLoginMessage();
           this.loginIsSuccessful();
           this.reload();
