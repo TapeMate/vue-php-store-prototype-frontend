@@ -14,6 +14,10 @@ export default {
   components: {
     WishList,
   },
+  mounted() {
+    this.fetchWishList(this.getUserId);
+  },
+
   computed: {
     ...mapGetters(["getWishList", "getUserId"]),
   },

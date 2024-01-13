@@ -90,7 +90,7 @@ export default {
       this.unsetDeliveryMethod();
       this.unsetPaymentMethod();
       this.unsetWishList();
-      this.reload();
+      this.$router.push("/");
     },
 
     getCartCount() {
@@ -101,11 +101,6 @@ export default {
     getWishCount() {
       this.wishCount = this.getWishList.length;
       return;
-    },
-
-    reload() {
-      console.log("Reloading the page");
-      window.location.reload();
     },
   },
 };
