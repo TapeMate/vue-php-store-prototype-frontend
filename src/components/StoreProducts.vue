@@ -110,7 +110,10 @@
           v-if="product.product_stock_amount === 0"
           @click="onClickAddToWishList(this.productData.product[index])"
           class="btn-add-to-wish"
-          :disabled="isProductOnWishList(this.productData.product[index])"
+          :disabled="
+            isProductOnWishList(this.productData.product[index]) ||
+            getUserId === 'null'
+          "
         >
           <i class="fa-solid fa-heart"></i>Add to Wish List
         </button>
