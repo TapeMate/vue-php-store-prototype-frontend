@@ -39,10 +39,11 @@ export default {
     try {
       const response = await removeItemOnWishList(userId, productId);
       if (response.success) {
+        console.log("success: ", response);
         commit("removeFromWishListLocal", productId);
         return response;
       } else {
-        console.error(response);
+        console.error("no success: ", response);
         return { success: false };
       }
     } catch (error) {

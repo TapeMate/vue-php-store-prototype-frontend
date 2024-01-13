@@ -82,7 +82,7 @@ export default {
         console.error("Error removing Item from Wishlist:", error);
         throw error;
       }
-      // this.quickReload();
+      this.quickReload();
     },
 
     quickReload() {
