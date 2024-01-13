@@ -77,6 +77,7 @@ export default {
   },
 
   addToWishList(state, item) {
+    // console.log(state, item);
     const index = state.wishList.findIndex(
       (el) => el.product_id == item.product_id
     );
@@ -85,7 +86,6 @@ export default {
     }
   },
 
-  // for testing and later on to set local storage variables for wishlist
   updateWishListLocal(state, data) {
     state.wishList = [];
     data.wishListData.forEach((el) => {

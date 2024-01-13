@@ -25,7 +25,8 @@ export default {
         commit("updateWishListLocal", response);
         return response;
       } else {
-        console.error(response.error);
+        commit("unsetWishList", response);
+        console.error("here?", response.error);
         return { success: false };
       }
     } catch (error) {

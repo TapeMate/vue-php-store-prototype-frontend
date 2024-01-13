@@ -14,9 +14,9 @@ export default {
   components: {
     WishList,
   },
-  mounted() {
-    this.fetchWishList(this.getUserId);
-  },
+  // mounted() {
+  //   this.fetchWishList(this.getUserId);
+  // },
 
   computed: {
     ...mapGetters(["getWishList", "getUserId"]),

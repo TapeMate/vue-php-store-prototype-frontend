@@ -5,10 +5,23 @@
 
 <script>
 import NavbarMain from "@/components/NavbarMain.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
     NavbarMain,
+  },
+
+  computed: {
+    ...mapGetters(["getUserId"]),
+  },
+
+  mounted() {
+    this.fetchWishList(this.getUserId);
+  },
+
+  methods: {
+    ...mapActions(["fetchWishList"]),
   },
 };
 </script>

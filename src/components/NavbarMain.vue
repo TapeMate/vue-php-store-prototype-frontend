@@ -51,7 +51,7 @@
 
 <script>
 import Logo from "@/assets/img/logo.png";
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "NavbarMain",
@@ -63,18 +63,23 @@ export default {
     };
   },
   mounted() {
-    this.getCartCount();
-    this.getWishCount();
+    this.init();
   },
   computed: {
     ...mapGetters([
       "isloginSuccessful",
       "getUser",
+      "getUserId",
       "getShoppingCart",
       "getWishList",
     ]),
   },
   methods: {
+    init() {
+      this.getCartCount();
+      this.getWishCount();
+    },
+    ...mapActions(["fetchWishList"]),
     ...mapMutations([
       "userLogout",
       "unsetUser",
@@ -100,6 +105,8 @@ export default {
 
     getWishCount() {
       this.wishCount = this.getWishList.length;
+      console.log(this.getWishList);
+      console.log(this.wishCount);
       return;
     },
   },
