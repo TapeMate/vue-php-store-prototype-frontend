@@ -21,7 +21,7 @@ export default {
     try {
       const response = await pullWishList(userId);
       if (response.success) {
-        commit("setWishList", response.wishListItems);
+        commit("setWishList", response);
         return response;
       } else {
         return { success: false };
