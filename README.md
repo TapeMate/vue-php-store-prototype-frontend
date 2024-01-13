@@ -47,7 +47,6 @@ TYPO:
 BACKEND:
 
 - store local cart into database
-- store wishlist into database
 - send order to database
 - update stock amount after order
 - create orders table
@@ -56,12 +55,6 @@ BACKEND:
 - create apis
 - refactor code
 - sanatize code
-
-further steps:
-
-- remove wishlist from local storage
-- alter method to receive data throug database to render wishlist
-- move img link to product info in products table
 
 PLANNING:
 
@@ -91,8 +84,3 @@ Fields might include: OrderDetailID, OrderID, ProductID, Quantity, Price.
    Users to Wishlist: One-to-One
    Orders to Order Details: One-to-Many (an order can contain multiple products).
    Products to Shopping Cart, Wishlist, Order Details: Many-to-Many (products can appear in many carts, wishlists, or orders).
-
-4. build order
-
-- create wishlistService.js
--
