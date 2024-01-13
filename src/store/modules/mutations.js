@@ -76,7 +76,7 @@ export default {
     localStorage.setItem("shoppingCart", JSON.stringify([]));
   },
 
-  addToWishList(state, item) {
+  addToWishListLocal(state, item) {
     const index = state.wishList.findIndex(
       (el) => el.product_id == item.product_id
     );

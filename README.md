@@ -56,6 +56,12 @@ BACKEND:
 - refactor code
 - sanatize code
 
+OPTIONAL:
+
+- delete wishlist after last item has been deleted
+- delete wishlist button
+- delete cart button
+
 PLANNING:
 
 1. Single Database Approach

@@ -8,7 +8,7 @@ export default {
     try {
       const response = await postItemToWishList({ userId, productId });
       if (response.success) {
-        commit("addToWishList", product);
+        commit("addToWishListLocal", product);
         return response;
       } else {
         return { success: false };

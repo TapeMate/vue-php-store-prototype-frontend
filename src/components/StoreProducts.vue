@@ -94,7 +94,7 @@
           v-if="product.product_stock_amount > 0"
           @click="
             onClickAddToCart(
-              this.productData[index],
+              this.productData.product[index],
               selectedAmount[product.product_id]
             )
           "
@@ -148,9 +148,10 @@ export default {
     ...mapActions(["addWishListItem"]),
 
     onClickAddToCart(product, amount) {
+      console.log(product, amount);
       const modifiedProduct = this.setProductData(product, amount);
       this.addToCart(modifiedProduct);
-      this.reload();
+      // this.reload();
     },
 
     async onClickAddToWishList(product) {
