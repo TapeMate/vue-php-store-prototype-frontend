@@ -24,6 +24,7 @@ export default {
         commit("setWishList", response);
         return response;
       } else {
+        console.error(response.error);
         return { success: false };
       }
     } catch (error) {
