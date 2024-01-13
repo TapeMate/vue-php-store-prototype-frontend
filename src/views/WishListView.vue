@@ -1,7 +1,7 @@
 <template>
-  <button @click="fetchData" class="test-fetching">
+  <!-- <button @click="fetchData" class="test-fetching">
     TEST FETCH WISHLIST DATA
-  </button>
+  </button> -->
   <WishList :wishItems="getWishList" />
 </template>
 
@@ -23,10 +23,10 @@ export default {
   },
   methods: {
     ...mapActions(["fetchWishList"]),
-    fetchData() {
-      const testUserId = this.getUserId;
-      this.fetchWishList(testUserId);
-    },
+    // fetchData() {
+    //   const testUserId = this.getUserId;
+    //   this.fetchWishList(testUserId);
+    // },
   },
 };
 </script>
