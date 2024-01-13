@@ -22,13 +22,15 @@ export const postWishList = async ({ userId, productId }) => {
 
 export const pullWishList = async (userId) => {
   try {
-    const response = await fetch(`${baseURL}/wishlist/get`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId }),
-    });
+    const response = await fetch(
+      `${baseURL}/wishlist/get?userId=${encodeURIComponent(userId)}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     if (!response.ok) {
       throw new Error("Network error while fetching Wishlist!");
     }

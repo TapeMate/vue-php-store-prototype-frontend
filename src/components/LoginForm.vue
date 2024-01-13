@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "LoginForm",
@@ -46,6 +46,8 @@ export default {
     ...mapGetters(["getUser"]),
   },
   methods: {
+    ...mapActions(["fetchWishList"]),
+
     submitLogin() {
       console.log(this.loginData);
       fetch(
@@ -74,10 +76,10 @@ export default {
           // this.setLoginSuccess();
           this.setUserId(data.user.user_id);
           this.loggedInUser(data.user.user_uid);
+          // this.fetchWishList(data.user.user_id);
           this.runDisplayLoginMessage();
-          // this.loginIsSuccessful();
+          this.loginIsSuccessful();
           this.reload();
-          console.log(this.loginSuccess);
         })
         .catch((error) => {
           console.error("Error:", error);
