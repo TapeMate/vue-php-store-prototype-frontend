@@ -33,19 +33,18 @@ export default {
     localStorage.setItem("userId", null);
   },
 
-  addToCartLocal() {
-    console.log("called addToCartLocal");
-    // const index = state.shoppingCart.findIndex(
-    //   (el) => el.product_id == item.product_id
-    // );
+  addToCartLocal(state, item) {
+    const index = state.shoppingCart.findIndex(
+      (el) => el.product_id == item.product_id
+    );
 
-    // if (index === -1) {
-    //   state.shoppingCart.push(item);
-    // } else {
-    //   state.shoppingCart[index].product_order_amount =
-    //     state.shoppingCart[index].product_order_amount +
-    //     item.product_order_amount;
-    // }
+    if (index === -1) {
+      state.shoppingCart.push(item);
+    } else {
+      state.shoppingCart[index].product_order_amount =
+        state.shoppingCart[index].product_order_amount +
+        item.product_order_amount;
+    }
   },
 
   updateCartAmount(state, payload) {

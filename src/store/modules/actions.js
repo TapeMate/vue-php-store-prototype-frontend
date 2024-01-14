@@ -55,11 +55,11 @@ export default {
     }
   },
 
-  async addCartItem({ commit }, { product, amount }) {
+  async addCartItem({ dispatch }, { product, amount, userId }) {
     try {
-      const response = await postItemToCart(product, amount);
+      const response = await postItemToCart(product, amount, userId);
       if (response.success) {
-        commit("addToCartLocal");
+        dispatch("dummyForTesting");
         return response;
       } else {
         console.error("no success: ", response);
@@ -69,5 +69,9 @@ export default {
       console.error("Error in addCartItem action:", error);
       throw error;
     }
+  },
+
+  dummyForTesting() {
+    console.log("dispatched dummy.");
   },
 };

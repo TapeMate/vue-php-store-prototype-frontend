@@ -144,28 +144,31 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["addToCart"]),
+    ...mapMutations(["addToCartLocal"]),
     ...mapActions(["addWishListItem", "addCartItem"]),
 
-    // onClickAddToCart(product, amount) {
-    //   console.log(product, amount);
-    //   const modifiedProduct = this.setProductData(product, amount);
-    //   this.addToCart(modifiedProduct);
-    //   this.reload();
-    // },
-
     async onClickAddToCart(product, amount) {
-      console.log("event params: ", product, amount);
-      const payload = { product: product, amount: amount };
-      try {
-        const response = await this.addCartItem(payload);
-        if (response && response.success) {
-          console.log("success: ", response);
-        } else {
-          console.error("Item was not added to Cart!");
+      const payload = {
+        product: product,
+        amount: amount,
+        userId: this.getUserId,
+      };
+
+      if (payload.userId == null || payload.userId == "null") {
+        const modifiedProduct = this.amountToProductData(product, amount);
+        this.addToCartLocal(modifiedProduct);
+        this.reload();
+      } else {
+        try {
+          const response = await this.addCartItem(payload);
+          if (response && response.success) {
+            console.log("success: ", response);
+          } else {
+            console.error("Item was not added to Cart!");
+          }
+        } catch (error) {
+          console.log("Error adding item to Cart:", error);
         }
-      } catch (error) {
-        console.log("Error adding item to Cart:", error);
       }
     },
 
@@ -184,7 +187,7 @@ export default {
       }
     },
 
-    setProductData(product, amount) {
+    amountToProductData(product, amount) {
       const newProductData = { ...product };
       newProductData.product_order_amount = amount;
       return newProductData;
