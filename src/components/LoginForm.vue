@@ -38,7 +38,7 @@ export default {
     ...mapGetters(["getUser", "getUserId"]),
   },
   methods: {
-    ...mapActions(["fetchWishList", "loginUser"]),
+    ...mapActions(["fetchWishList", "loginUser", "fetchLocalCart"]),
 
     ...mapMutations([
       "loginIsSuccessful",
@@ -54,6 +54,7 @@ export default {
           this.setUserId(response.user.user_id);
           this.loggedInUser(response.user.user_uid);
           this.fetchWishList(this.getUserId);
+          this.fetchLocalCart(this.getUserId);
           this.runDisplayLoginMessage();
           this.loginIsSuccessful();
           this.loginData.uid = "";

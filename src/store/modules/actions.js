@@ -4,8 +4,8 @@ import { pullWishList } from "@/services/wishListService";
 import { removeItemOnWishList } from "@/services/wishListService";
 
 // cart services:
-// import { postItemToCart } from "@/services/cartService";
 import { pushLocalCart } from "@/services/cartService";
+import { getCartFromDB } from "@/services/cartService";
 
 // other services:
 import { pullProductData } from "@/services/productDataService";
@@ -73,18 +73,26 @@ export default {
         return { success: false };
       }
     } catch (error) {
-      console.error("Error in getLocalCart action:", error);
+      console.error("Error in sendLocalCartToDB action:", error);
       throw error;
     }
   },
 
-  // async receiveCartFromDB({ commit }, userId) {
-
-  // },
-
-  // dummyForTesting() {
-  //   console.log("dispatched dummy.");
-  // },
+  async fetchLocalCart({ commit }, userId) {
+    try {
+      const response = await getCartFromDB(userId);
+      if (response.success) {
+        commit("setLocalCart", response);
+        console.log("success: ", response);
+        return response;
+      } else {
+        console.error("no succes: ", response);
+        return { success: false };
+      }
+    } catch (error) {
+      console.error("Error in fetchLocalCart action:", error);
+    }
+  },
 
   async getProductData() {
     try {

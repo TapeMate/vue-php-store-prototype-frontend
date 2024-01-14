@@ -2,7 +2,6 @@ const baseURL =
   "http://localhost/vue-php-store-prototype-backend/api/cart.api.php";
 
 export const pushLocalCart = async (userId, localCart) => {
-  console.log(localCart);
   try {
     const response = await fetch(`${baseURL}/cart/sync`, {
       method: "POST",
@@ -21,4 +20,23 @@ export const pushLocalCart = async (userId, localCart) => {
   }
 };
 
-// export const getCartFromDB
+export const getCartFromDB = async (userId) => {
+  try {
+    const response = await fetch(
+      `${baseURL}/cart/get?userId=${encodeURIComponent(userId)}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (!response.ok) {
+      throw new Error("Network error while fetching cart!");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error on getCartFromDB service:", error);
+    throw error;
+  }
+};
