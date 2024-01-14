@@ -1,11 +1,4 @@
 <template>
-  <!-- <div v-if="loginSuccess" class="login-success-message">
-    <p class="success-message">
-      Hi <span class="username">{{ getUser }}</span>
-    </p>
-    <p class="success-message">You have been logged in successful!</p>
-  </div> -->
-
   <div class="index-login">
     <h4>LOGIN</h4>
     <p>Login to your Account.</p>
@@ -39,63 +32,13 @@ export default {
         uid: "",
         pwd: "",
       },
-      // loginSuccess: true,
     };
   },
   computed: {
     ...mapGetters(["getUser", "getUserId"]),
   },
   methods: {
-    ...mapActions(["fetchWishList"]),
-
-    submitLogin() {
-      fetch(
-        "http://localhost/vue-php-store-prototype-backend/api/login.api.php",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(this.loginData),
-        }
-      )
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          if (!data) {
-            throw new Error("Invalid response data");
-          }
-          if (data.error) {
-            throw new Error(data.error);
-          }
-          // this.setLoginSuccess();
-          this.setUserId(data.user.user_id);
-          this.loggedInUser(data.user.user_uid);
-          this.fetchWishList(this.getUserId);
-          this.runDisplayLoginMessage();
-          this.loginIsSuccessful();
-          this.reload();
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          this.reload();
-        });
-    },
-
-    reload() {
-      setTimeout(() => {
-        window.location.reload();
-        this.loginIsSuccessful();
-      }, 3000);
-    },
-
-    // setLoginSuccess() {
-    //   this.loginSuccess = true;
-    // },
+    ...mapActions(["fetchWishList", "loginUser"]),
 
     ...mapMutations([
       "loginIsSuccessful",
@@ -103,6 +46,29 @@ export default {
       "setUserId",
       "runDisplayLoginMessage",
     ]),
+
+    async submitLogin() {
+      try {
+        const response = await this.loginUser(this.loginData);
+        if (response && response.success) {
+          this.setUserId(response.user.user_id);
+          this.loggedInUser(response.user.user_uid);
+          this.fetchWishList(this.getUserId);
+          this.runDisplayLoginMessage();
+          this.loginIsSuccessful();
+          this.loginData.uid = "";
+          this.loginData.pwd = "";
+        } else {
+          console.error("Login failed: ", response);
+          this.loginData.uid = "";
+          this.loginData.pwd = "";
+        }
+      } catch (error) {
+        console.error("Signup failed: ", error);
+        this.loginData.uid = "";
+        this.loginData.pwd = "";
+      }
+    },
   },
 };
 </script>

@@ -53,7 +53,6 @@ export default {
 
     async submitSignup() {
       try {
-        console.log(this.signupData);
         this.signupUser(this.signupData);
       } catch (error) {
         console.error("Signup failed: ", error);

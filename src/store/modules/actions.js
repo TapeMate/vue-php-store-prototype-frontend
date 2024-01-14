@@ -10,6 +10,7 @@ import { pushLocalCart } from "@/services/cartService";
 // other services:
 import { pullProductData } from "@/services/productDataService";
 import { pushUserData } from "@/services/authService";
+import { verifyUserData } from "@/services/authService";
 
 export default {
   async addWishListItem({ commit }, { userId, product }) {
@@ -107,6 +108,18 @@ export default {
       }
     } catch (error) {
       console.error("Error in signupUser action:", error);
+      throw error;
+    }
+  },
+
+  async loginUser(_, loginData) {
+    console.log(loginData);
+    try {
+      const response = await verifyUserData(loginData);
+      console.log("success: ", response);
+      return response;
+    } catch (error) {
+      console.error("Error in loginUser action:", error);
       throw error;
     }
   },
