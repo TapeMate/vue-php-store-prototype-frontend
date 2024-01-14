@@ -144,8 +144,8 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["addToCartLocal"]),
-    ...mapActions(["addWishListItem", "sendLocalCart"]),
+    ...mapMutations(["addToLocalCart"]),
+    ...mapActions(["addWishListItem", "sendLocalCartToDB"]),
 
     async onClickAddToCart(product, amount) {
       const userId = this.getUserId;
@@ -153,11 +153,11 @@ export default {
       // console.log(product);
 
       if (userId == null || userId == "null") {
-        this.addToCartLocal(product);
+        this.addToLocalCart(product);
         // this.reload();
       } else {
-        this.addToCartLocal(product);
-        this.sendLocalCart(userId);
+        this.addToLocalCart(product);
+        this.sendLocalCartToDB(userId);
         // this.reload();
       }
     },

@@ -33,7 +33,7 @@ export default {
     localStorage.setItem("userId", null);
   },
 
-  addToCartLocal(state, item) {
+  addToLocalCart(state, item) {
     const index = state.shoppingCart.findIndex(
       (el) => el.product_id == item.product_id
     );
@@ -44,6 +44,11 @@ export default {
         state.shoppingCart[index].product_order_amount +
         item.product_order_amount;
     }
+  },
+
+  // in dev:
+  setLocalCart(state, payload) {
+    console.log(payload);
   },
 
   updateCartAmount(state, payload) {

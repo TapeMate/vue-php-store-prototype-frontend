@@ -32,6 +32,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 FRONTEND:
 
+- remove reload window function and replace with propper ui update render functions
 - refactor code
 - check data in frontend realy all i need or to much
 - separate components a little bit more
@@ -42,16 +43,14 @@ FRONTEND:
 
 TYPO:
 
-- cart / card check
+- cart / card check (naming)
 
 BACKEND:
 
-- store local cart into database
 - send order to database
 - update stock amount after order
 - create orders table
 - create order details table
-- create shoppingcart table
 - create apis
 - refactor code
 - sanatize code

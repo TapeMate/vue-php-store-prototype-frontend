@@ -56,7 +56,7 @@ export default {
     }
   },
 
-  async sendLocalCart({ getters }, userId) {
+  async sendLocalCartToDB({ getters }, userId) {
     const localCart = getters.getShoppingCart;
     try {
       const response = await pushLocalCart(userId, localCart);
@@ -72,6 +72,8 @@ export default {
       throw error;
     }
   },
+
+  async receiveCartFromDB({ commit }, userId) {},
 
   // dummyForTesting() {
   //   console.log("dispatched dummy.");
