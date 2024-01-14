@@ -56,22 +56,6 @@ export default {
     }
   },
 
-  // async addCartItem({ dispatch }, { product, amount, userId }) {
-  //   try {
-  //     const response = await postItemToCart(product, amount, userId);
-  //     if (response.success) {
-  //       dispatch("dummyForTesting");
-  //       return response;
-  //     } else {
-  //       console.error("no success: ", response);
-  //       return { success: false };
-  //     }
-  //   } catch (error) {
-  //     console.error("Error in addCartItem action:", error);
-  //     throw error;
-  //   }
-  // },
-
   async sendLocalCart({ getters }, userId) {
     const localCart = getters.getShoppingCart;
     try {

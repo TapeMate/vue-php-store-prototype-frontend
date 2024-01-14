@@ -150,7 +150,7 @@ export default {
     async onClickAddToCart(product, amount) {
       const userId = this.getUserId;
       product.product_order_amount = amount;
-      console.log(product);
+      // console.log(product);
 
       if (userId == null || userId == "null") {
         this.addToCartLocal(product);
@@ -158,16 +158,7 @@ export default {
       } else {
         this.addToCartLocal(product);
         this.sendLocalCart(userId);
-        // try {
-        //   const response = await this.addCartItem(payload);
-        //   if (response && response.success) {
-        //     console.log("success: ", response);
-        //   } else {
-        //     console.error("Item was not added to Cart!");
-        //   }
-        // } catch (error) {
-        //   console.log("Error adding item to Cart:", error);
-        // }
+        // this.reload();
       }
     },
 
@@ -185,12 +176,6 @@ export default {
         console.error("Error adding item to wishlist:", error);
       }
     },
-
-    // amountToProductData(product, amount) {
-    //   const newProductData = { ...product };
-    //   newProductData.product_order_amount = amount;
-    //   return newProductData;
-    // },
 
     setAmountAvailable(product) {
       let availableAmount = product.product_stock_amount;
