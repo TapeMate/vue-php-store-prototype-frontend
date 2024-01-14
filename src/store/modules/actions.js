@@ -72,11 +72,12 @@ export default {
   //   }
   // },
 
-  async sendLocalCart({ dispatch }, { product, userId }) {
+  async sendLocalCart({ getters }, userId) {
+    const localCart = getters.getShoppingCart;
     try {
-      const response = await pushLocalCart(product, userId);
+      const response = await pushLocalCart(userId, localCart);
       if (response.success) {
-        dispatch("dummyForTesting");
+        console.log("success: ", response);
         return response;
       } else {
         console.error("no success: ", response);
@@ -88,7 +89,7 @@ export default {
     }
   },
 
-  dummyForTesting() {
-    console.log("dispatched dummy.");
-  },
+  // dummyForTesting() {
+  //   console.log("dispatched dummy.");
+  // },
 };

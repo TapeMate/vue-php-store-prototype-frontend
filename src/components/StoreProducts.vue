@@ -145,29 +145,29 @@ export default {
 
   methods: {
     ...mapMutations(["addToCartLocal"]),
-    ...mapActions(["addWishListItem", "addCartItem"]),
+    ...mapActions(["addWishListItem", "sendLocalCart"]),
 
     async onClickAddToCart(product, amount) {
+      const userId = this.getUserId;
       product.product_order_amount = amount;
-      const payload = {
-        product: product,
-        userId: this.getUserId,
-      };
+      console.log(product);
 
-      if (payload.userId == null || payload.userId == "null") {
-        this.addToCartLocal(payload);
-        this.reload();
+      if (userId == null || userId == "null") {
+        this.addToCartLocal(product);
+        // this.reload();
       } else {
-        try {
-          const response = await this.addCartItem(payload);
-          if (response && response.success) {
-            console.log("success: ", response);
-          } else {
-            console.error("Item was not added to Cart!");
-          }
-        } catch (error) {
-          console.log("Error adding item to Cart:", error);
-        }
+        this.addToCartLocal(product);
+        this.sendLocalCart(userId);
+        // try {
+        //   const response = await this.addCartItem(payload);
+        //   if (response && response.success) {
+        //     console.log("success: ", response);
+        //   } else {
+        //     console.error("Item was not added to Cart!");
+        //   }
+        // } catch (error) {
+        //   console.log("Error adding item to Cart:", error);
+        // }
       }
     },
 

@@ -20,14 +20,15 @@ const baseURL =
 //   }
 // };
 
-export const pushLocalCart = async (product, userId) => {
+export const pushLocalCart = async (userId, localCart) => {
+  console.log(localCart);
   try {
     const response = await fetch(`${baseURL}/cart/sync`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ product, userId }),
+      body: JSON.stringify({ userId, localCart }),
     });
     if (!response.ok) {
       throw new Error("Network error while cart sync!");
