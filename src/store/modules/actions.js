@@ -9,6 +9,7 @@ import { pushLocalCart } from "@/services/cartService";
 
 // other services:
 import { pullProductData } from "@/services/productDataService";
+import { pushUserData } from "@/services/authService";
 
 export default {
   async addWishListItem({ commit }, { userId, product }) {
@@ -90,6 +91,22 @@ export default {
       return response;
     } catch (error) {
       console.error("Error in getProductData action:", error);
+      throw error;
+    }
+  },
+
+  async signupUser(_, signupData) {
+    console.log(signupData);
+    try {
+      const response = await pushUserData(signupData);
+      if (response.success) {
+        console.log("success: ", response);
+        return response;
+      } else {
+        console.error("no success: ", response);
+      }
+    } catch (error) {
+      console.error("Error in signupUser action:", error);
       throw error;
     }
   },

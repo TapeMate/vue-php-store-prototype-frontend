@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "SignupForm",
   data() {
@@ -47,44 +49,17 @@ export default {
     };
   },
   methods: {
-    submitSignup() {
-      console.log(this.signupData);
-      fetch(
-        "http://localhost/vue-php-store-prototype-backend/api/signup.api.php",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(this.signupData),
-        }
-      )
-        .then((response) => {
-          // checks response property if is false and throws error to get handled
-          if (!response.ok) {
-            throw new Error(
-              "Network response was not ok " + response.statusText
-            );
-          }
-          return response.json();
-        })
-        .then((data) => {
-          // check for application errors
-          if (data.error) {
-            console.error("Application Error: ", data.error);
-            // Handle application-level error
-            this.reload();
-          } else {
-            console.log("Success: ", data);
-            this.reload();
-            // Handle success
-          }
-        })
-        .catch((error) => {
-          console.error("Network Error: ", error);
-          // Handle network error
-        });
+    ...mapActions(["signupUser"]),
+
+    async submitSignup() {
+      try {
+        console.log(this.signupData);
+        this.signupUser(this.signupData);
+      } catch (error) {
+        console.error("Signup failed: ", error);
+      }
     },
+
     reload() {
       console.log("Reloading the page");
       setTimeout(() => {
