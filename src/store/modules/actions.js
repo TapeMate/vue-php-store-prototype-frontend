@@ -7,6 +7,9 @@ import { removeItemOnWishList } from "@/services/wishListService";
 // import { postItemToCart } from "@/services/cartService";
 import { pushLocalCart } from "@/services/cartService";
 
+// other services:
+import { pullProductData } from "@/services/productDataService";
+
 export default {
   async addWishListItem({ commit }, { userId, product }) {
     const productId = product.product_id;
@@ -80,4 +83,14 @@ export default {
   // dummyForTesting() {
   //   console.log("dispatched dummy.");
   // },
+
+  async getProductData() {
+    try {
+      const response = await pullProductData();
+      return response;
+    } catch (error) {
+      console.error("Error in getProductData action:", error);
+      throw error;
+    }
+  },
 };

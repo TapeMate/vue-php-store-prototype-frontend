@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import StoreProducts from "@/components/StoreProducts.vue";
 
 export default {
@@ -17,28 +18,17 @@ export default {
     };
   },
 
-  mounted() {
-    this.getProductData();
+  async mounted() {
+    try {
+      const data = await this.getProductData();
+      this.productData = data;
+    } catch (error) {
+      console.error("Error fetching product data:", error);
+    }
   },
 
   methods: {
-    getProductData() {
-      fetch(
-        "http://localhost/vue-php-store-prototype-backend/api/product.api.php"
-      )
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Connection to products api failed.");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          this.productData = data;
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    },
+    ...mapActions(["getProductData"]),
   },
 };
 </script>
