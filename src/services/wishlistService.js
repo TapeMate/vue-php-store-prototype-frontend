@@ -1,7 +1,7 @@
 const baseURL =
   "http://localhost/vue-php-store-prototype-backend/api/wishlist.api.php";
 
-export const postItemToWishList = async ({ userId, productId }) => {
+export const pushItemToWishList = async ({ userId, productId }) => {
   try {
     const response = await fetch(`${baseURL}/wishlist/add`, {
       method: "POST",

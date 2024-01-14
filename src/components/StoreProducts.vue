@@ -148,15 +148,14 @@ export default {
     ...mapActions(["addWishListItem", "addCartItem"]),
 
     async onClickAddToCart(product, amount) {
+      product.product_order_amount = amount;
       const payload = {
         product: product,
-        amount: amount,
         userId: this.getUserId,
       };
 
       if (payload.userId == null || payload.userId == "null") {
-        const modifiedProduct = this.amountToProductData(product, amount);
-        this.addToCartLocal(modifiedProduct);
+        this.addToCartLocal(payload);
         this.reload();
       } else {
         try {
@@ -187,11 +186,11 @@ export default {
       }
     },
 
-    amountToProductData(product, amount) {
-      const newProductData = { ...product };
-      newProductData.product_order_amount = amount;
-      return newProductData;
-    },
+    // amountToProductData(product, amount) {
+    //   const newProductData = { ...product };
+    //   newProductData.product_order_amount = amount;
+    //   return newProductData;
+    // },
 
     setAmountAvailable(product) {
       let availableAmount = product.product_stock_amount;

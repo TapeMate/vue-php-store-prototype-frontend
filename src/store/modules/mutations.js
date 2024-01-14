@@ -33,11 +33,11 @@ export default {
     localStorage.setItem("userId", null);
   },
 
-  addToCartLocal(state, item) {
+  addToCartLocal(state, payload) {
+    const item = payload.product;
     const index = state.shoppingCart.findIndex(
       (el) => el.product_id == item.product_id
     );
-
     if (index === -1) {
       state.shoppingCart.push(item);
     } else {

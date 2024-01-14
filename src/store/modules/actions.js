@@ -1,16 +1,17 @@
 // wishlist services:
-import { postItemToWishList } from "@/services/wishListService";
+import { pushItemToWishList } from "@/services/wishListService";
 import { pullWishList } from "@/services/wishListService";
 import { removeItemOnWishList } from "@/services/wishListService";
 
 // cart services:
-import { postItemToCart } from "@/services/cartService";
+// import { postItemToCart } from "@/services/cartService";
+import { pushLocalCart } from "@/services/cartService";
 
 export default {
   async addWishListItem({ commit }, { userId, product }) {
     const productId = product.product_id;
     try {
-      const response = await postItemToWishList({ userId, productId });
+      const response = await pushItemToWishList({ userId, productId });
       if (response.success) {
         commit("addToWishListLocal", product);
         return response;
@@ -55,9 +56,25 @@ export default {
     }
   },
 
-  async addCartItem({ dispatch }, { product, amount, userId }) {
+  // async addCartItem({ dispatch }, { product, amount, userId }) {
+  //   try {
+  //     const response = await postItemToCart(product, amount, userId);
+  //     if (response.success) {
+  //       dispatch("dummyForTesting");
+  //       return response;
+  //     } else {
+  //       console.error("no success: ", response);
+  //       return { success: false };
+  //     }
+  //   } catch (error) {
+  //     console.error("Error in addCartItem action:", error);
+  //     throw error;
+  //   }
+  // },
+
+  async sendLocalCart({ dispatch }, { product, userId }) {
     try {
-      const response = await postItemToCart(product, amount, userId);
+      const response = await pushLocalCart(product, userId);
       if (response.success) {
         dispatch("dummyForTesting");
         return response;
@@ -66,7 +83,7 @@ export default {
         return { success: false };
       }
     } catch (error) {
-      console.error("Error in addCartItem action:", error);
+      console.error("Error in getLocalCart action:", error);
       throw error;
     }
   },
