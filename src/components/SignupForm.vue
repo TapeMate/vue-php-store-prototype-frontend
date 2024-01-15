@@ -57,12 +57,10 @@ export default {
       } catch (error) {
         console.error("Signup failed: ", error);
       }
-    },
-
-    reload() {
-      setTimeout(() => {
-        window.location.reload();
-      }, 500);
+      this.signupData.uid = "";
+      this.signupData.pwd = "";
+      this.signupData.pwdRepeat = "";
+      this.signupData.email = "";
     },
   },
 };

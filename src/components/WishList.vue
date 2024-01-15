@@ -72,21 +72,11 @@ export default {
     async removeItem(productId) {
       const payload = { userId: Number(this.getUserId), productId: productId };
       try {
-        const response = await this.removeWishListItem(payload);
-        if (response && response.success) {
-          // console.log("success: ", response);
-        } else {
-          // console.log("no success: ", response);
-        }
+        await this.removeWishListItem(payload);
       } catch (error) {
         console.error("Error removing Item from Wishlist:", error);
         throw error;
       }
-      // this.quickReload();
-    },
-
-    quickReload() {
-      window.location.reload();
     },
   },
 };

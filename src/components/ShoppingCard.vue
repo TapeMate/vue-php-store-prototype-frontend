@@ -221,7 +221,6 @@ export default {
       } else {
         this.removeFromCart(item.product_id);
         this.deleteItemFromCard(payload);
-        // this.quickReload();
       }
     },
 
@@ -249,26 +248,14 @@ export default {
         const response = await this.orderCartItems(payload);
         if (response.success) {
           this.isOrderPlaced = true;
-          // this.unsetCart();
           this.unsetDeliveryMethod();
           this.unsetPaymentMethod();
-          // this.reload();
           return response;
         }
       } catch (error) {
         console.error("Error in sendOrder:", error);
         throw error;
       }
-    },
-
-    reload() {
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
-    },
-
-    quickReload() {
-      window.location.reload();
     },
   },
 
