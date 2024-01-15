@@ -96,6 +96,7 @@ export default {
       this.unsetDeliveryMethod();
       this.unsetPaymentMethod();
       this.unsetWishList();
+      this.unsetCart();
       this.$router.push("/");
     },
 
