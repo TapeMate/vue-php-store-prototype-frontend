@@ -6,6 +6,7 @@ import { removeItemOnWishList } from "@/services/wishListService";
 // cart services:
 import { pushLocalCart } from "@/services/cartService";
 import { getCartFromDB } from "@/services/cartService";
+import { updateCartItemOrderAmount } from "@/services/cartService";
 
 // other services:
 import { pullProductData } from "@/services/productDataService";
@@ -52,7 +53,6 @@ export default {
         commit("removeFromWishListLocal", productId);
         return response;
       } else {
-        console.error("no success: ", response);
         return { success: false };
       }
     } catch (error) {
@@ -66,10 +66,8 @@ export default {
     try {
       const response = await pushLocalCart(userId, localCart);
       if (response.success) {
-        console.log("success: ", response);
         return response;
       } else {
-        console.error("no success: ", response);
         return { success: false };
       }
     } catch (error) {
@@ -98,6 +96,22 @@ export default {
       return response;
     } catch (error) {
       console.error("Error in getProductData action:", error);
+      throw error;
+    }
+  },
+
+  async updateCartOrderAmount(_, { payload, userId }) {
+    try {
+      const response = await updateCartItemOrderAmount(payload, userId);
+      if (response.success) {
+        console.log("success:", response);
+        return response;
+      } else {
+        console.error("no success:", response);
+        return { success: false };
+      }
+    } catch (error) {
+      console.error("Error in updateCartOrderAmount action:", error);
       throw error;
     }
   },

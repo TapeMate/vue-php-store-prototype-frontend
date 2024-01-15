@@ -40,3 +40,22 @@ export const getCartFromDB = async (userId) => {
     throw error;
   }
 };
+
+export const updateCartItemOrderAmount = async (payload, userId) => {
+  try {
+    const response = await fetch(`${baseURL}/cart/update`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ payload, userId }),
+    });
+    if (!response.ok) {
+      throw new Error("Network error while updating cart amount!");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error on updateCartItemOrderAmount service:", error);
+    throw error;
+  }
+};

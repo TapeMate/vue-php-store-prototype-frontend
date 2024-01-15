@@ -115,7 +115,7 @@
 
 <script>
 import img from "@/assets/img/background3.jpg";
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import OrderDelivery from "@/components/OrderDelivery.vue";
 import OrderPayment from "@/components/OrderPayment.vue";
 import LoginForm from "@/components/LoginForm.vue";
@@ -151,7 +151,6 @@ export default {
 
   mounted() {
     this.enableOrder();
-    // console.log(this.isOrderEnabled);
   },
 
   computed: {
@@ -161,6 +160,7 @@ export default {
       "getPaymentMethod",
       "getDeliveryMethod",
       "getUser",
+      "getUserId",
       "getLoginMessage",
     ]),
   },
@@ -175,15 +175,13 @@ export default {
       "updateDeliveryMethod",
     ]),
 
-    enableOrder() {
-      // console.log(this.getDeliveryMethod);
-      // console.log(this.getPaymentMethod);
+    ...mapActions(["updateCartOrderAmount"]),
 
+    enableOrder() {
       if (
         this.getDeliveryMethod !== "null" &&
         this.getPaymentMethod !== "null"
       ) {
-        // console.log("success.");
         this.isOrderEnabled = true;
       } else {
         this.isOrderEnabled = false;
@@ -198,7 +196,14 @@ export default {
         newAmount = item.product_stock_amount;
       }
       const payload = { item: item, amount: newAmount };
-      this.updateCartAmount(payload);
+      const userId = Number(this.getUserId);
+
+      if (userId === null || userId === "null") {
+        this.updateCartAmount(payload);
+      } else {
+        this.updateCartAmount(payload);
+        this.updateCartOrderAmount({ payload, userId });
+      }
     },
 
     calcTotalProductPrice(price, amount) {
