@@ -7,6 +7,7 @@ import { removeItemOnWishList } from "@/services/wishListService";
 import { pushLocalCart } from "@/services/cartService";
 import { getCartFromDB } from "@/services/cartService";
 import { updateCartItemOrderAmount } from "@/services/cartService";
+import { deleteItemFromCard } from "@/services/cartService";
 
 // other services:
 import { pullProductData } from "@/services/productDataService";
@@ -104,14 +105,26 @@ export default {
     try {
       const response = await updateCartItemOrderAmount(payload);
       if (response.success) {
-        console.log("success:", response);
         return response;
       } else {
-        console.error("no success:", response);
         return { success: false };
       }
     } catch (error) {
       console.error("Error in updateCartOrderAmount action:", error);
+      throw error;
+    }
+  },
+
+  async deleteItemFromCard(_, payload) {
+    try {
+      const response = await deleteItemFromCard(payload);
+      if (response.success) {
+        return response;
+      } else {
+        return { success: false };
+      }
+    } catch (error) {
+      console.error("Error in deleteItemFromCard action:", error);
       throw error;
     }
   },
@@ -121,10 +134,9 @@ export default {
     try {
       const response = await pushUserData(signupData);
       if (response.success) {
-        console.log("success: ", response);
         return response;
       } else {
-        console.error("no success: ", response);
+        return { success: false };
       }
     } catch (error) {
       console.error("Error in signupUser action:", error);
@@ -136,7 +148,6 @@ export default {
     console.log(loginData);
     try {
       const response = await verifyUserData(loginData);
-      console.log("success: ", response);
       return response;
     } catch (error) {
       console.error("Error in loginUser action:", error);

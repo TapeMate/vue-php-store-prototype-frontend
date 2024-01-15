@@ -65,7 +65,7 @@
             </p>
           </div>
           <div class="ctrl-container">
-            <button @click="removeItem(item.product_id)" class="btn-remove">
+            <button @click="removeItem(item)" class="btn-remove">
               REMOVE <i class="fa-solid fa-trash"></i>
             </button>
             <div class="product-amount">
@@ -175,7 +175,11 @@ export default {
       "updateDeliveryMethod",
     ]),
 
-    ...mapActions(["updateCartItemOrderAmount"]),
+    ...mapActions([
+      "updateCartItemOrderAmount",
+      "deleteItemFromCard",
+      "fetchLocalCart",
+    ]),
 
     enableOrder() {
       if (
@@ -209,6 +213,17 @@ export default {
       }
     },
 
+    removeItem(item) {
+      const payload = { item: item, uid: this.getUserId };
+      if (payload.uid === null || payload.uid === "null") {
+        this.removeFromCart(item.product_id);
+      } else {
+        this.removeFromCart(item.product_id);
+        this.deleteItemFromCard(payload);
+        // this.quickReload();
+      }
+    },
+
     calcTotalProductPrice(price, amount) {
       const result = price * amount;
       return result;
@@ -222,11 +237,6 @@ export default {
         return total;
       });
       return total;
-    },
-
-    removeItem(id) {
-      this.removeFromCart(id);
-      this.quickReload();
     },
 
     sendOrder() {

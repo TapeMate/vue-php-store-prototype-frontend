@@ -59,3 +59,22 @@ export const updateCartItemOrderAmount = async (payload) => {
     throw error;
   }
 };
+
+export const deleteItemFromCard = async (payload) => {
+  try {
+    const response = await fetch(`${baseURL}/cart/delete`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    if (!response.ok) {
+      throw new Error("Network error while deleting item!");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error on deleteItemFromCard service:", error);
+    throw error;
+  }
+};
