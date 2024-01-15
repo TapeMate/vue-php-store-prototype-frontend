@@ -175,7 +175,7 @@ export default {
       "updateDeliveryMethod",
     ]),
 
-    ...mapActions(["updateCartOrderAmount"]),
+    ...mapActions(["updateCartItemOrderAmount"]),
 
     enableOrder() {
       if (
@@ -195,14 +195,17 @@ export default {
         input.value = item.product_stock_amount;
         newAmount = item.product_stock_amount;
       }
-      const payload = { item: item, amount: newAmount };
-      const userId = Number(this.getUserId);
+      const payload = {
+        item: item,
+        amount: newAmount,
+        uid: Number(this.getUserId),
+      };
 
-      if (userId === null || userId === "null") {
+      if (payload.uid === null || payload.uid === "null") {
         this.updateCartAmount(payload);
       } else {
         this.updateCartAmount(payload);
-        this.updateCartOrderAmount({ payload, userId });
+        this.updateCartItemOrderAmount(payload);
       }
     },
 

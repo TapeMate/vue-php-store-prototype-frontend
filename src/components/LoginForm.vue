@@ -65,7 +65,7 @@ export default {
           this.loginData.pwd = "";
         }
       } catch (error) {
-        console.error("Signup failed: ", error);
+        console.error("Login error: ", error);
         this.loginData.uid = "";
         this.loginData.pwd = "";
       }

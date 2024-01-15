@@ -100,9 +100,9 @@ export default {
     }
   },
 
-  async updateCartOrderAmount(_, { payload, userId }) {
+  async updateCartItemOrderAmount(_, payload) {
     try {
-      const response = await updateCartItemOrderAmount(payload, userId);
+      const response = await updateCartItemOrderAmount(payload);
       if (response.success) {
         console.log("success:", response);
         return response;
