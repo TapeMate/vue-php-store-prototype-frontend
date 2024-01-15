@@ -1,7 +1,4 @@
 <template>
-  <!-- <button @click="fetchData" class="test-fetching">
-    TEST FETCH WISHLIST DATA
-  </button> -->
   <WishList :wishItems="getWishList" />
 </template>
 
@@ -14,19 +11,12 @@ export default {
   components: {
     WishList,
   },
-  // mounted() {
-  //   this.fetchWishList(this.getUserId);
-  // },
 
   computed: {
     ...mapGetters(["getWishList", "getUserId"]),
   },
   methods: {
     ...mapActions(["fetchWishList"]),
-    // fetchData() {
-    //   const testUserId = this.getUserId;
-    //   this.fetchWishList(testUserId);
-    // },
   },
 };
 </script>

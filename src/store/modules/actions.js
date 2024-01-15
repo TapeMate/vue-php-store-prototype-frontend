@@ -137,10 +137,8 @@ export default {
       const response = await setOrder(payload);
       if (response.success) {
         commit("unsetCart");
-        console.log("success", response);
         return response;
       } else {
-        console.error("no success:", response);
         return { success: false };
       }
     } catch (error) {
@@ -150,7 +148,6 @@ export default {
   },
 
   async signupUser(_, signupData) {
-    console.log(signupData);
     try {
       const response = await pushUserData(signupData);
       if (response.success) {
@@ -165,7 +162,6 @@ export default {
   },
 
   async loginUser(_, loginData) {
-    console.log(loginData);
     try {
       const response = await verifyUserData(loginData);
       return response;

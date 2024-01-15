@@ -107,8 +107,6 @@ export default {
 
     getWishCount() {
       this.wishCount = this.getWishList.length;
-      // console.log(this.getWishList);
-      // console.log(this.wishCount);
       return;
     },
   },

@@ -248,7 +248,6 @@ export default {
       try {
         const response = await this.orderCartItems(payload);
         if (response.success) {
-          console.log("succes in sendOrder:", response);
           this.isOrderPlaced = true;
           // this.unsetCart();
           this.unsetDeliveryMethod();

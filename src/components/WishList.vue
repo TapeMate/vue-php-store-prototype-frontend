@@ -74,9 +74,9 @@ export default {
       try {
         const response = await this.removeWishListItem(payload);
         if (response && response.success) {
-          console.log("success: ", response);
+          // console.log("success: ", response);
         } else {
-          console.log("no success: ", response);
+          // console.log("no success: ", response);
         }
       } catch (error) {
         console.error("Error removing Item from Wishlist:", error);

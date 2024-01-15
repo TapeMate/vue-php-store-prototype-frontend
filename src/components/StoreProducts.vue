@@ -150,7 +150,6 @@ export default {
     async onClickAddToCart(product, amount) {
       const userId = this.getUserId;
       product.product_order_amount = amount;
-      // console.log(product);
 
       if (userId == null || userId == "null") {
         this.addToLocalCart(product);

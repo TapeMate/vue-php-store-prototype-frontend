@@ -60,7 +60,6 @@ export default {
     },
 
     reload() {
-      console.log("Reloading the page");
       setTimeout(() => {
         window.location.reload();
       }, 500);

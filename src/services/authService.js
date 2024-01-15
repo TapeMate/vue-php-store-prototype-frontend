@@ -2,7 +2,6 @@ const signupURL =
   "http://localhost/vue-php-store-prototype-backend/api/signup.api.php";
 
 export const pushUserData = async (signupData) => {
-  console.log(signupData);
   try {
     const response = await fetch(`${signupURL}`, {
       method: "POST",
@@ -25,7 +24,6 @@ const loginURL =
   "http://localhost/vue-php-store-prototype-backend/api/login.api.php";
 
 export const verifyUserData = async (loginData) => {
-  console.log(loginData);
   try {
     const response = await fetch(`${loginURL}`, {
       method: "POST",
