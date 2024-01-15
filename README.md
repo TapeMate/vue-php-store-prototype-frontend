@@ -30,16 +30,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Backlog
 
-FRONTEND:
-
-- remove reload window function and replace with propper ui update render functions
-- refactor code
-- check data in frontend realy all i need or to much
-- separate components a little bit more
-- outsource success login messag to own component and make own scss partial
-
-- new feature:
-  -> directly store into db
+## FRONTEND:
 
 TYPO:
 
@@ -47,13 +38,7 @@ TYPO:
 
 BACKEND:
 
-- send order to database
 - update stock amount after order
-- create orders table
-- create order details table
-- create apis
-- refactor code
-- sanatize code
 
 OPTIONAL:
 
