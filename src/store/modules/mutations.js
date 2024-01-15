@@ -46,9 +46,12 @@ export default {
     }
   },
 
-  // in dev:
   setLocalCart(state, payload) {
-    console.log(payload);
+    if (payload.data.length > 0) {
+      payload.data.forEach((el) => {
+        state.shoppingCart.push(el);
+      });
+    }
   },
 
   updateCartAmount(state, payload) {

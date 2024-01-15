@@ -83,10 +83,8 @@ export default {
       const response = await getCartFromDB(userId);
       if (response.success) {
         commit("setLocalCart", response);
-        console.log("success: ", response);
         return response;
       } else {
-        console.error("no succes: ", response);
         return { success: false };
       }
     } catch (error) {
