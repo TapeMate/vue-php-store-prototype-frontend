@@ -153,12 +153,11 @@ export default {
 
       if (userId == null || userId == "null") {
         this.addToLocalCart(product);
-        // this.reload();
       } else {
         this.addToLocalCart(product);
         this.sendLocalCartToDB(userId);
-        // this.reload();
       }
+      this.resetSelects(product.product_id);
     },
 
     async onClickAddToWishList(product) {
@@ -167,7 +166,6 @@ export default {
         const response = await this.addWishListItem(payload);
         if (response && response.success) {
           this.triggerAnimation();
-          this.reloadDelayed();
         } else {
           console.error("Item was not added to the wish list!");
         }
@@ -205,14 +203,8 @@ export default {
         .classList.add("navbar-wishlist-icon-animate");
     },
 
-    reload() {
-      window.location.reload();
-    },
-
-    reloadDelayed() {
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+    resetSelects(productId) {
+      this.selectedAmount[productId] = null;
     },
   },
 };

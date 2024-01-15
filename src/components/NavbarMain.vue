@@ -58,13 +58,9 @@ export default {
   data() {
     return {
       logo: Logo,
-      cartCount: 0,
-      wishCount: 0,
     };
   },
-  mounted() {
-    this.init();
-  },
+
   computed: {
     ...mapGetters([
       "isloginSuccessful",
@@ -73,13 +69,18 @@ export default {
       "getShoppingCart",
       "getWishList",
     ]),
-  },
-  methods: {
-    init() {
-      this.getCartCount();
-      this.getWishCount();
+
+    cartCount() {
+      return this.getShoppingCart.length;
     },
+    wishCount() {
+      return this.getWishList.length;
+    },
+  },
+
+  methods: {
     ...mapActions(["fetchWishList"]),
+
     ...mapMutations([
       "userLogout",
       "unsetUser",
@@ -89,6 +90,7 @@ export default {
       "unsetWishList",
       "unsetCart",
     ]),
+
     logoutUser() {
       this.userLogout();
       this.unsetUser();
@@ -98,16 +100,6 @@ export default {
       this.unsetWishList();
       this.unsetCart();
       this.$router.push("/");
-    },
-
-    getCartCount() {
-      this.cartCount = this.getShoppingCart.length;
-      return;
-    },
-
-    getWishCount() {
-      this.wishCount = this.getWishList.length;
-      return;
     },
   },
 };
