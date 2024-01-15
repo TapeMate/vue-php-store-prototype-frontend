@@ -133,7 +133,6 @@ export default {
   data() {
     return {
       isOrderEnabled: false,
-
       isOrderPlaced: false,
       background: img,
       dummyAddressData: [
@@ -184,12 +183,14 @@ export default {
 
     enableOrder() {
       if (
-        this.getDeliveryMethod !== "null" &&
-        this.getPaymentMethod !== "null"
+        this.getDeliveryMethod === "null" ||
+        this.getDeliveryMethod === null ||
+        this.getPaymentMethod === "null" ||
+        this.getPaymentMethod === null
       ) {
-        this.isOrderEnabled = true;
-      } else {
         this.isOrderEnabled = false;
+      } else {
+        this.isOrderEnabled = true;
       }
     },
 
