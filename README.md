@@ -39,6 +39,11 @@ TYPO:
 BACKEND:
 
 - update stock amount after order
+- if not logged in check if items on cart match with existing cart
+- if allready on card just update amount
+- if not add to cart
+- make sure, items before login on cart stay on cart and get written to db
+- currently add to cart only happens if click on add to cart button
 
 OPTIONAL:
 

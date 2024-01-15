@@ -80,7 +80,7 @@ export default {
     }
   },
 
-  async fetchLocalCart({ commit }, userId) {
+  async fetchCart({ commit }, userId) {
     try {
       const response = await getCartFromDB(userId);
       if (response.success) {
@@ -90,7 +90,7 @@ export default {
         return { success: false };
       }
     } catch (error) {
-      console.error("Error in fetchLocalCart action:", error);
+      console.error("Error in fetchCart action:", error);
     }
   },
 

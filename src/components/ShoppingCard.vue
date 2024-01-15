@@ -177,7 +177,6 @@ export default {
     ...mapActions([
       "updateCartItemOrderAmount",
       "deleteItemFromCard",
-      "fetchLocalCart",
       "orderCartItems",
     ]),
 
