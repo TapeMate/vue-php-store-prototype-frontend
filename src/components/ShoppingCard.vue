@@ -179,6 +179,7 @@ export default {
       "updateCartItemOrderAmount",
       "deleteItemFromCard",
       "fetchLocalCart",
+      "orderCartItems",
     ]),
 
     enableOrder() {
@@ -239,12 +240,26 @@ export default {
       return total;
     },
 
-    sendOrder() {
-      this.isOrderPlaced = true;
-      this.unsetCart();
-      this.unsetDeliveryMethod();
-      this.unsetPaymentMethod();
-      this.reload();
+    async sendOrder() {
+      const payload = {
+        uid: Number(this.getUserId),
+        items: this.getShoppingCart,
+      };
+      try {
+        const response = await this.orderCartItems(payload);
+        if (response.success) {
+          console.log("succes in sendOrder:", response);
+          this.isOrderPlaced = true;
+          // this.unsetCart();
+          this.unsetDeliveryMethod();
+          this.unsetPaymentMethod();
+          // this.reload();
+          return response;
+        }
+      } catch (error) {
+        console.error("Error in sendOrder:", error);
+        throw error;
+      }
     },
 
     reload() {

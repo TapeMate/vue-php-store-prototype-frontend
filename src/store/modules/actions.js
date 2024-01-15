@@ -9,6 +9,9 @@ import { getCartFromDB } from "@/services/cartService";
 import { updateCartItemOrderAmount } from "@/services/cartService";
 import { deleteItemFromCard } from "@/services/cartService";
 
+// order services:
+import { setOrder } from "@/services/orderService";
+
 // other services:
 import { pullProductData } from "@/services/productDataService";
 import { pushUserData } from "@/services/authService";
@@ -125,6 +128,23 @@ export default {
       }
     } catch (error) {
       console.error("Error in deleteItemFromCard action:", error);
+      throw error;
+    }
+  },
+
+  async orderCartItems({ commit }, payload) {
+    try {
+      const response = await setOrder(payload);
+      if (response.success) {
+        commit("unsetCart");
+        console.log("success", response);
+        return response;
+      } else {
+        console.error("no success:", response);
+        return { success: false };
+      }
+    } catch (error) {
+      console.error("Error in orderCartItems action:", error);
       throw error;
     }
   },
