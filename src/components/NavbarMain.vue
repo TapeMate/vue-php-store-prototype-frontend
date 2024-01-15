@@ -87,6 +87,7 @@ export default {
       "unsetPaymentMethod",
       "unsetDeliveryMethod",
       "unsetWishList",
+      "unsetCart",
     ]),
     logoutUser() {
       this.userLogout();

@@ -167,7 +167,7 @@ export default {
   methods: {
     ...mapMutations([
       "removeFromCart",
-      "resetCart",
+      "unsetCart",
       "updateCartAmount",
       "updatePaymentMethod",
       "unsetPaymentMethod",
@@ -223,7 +223,7 @@ export default {
 
     sendOrder() {
       this.isOrderPlaced = true;
-      this.resetCart();
+      this.unsetCart();
       this.unsetDeliveryMethod();
       this.unsetPaymentMethod();
       this.reload();

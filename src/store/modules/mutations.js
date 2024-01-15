@@ -78,7 +78,7 @@ export default {
     );
   },
 
-  resetCart(state) {
+  unsetCart(state) {
     state.shoppingCart = [];
     localStorage.setItem("shoppingCart", JSON.stringify([]));
   },
