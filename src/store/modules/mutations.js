@@ -3,12 +3,22 @@ export default {
     state.loginSuccess = true;
     localStorage.setItem("loginSuccess", "true");
   },
+
   runDisplayLoginMessage(state) {
     state.displayLoginMessage = true;
     localStorage.setItem("displayLoginMessage", "true");
     setTimeout(() => {
       state.displayLoginMessage = false;
       localStorage.setItem("displayLoginMessage", false);
+    }, 3000);
+  },
+
+  runOrderSuccessMessage(state) {
+    state.orderSuccessMessage = true;
+    localStorage.setItem("orderSuccessMessage", "true");
+    setTimeout(() => {
+      state.orderSuccessMessage = false;
+      localStorage.setItem("orderSuccessMessage", false);
     }, 3000);
   },
 

@@ -5,7 +5,7 @@
     </p>
     <p class="success-message">You have been logged in successful!</p>
   </div>
-  <div v-if="isOrderPlaced === true" class="order-success-message">
+  <div v-if="getOrderSuccessMessage" class="order-success-message">
     <div class="success-message">
       Thank you for your purchase!
       <br />
@@ -133,7 +133,6 @@ export default {
   data() {
     return {
       isOrderEnabled: false,
-      isOrderPlaced: false,
       background: img,
       dummyAddressData: [
         {
@@ -161,6 +160,7 @@ export default {
       "getUser",
       "getUserId",
       "getLoginMessage",
+      "getOrderSuccessMessage",
     ]),
   },
   methods: {
@@ -172,6 +172,7 @@ export default {
       "unsetPaymentMethod",
       "unsetDeliveryMethod",
       "updateDeliveryMethod",
+      "runOrderSuccessMessage",
     ]),
 
     ...mapActions([
@@ -247,9 +248,9 @@ export default {
       try {
         const response = await this.orderCartItems(payload);
         if (response.success) {
-          this.isOrderPlaced = true;
           this.unsetDeliveryMethod();
           this.unsetPaymentMethod();
+          this.runOrderSuccessMessage();
           return response;
         }
       } catch (error) {
