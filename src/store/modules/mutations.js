@@ -48,8 +48,27 @@ export default {
 
   setLocalCart(state, payload) {
     if (payload.data.length > 0) {
-      payload.data.forEach((el) => {
-        state.shoppingCart.push(el);
+      payload.data.forEach((newCartItem) => {
+        const existingItemIdx = state.shoppingCart.findIndex(
+          (item) => item.product_id === newCartItem.product_id
+        );
+
+        if (existingItemIdx !== -1) {
+          if (
+            state.shoppingCart[existingItemIdx].product_order_amount >
+            newCartItem.product_order_amount
+          ) {
+            return;
+          } else if (
+            state.shoppingCart[existingItemIdx].product_order_amount <=
+            newCartItem.product_order_amount
+          ) {
+            state.shoppingCart[existingItemIdx].product_order_amount =
+              newCartItem.product_order_amount;
+          }
+        } else {
+          state.shoppingCart.push(newCartItem);
+        }
       });
     }
   },

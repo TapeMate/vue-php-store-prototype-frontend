@@ -3,7 +3,7 @@ const baseURL =
 
 export const pushLocalCart = async (userId, localCart) => {
   try {
-    const response = await fetch(`${baseURL}/cart/sync`, {
+    const response = await fetch(`${baseURL}/cart/push`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -11,11 +11,11 @@ export const pushLocalCart = async (userId, localCart) => {
       body: JSON.stringify({ userId, localCart }),
     });
     if (!response.ok) {
-      throw new Error("Network error while cart sync!");
+      throw new Error("Network error while cart push!");
     }
     return await response.json();
   } catch (error) {
-    console.error("Error on syncCart Service:", error);
+    console.error("Error on pushLocalCart Service:", error);
     throw error;
   }
 };
